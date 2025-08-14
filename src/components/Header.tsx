@@ -34,14 +34,14 @@ const Header = () => {
 										className={"min-w-4 max-w-4 w-4 min-h-4 max-h-4 h-4 mr-3 fill-accent"}
 										{...icons["work"]}
 									/>
-									<p>Front-End & React Native Developer</p>
+									<span>Front-End & React Native Developer</span>
 								</div>
 								<div className="flex flex-row mb-2 justify-center items-center lg:justify-start">
 									<SVGComponent
 										className={"min-w-4 max-w-4 w-4 min-h-4 max-h-4 h-4 mr-3 fill-accent"}
 										{...icons["location"]}
 									/>
-									<p>Saint George</p>
+									<span>Saint George</span>
 								</div>
 							</div>
 						</div>
