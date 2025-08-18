@@ -1,7 +1,9 @@
-const SVGComponent = ({ className = "", viewBox = "", path = "" }) => {
+import type { SVGComponentProps } from "@/types";
+
+const SVGComponent = ({ className, viewBox, path, children }: SVGComponentProps) => {
 	return (
-		<svg className={className} viewBox={viewBox}>
-			<path d={path}></path>
+		<svg className={className} viewBox={viewBox} aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+			{children ?? (path ? <path d={path} /> : null)}
 		</svg>
 	);
 };

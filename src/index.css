@@ -9,6 +9,16 @@
 	body {
 		@apply text-white font-sans;
 	}
+
+	.project-swiper {
+		--swiper-navigation-color: #48e5c2;
+	}
+
+	.timeline-item {
+		@apply relative w-full flex items-start py-7.5 px-12 bg-lighter-dark3 rounded-sm hover:cursor-pointer hover:bg-primary
+			before:absolute before:top-full before:left-1/2 before:w-1 before:h-full before:bg-accent last:before:content-none
+			md:w-8/12 lg:max-w-87.5 lg:px-7.5 lg:odd:self-start lg:odd:before:content-none lg:even:self-end lg:even:before:content-none;
+	}
 }
 
 @theme {
