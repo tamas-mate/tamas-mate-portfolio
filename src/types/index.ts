@@ -2,6 +2,15 @@ import type icons from "@/assets/icons/data.json";
 
 export type IconName = keyof typeof icons;
 
+type NavItem = {
+	label: string;
+	href: string;
+};
+
+export type SideNavProps = {
+	navItems: NavItem[];
+};
+
 export type SVGComponentProps = {
 	className: string;
 	viewBox: string;
