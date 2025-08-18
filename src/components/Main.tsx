@@ -8,10 +8,12 @@ import Quote from "./quote/Quote";
 import History from "./history/History";
 
 import content from "../data/content.json";
+import SideNav from "./sidenav/SideNav";
 
 const Main = () => {
 	return (
 		<>
+			<SideNav navItems={content.navItems} />
 			<Summary summary={content.summary} />
 			<Projects projects={content.projects} />
 			<Overview overview={content.overview} />

@@ -1,4 +1,42 @@
 {
+    "navItems": [
+        {
+            "label": "Summary",
+            "href": "#summary"
+        },
+        {
+            "label": "Projects",
+            "href": "#projects"
+        },
+        {
+            "label": "Overview",
+            "href": "#overview"
+        },
+        {
+            "label": "Work History",
+            "href": "#work-history"
+        },
+        {
+            "label": "Education",
+            "href": "#education"
+        },
+        {
+            "label": "Skills",
+            "href": "#skills"
+        },
+        {
+            "label": "Languages",
+            "href": "#languages"
+        },
+        {
+            "label": "Quote",
+            "href": "#quote"
+        },
+        {
+            "label": "Timeline",
+            "href": "#timeline"
+        }
+    ],
     "summary": "React & React Native developer with growing expertise in TypeScript and Tailwind CSS. Passionate about building user-focused web and mobile applications, solving problems efficiently, and contributing to collaborative teams in remote or hybrid environments.",
     "projects": [
         {
