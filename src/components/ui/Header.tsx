@@ -1,12 +1,12 @@
-import profileBackground from "../assets/images/bg-profile.avif";
-import profilePicture from "../assets/images/profile.avif";
-import icons from "../assets/icons/data.json";
-import SVGComponent from "./SVGComponent";
+import profileBackground from "../../assets/images/bg-profile.avif";
+import profilePicture from "../../assets/images/profile.avif";
+import icons from "../../assets/icons/data.json";
+import SVGComponent from "../SVGComponent";
 
 const Header = () => {
 	return (
-		<header>
-			<div className="pb-4 bg-primary lg:px-17.5">
+		<header className="sm:px-7.5">
+			<div className="pb-4 bg-primary">
 				<div className="p-7.5 bg-secondary border border-solid rounded-sm border-lighter-dark">
 					<div className="relative h-87.5 mt-negative-margin mr-negative-margin mb-0 ml-negative-margin">
 						<img
@@ -25,10 +25,10 @@ const Header = () => {
 							/>
 						</div>
 					</div>
-					<div className="flex flex-col items-end pt-7.5 mr-negative-margin ml-negative-margin lg:flex-row lg:justify-between lg:items-center lg:pt-15 lg:pb-5 lg:mx-0">
+					<div className="flex flex-col items-end pt-7.5 mr-negative-margin ml-negative-margin lg:flex-row lg:justify-between lg:items-center lg:pt-15 lg:pb-5 lg:px-1 lg:mx-0">
 						<div className="w-full mt-27.5 text-center lg:flex-[1_1_0] lg:mt-0 lg:text-left">
 							<h1 className="text-2xl font-bold lg:mb-2">Tamás Máté</h1>
-							<div className="flex flex-col justify-center mt-2.5 lg:flex-row lg:justify-start lg:gap-20 lg:mt-0">
+							<div className="flex flex-col justify-center mt-2.5 lg:flex-row lg:justify-start lg:gap-18 lg:mt-0">
 								<div className="flex flex-row mb-2 justify-center items-center lg:justify-start">
 									<SVGComponent
 										className={"min-w-4 max-w-4 w-4 min-h-4 max-h-4 h-4 mr-3 fill-accent"}
