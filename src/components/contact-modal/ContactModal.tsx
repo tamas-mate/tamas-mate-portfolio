@@ -105,12 +105,15 @@ const ContactModal = () => {
 			>
 				<form
 					ref={form}
-					className="flex flex-col gap-y-2"
+					className="relative flex flex-col gap-y-2"
 					onSubmit={async (e) => {
 						e.preventDefault();
 						await sendEmail();
 					}}
 				>
+					<span className="absolute -top-3 right-0 text-xl hover:cursor-pointer" onClick={closeModal}>
+						X
+					</span>
 					<input type="hidden" name="time" value={getFormattedDate()}></input>
 					<input id="g-recaptcha-response" type="hidden" name="g-recaptcha-response" />
 					<div className="flex flex-col mb-2">
