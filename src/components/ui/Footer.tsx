@@ -1,8 +1,11 @@
 import SVGComponent from "../SVGComponent";
 
+import { useModal } from "@/context/modal-context";
 import icons from "../../assets/icons/data.json";
 
 const Footer = () => {
+	const { openModal } = useModal();
+
 	return (
 		<footer className="flex flex-col items-center w-full bg-black p-8 gap-y-2 lg:flex-row lg:justify-center lg:gap-y-0 2xl:px-80">
 			<span className="lg:pr-7 lg:border-r border-solid border-lighter-dark3">
@@ -28,7 +31,7 @@ const Footer = () => {
 					/>
 				</a>
 			</div>
-			<button className="flex items-center group hover:cursor-pointer lg:pl-7">
+			<button className="flex items-center group hover:cursor-pointer lg:pl-7" onClick={openModal}>
 				<SVGComponent
 					className="min-w-3 max-w-3 w-3 min-h-3 max-h-3 h-3 mr-3 fill-white group-hover:fill-accent"
 					{...icons["phone"]}

@@ -1,9 +1,13 @@
+import SVGComponent from "../SVGComponent";
+
+import { useModal } from "@/context/modal-context";
 import profileBackground from "../../assets/images/bg-profile.avif";
 import profilePicture from "../../assets/images/profile.avif";
 import icons from "../../assets/icons/data.json";
-import SVGComponent from "../SVGComponent";
 
 const Header = () => {
+	const { openModal } = useModal();
+
 	return (
 		<header className="sm:px-7.5">
 			<div className="pb-4 bg-primary">
@@ -41,15 +45,16 @@ const Header = () => {
 										className={"min-w-4 max-w-4 w-4 min-h-4 max-h-4 h-4 mr-3 fill-accent"}
 										{...icons["location"]}
 									/>
-									<span>Saint George</span>
+									<span>Saint George, Romania</span>
 								</div>
 							</div>
 						</div>
 						<div className="flex justify-center w-full mt-2 -mb-7.5 px-7.5 py-5 border-t border-solid border-lighter-dark lg:w-auto lg:justify-end lg:self-end lg:m-0 lg:p-0 lg:border-none">
 							<button
 								className="inline-block py-3 px-5 border-none rounded-4xl text-lg font-semibold decoration-none 
-							uppercase bg-accent text-primary hover:cursor-pointer hover:opacity-80 transition-all duration-300
+							uppercase bg-accent text-primary hover:cursor-pointer hover:bg-accent/50 hover:text-white transition-all duration-300
 							lg:px-18"
+								onClick={openModal}
 							>
 								Contact Me
 							</button>
