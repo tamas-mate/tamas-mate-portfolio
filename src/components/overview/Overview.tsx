@@ -4,7 +4,7 @@ import type { OverviewProps } from "@/types";
 
 const Overview = ({ overview }: OverviewProps) => {
 	return (
-		<section id="overview" className="py-4 sm:px-7.5">
+		<section id="overview" className="py-15 sm:px-7.5">
 			<SectionTitle title="Overview" iconName="overview" />
 			<div className="flex flex-col">
 				{overview.map((item, index) => {
