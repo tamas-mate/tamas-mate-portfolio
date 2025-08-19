@@ -174,8 +174,8 @@ const ContactModal = () => {
 							disabled={isPending}
 							className="group flex justify-center items-center bg-accent w-1/3 py-2 px-4 rounded-full hover:cursor-pointer hover:bg-accent/50 disabled:cursor-not-allowed"
 						>
-							<span className="text-xl leading-10 text-primary font-bold group-hover:text-white">
-								{isPending ? "Sending ..." : "Send"}
+							<span className="text-lg leading-10 text-primary font-bold group-hover:text-white">
+								{isPending ? "Sending" : "Send"}
 							</span>
 						</button>
 					</div>
