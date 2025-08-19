@@ -1,17 +1,37 @@
-import "./App.css";
+import { Bounce, ToastContainer } from "react-toastify";
+
+import ModalProvider from "./context/ModalProvider";
+import ContactModal from "./components/contact-modal/ContactModal";
 import Header from "./components/ui/Header";
 import Main from "./components/Main";
 import Footer from "./components/ui/Footer";
+import "./App.css";
 
 function App() {
 	return (
-		<div className="relative w-full font-sans text-white bg-primary">
-			<div className="max-w-260 mx-auto">
-				<Header />
-				<Main />
+		<ModalProvider>
+			<div className="relative w-full font-sans text-white bg-primary">
+				<ContactModal />
+				<div className="max-w-260 mx-auto">
+					<Header />
+					<Main />
+				</div>
+				<Footer />
 			</div>
-			<Footer />
-		</div>
+			<ToastContainer
+				position="bottom-center"
+				autoClose={5000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+				theme="dark"
+				transition={Bounce}
+			/>
+		</ModalProvider>
 	);
 }
 
