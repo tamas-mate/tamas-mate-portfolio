@@ -5,7 +5,6 @@ import ContactModal from "./components/contact-modal/ContactModal";
 import Header from "./components/ui/Header";
 import Main from "./components/Main";
 import Footer from "./components/ui/Footer";
-import "./App.css";
 
 function App() {
 	return (

@@ -76,7 +76,7 @@ const History = ({ timeline }: HistoryProps) => {
 	};
 
 	return (
-		<section id="timeline" className="py-4 sm:px-7.5">
+		<section id="timeline" className="py-15 sm:px-7.5">
 			<SectionTitle title="Timeline" iconName={"timeline"} stroke />
 			<div
 				className="relative flex flex-col items-center gap-y-12 w-full py-7.5 px-12 rounded-sm bg-secondary 

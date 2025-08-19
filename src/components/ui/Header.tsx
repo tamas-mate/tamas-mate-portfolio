@@ -29,7 +29,7 @@ const Header = () => {
 							/>
 						</div>
 					</div>
-					<div className="flex flex-col items-end pt-7.5 mr-negative-margin ml-negative-margin lg:flex-row lg:justify-between lg:items-center lg:pt-15 lg:pb-5 lg:px-1 lg:mx-0">
+					<div className="flex flex-col items-end pt-7.5 mr-negative-margin ml-negative-margin lg:flex-row lg:justify-between lg:items-center lg:h-50 lg:pt-15 lg:pb-5 lg:px-1 lg:mx-0">
 						<div className="w-full mt-27.5 text-center lg:flex-[1_1_0] lg:mt-0 lg:text-left">
 							<h1 className="text-2xl font-bold lg:mb-2">Tamás Máté</h1>
 							<div className="flex flex-col justify-center mt-2.5 lg:flex-row lg:justify-start lg:gap-18 lg:mt-0">
@@ -49,7 +49,7 @@ const Header = () => {
 								</div>
 							</div>
 						</div>
-						<div className="flex justify-center w-full mt-2 -mb-7.5 px-7.5 py-5 border-t border-solid border-lighter-dark lg:w-auto lg:justify-end lg:self-end lg:m-0 lg:p-0 lg:border-none">
+						<div className="flex justify-center w-full mt-2 -mb-7.5 px-7.5 py-5 border-t border-solid border-lighter-dark lg:w-auto lg:self-end lg:m-0 lg:p-0 lg:border-none">
 							<button
 								className="inline-block py-3 px-5 border-none rounded-4xl text-lg font-semibold decoration-none 
 							uppercase bg-accent text-primary hover:cursor-pointer hover:bg-accent/50 hover:text-white transition-all duration-300

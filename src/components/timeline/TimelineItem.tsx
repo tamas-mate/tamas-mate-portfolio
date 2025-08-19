@@ -27,7 +27,7 @@ const TimelineItem = ({
 						<span className="text-white transition duration-500 ease group-hover:text-accent group-focus:text-accent">
 							Details
 						</span>
-						<div className="transition duration-500 ease group-focus:-rotate-180">
+						<div className="transition duration-500 ease -rotate-180 group-focus:-rotate-360">
 							<SVGComponent
 								className="w-4.5 h-3 stroke-white group-hover:stroke-accent group-focus:stroke-accent"
 								viewBox="0 0 18 12"
