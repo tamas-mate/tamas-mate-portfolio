@@ -7,7 +7,7 @@ const Footer = () => {
 	const { openModal } = useModal();
 
 	return (
-		<footer className="flex flex-col items-center w-full bg-black p-8 gap-y-2 lg:flex-row lg:justify-center lg:gap-y-0 2xl:px-80">
+		<footer className="flex flex-col items-center w-full bg-black py-8 xsl:p-8 gap-y-2 lg:flex-row lg:justify-center lg:gap-y-0 2xl:px-80">
 			<span className="lg:pr-7 lg:border-r border-solid border-lighter-dark3">
 				© {new Date().getFullYear()} Tamás Máté. All rights reserved.
 			</span>
