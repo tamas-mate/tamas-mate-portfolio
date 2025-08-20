@@ -11,6 +11,7 @@ import content from "../data/content.json";
 import SideNav from "./sidenav/SideNav";
 
 const Main = () => {
+	// TODO: 2 refs for timelines, callback jumpToWorkHistoryHandler, forwardRef
 	return (
 		<main className="flex flex-col gap-y-15 max-w-260 mx-auto sm:px-7.5 xl:px-0">
 			<SideNav navItems={content.navItems} />

@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import type icons from "@/assets/icons/data.json";
 
 export type IconName = keyof typeof icons;
@@ -11,11 +13,27 @@ export type SideNavProps = {
 	navItems: NavItem[];
 };
 
+export type SectionTitleProps = {
+	title: string;
+	iconName: keyof typeof icons;
+	stroke?: boolean;
+};
+
 export type SVGComponentProps = {
 	className: string;
 	viewBox: string;
 	path?: string;
-	children?: React.ReactNode;
+	children?: ReactNode;
+};
+
+export type ModalContextType = {
+	isModalOpen: boolean;
+	openModal: () => void;
+	closeModal: () => void;
+};
+
+export type ModalProviderProps = {
+	children: ReactNode;
 };
 
 export type SummaryProps = {
@@ -45,7 +63,6 @@ type WorkEducationType = "work" | "education";
 
 export type TimelineItemProps = {
 	title: string;
-	shortTitle?: string;
 	subTitle: string;
 	location: string;
 	date: string;
