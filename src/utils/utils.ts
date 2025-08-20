@@ -22,6 +22,20 @@ export const getFormattedDate = () => {
 		.replace(",", "");
 };
 
+export const toastContainerConfig = {
+	position: "bottom-center" as ToastPosition,
+	autoClose: 5000,
+	hideProgressBar: false,
+	newestOnTop: false,
+	closeOnClick: true,
+	rtl: false,
+	pauseOnFocusLoss: true,
+	draggable: true,
+	pauseOnHover: true,
+	theme: "dark",
+	transition: Bounce,
+};
+
 export const toastConfig = {
 	position: "bottom-center" as ToastPosition,
 	autoClose: 5000,

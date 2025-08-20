@@ -11,7 +11,7 @@ const Projects = ({ projects }: ProjectsProps) => {
 	};
 
 	return (
-		<section id="projects" className="py-15 sm:px-7.5">
+		<section id="projects">
 			<SectionTitle title="Projects" iconName="projects" />
 			<SectionWrapper>
 				{projects.map((project, index) => {

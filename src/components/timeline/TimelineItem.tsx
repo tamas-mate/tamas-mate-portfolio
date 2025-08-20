@@ -62,7 +62,7 @@ const TimelineItem = ({
 					<SVGComponent className={"min-w-6 max-w-6 w-6 min-h-6 max-h-6 h-6 fill-accent"} {...icons[iconName]} />
 				</div>
 				<div className={`flex flex-col gap-y-2 ${extraContent && "lg:w-50"}`}>
-					<h3 className="font-bold">{title}</h3>
+					<p className="text-base font-bold">{title}</p>
 					<span>{subTitle}</span>
 					<span>{location}</span>
 					<span className="text-gray">{date}</span>

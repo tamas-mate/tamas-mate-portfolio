@@ -11,7 +11,7 @@
 
 @layer components {
 	body {
-		@apply text-white font-sans;
+		@apply font-sans text-white bg-primary;
 	}
 
 	.project-swiper {
@@ -31,6 +31,6 @@
 		sans-serif;
 	--spacing-negative-margin: -31px;
 	--breakpoint-xsl: 31.25rem;
-	--breakpoint-3xl: 107rem;
+	--breakpoint-3xl: 110rem;
 	--breakpoint-4xl: 160rem;
 }
