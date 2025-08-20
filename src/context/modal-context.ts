@@ -1,10 +1,6 @@
 import { createContext, useContext } from "react";
 
-type ModalContextType = {
-	isModalOpen: boolean;
-	openModal: () => void;
-	closeModal: () => void;
-};
+import type { ModalContextType } from "@/types";
 
 export const ModalContext = createContext<ModalContextType | undefined>(undefined);
 

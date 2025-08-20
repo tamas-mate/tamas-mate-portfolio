@@ -1,10 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { ModalContext } from "./modal-context";
 
-type ModalProviderProps = {
-	children: React.ReactNode;
-};
+import type { ModalProviderProps } from "@/types";
 
 const ModalProvider = ({ children }: ModalProviderProps) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -13,13 +11,14 @@ const ModalProvider = ({ children }: ModalProviderProps) => {
 		document.body.style.overflow = isModalOpen ? "hidden" : "auto";
 	}, [isModalOpen]);
 
-	const value = {
-		isModalOpen,
-		openModal: () => {
-			setIsModalOpen(true);
-		},
-		closeModal: () => setIsModalOpen(false),
-	};
+	const value = useMemo(
+		() => ({
+			isModalOpen,
+			openModal: () => setIsModalOpen(true),
+			closeModal: () => setIsModalOpen(false),
+		}),
+		[isModalOpen]
+	);
 
 	return <ModalContext value={value}>{children}</ModalContext>;
 };
