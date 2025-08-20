@@ -8,20 +8,6 @@ export const imageMap: Record<string, string> = {
 	"macweb2.png": macweb2,
 };
 
-export const getFormattedDate = () => {
-	const now = new Date();
-	return now
-		.toLocaleString("en-GB", {
-			day: "2-digit",
-			month: "short",
-			year: "numeric",
-			hour: "2-digit",
-			minute: "2-digit",
-			hour12: false,
-		})
-		.replace(",", "");
-};
-
 export const toastContainerConfig = {
 	position: "bottom-center" as ToastPosition,
 	autoClose: 5000,
@@ -46,6 +32,20 @@ export const toastConfig = {
 	progress: undefined,
 	theme: "dark",
 	transition: Bounce,
+};
+
+export const getFormattedDate = () => {
+	const now = new Date();
+	return now
+		.toLocaleString("en-GB", {
+			day: "2-digit",
+			month: "short",
+			year: "numeric",
+			hour: "2-digit",
+			minute: "2-digit",
+			hour12: false,
+		})
+		.replace(",", "");
 };
 
 // Function that initializes a MutationObserver for the captcha
