@@ -6,7 +6,7 @@ import type { QuoteProps } from "@/types";
 
 const Quote = ({ quote, author }: QuoteProps) => {
 	return (
-		<section id="quote" className="py-15 sm:px-7.5">
+		<section id="quote">
 			<SectionTitle title="Get a Quote" iconName="quote" />
 			<div className="py-7.5 px-12 bg-secondary rounded-sm">
 				<div className="relative w-full min-h-15">

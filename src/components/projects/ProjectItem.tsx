@@ -17,7 +17,7 @@ const ProjectItem = (project: ProjectProps) => {
 						<img src={project.images[1]} alt={project.title} className="w-full h-full object-contain" />
 					</SwiperSlide>
 				</Swiper>
-				<h1 className="text-xl font-semibold">{project.title}</h1>
+				<p className="text-xl font-semibold">{project.title}</p>
 				<p className="text-pretty">{project.description}</p>
 				<div className="flex flex-wrap gap-4">
 					{project.technologies.map((tech, index) => (

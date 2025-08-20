@@ -5,7 +5,7 @@ import type { LanguagesProps } from "@/types";
 
 const Languages = ({ languages }: LanguagesProps) => {
 	return (
-		<section id="languages" className="py-15 sm:px-7.5">
+		<section id="languages">
 			<SectionTitle title="Languages" iconName="languages" />
 			<div className="flex flex-col bg-secondary rounded-sm py-7.5 px-12 gap-y-6 xsl:flex-row xsl:gap-y-0">
 				{languages.map((language, index) => {

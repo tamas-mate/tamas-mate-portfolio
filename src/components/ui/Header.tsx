@@ -9,7 +9,7 @@ const Header = () => {
 	const { openModal } = useModal();
 
 	return (
-		<header className="sm:px-7.5">
+		<header className="max-w-260 mx-auto mb-15 sm:px-7.5 xl:px-0">
 			<div className="pb-4 bg-primary">
 				<div className="p-7.5 bg-secondary border border-solid rounded-sm border-lighter-dark">
 					<div className="relative h-87.5 mt-negative-margin mr-negative-margin mb-0 ml-negative-margin">

@@ -1,10 +1,11 @@
-import type { SummaryProps } from "@/types";
 import SectionTitle from "../SectionTitle";
 import SectionWrapper from "../SectionWrapper";
 
+import type { SummaryProps } from "@/types";
+
 const Summary = ({ summary }: SummaryProps) => {
 	return (
-		<section id="summary" className="py-15 sm:px-7.5">
+		<section id="summary">
 			<SectionTitle title="Summary" iconName="summary" />
 			<SectionWrapper>
 				<p className="text-pretty leading-relaxed">{summary}</p>

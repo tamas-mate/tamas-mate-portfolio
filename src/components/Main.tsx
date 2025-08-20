@@ -1,9 +1,9 @@
-import Skills from "./skills/Skills";
-import Languages from "./languages/Languages";
 import Summary from "./summary/Summary";
 import Projects from "./projects/Projects";
 import Overview from "./overview/Overview";
 import Timeline from "./timeline/Timeline";
+import Skills from "./skills/Skills";
+import Languages from "./languages/Languages";
 import Quote from "./quote/Quote";
 import History from "./history/History";
 
@@ -12,7 +12,7 @@ import SideNav from "./sidenav/SideNav";
 
 const Main = () => {
 	return (
-		<>
+		<main className="flex flex-col gap-y-15 max-w-260 mx-auto sm:px-7.5 xl:px-0">
 			<SideNav navItems={content.navItems} />
 			<Summary summary={content.summary} />
 			<Projects projects={content.projects} />
@@ -28,7 +28,7 @@ const Main = () => {
 			<Languages languages={content.languages} />
 			<Quote quote={content.quote.text} author={content.quote.author} />
 			<History timeline={content.timeline} />
-		</>
+		</main>
 	);
 };
 

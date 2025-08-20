@@ -12,7 +12,7 @@ const Timeline = ({ sectionId, title, iconName, timelineContent }: TimeLineProps
 	};
 
 	return (
-		<section id={sectionId} className="py-15 sm:px-7.5">
+		<section id={sectionId}>
 			<SectionTitle title={title} iconName={iconName} />
 			{renderTimelineItems()}
 		</section>
