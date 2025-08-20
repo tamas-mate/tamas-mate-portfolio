@@ -5,6 +5,7 @@ import emailjs from "@emailjs/browser";
 
 import { useModal } from "@/context/modal-context";
 import { getFormattedDate, initObserver, toastConfig } from "@/utils/utils";
+import { useFormValidation } from "@/hooks/useFormValidation";
 
 const ContactModal = () => {
 	const [isPending, setIsPending] = useState(false);
@@ -15,38 +16,24 @@ const ContactModal = () => {
 	const messageRef = useRef<HTMLTextAreaElement>(null);
 	const recaptcha = useRef<ReCAPTCHA | null>(null);
 	const { isModalOpen, closeModal } = useModal();
+	const { formErrors, validateInputs, resetFormError, resetFormErrors } = useFormValidation();
 
-	const validateInputs = () => {
-		let formValid = true;
-
-		if (nameRef.current?.value.trim() === "") {
-			formValid = false;
-		}
-
-		if (emailRef.current?.value.trim() === "") {
-			formValid = false;
-		}
-
-		const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-		if (!regex.test(emailRef.current!.value)) {
-			formValid = false;
-		}
-
-		if (subjectRef.current?.value.trim() === "") {
-			formValid = false;
-		}
-
-		if (messageRef.current?.value.trim() === "") {
-			formValid = false;
-		}
-
-		return formValid;
+	const handleCloseModal = () => {
+		resetFormErrors();
+		closeModal();
 	};
 
 	const sendEmail = async () => {
 		setIsPending(true);
 
-		if (!validateInputs()) {
+		if (
+			!validateInputs(
+				nameRef.current!.value,
+				emailRef.current!.value,
+				subjectRef.current!.value,
+				messageRef.current!.value
+			)
+		) {
 			toast.error("Please check your inputs!", toastConfig);
 			setIsPending(false);
 			return;
@@ -73,13 +60,13 @@ const ContactModal = () => {
 			if (response.status === 200) {
 				toast.success("Message successfully sent!", toastConfig);
 				setIsPending(false);
-				closeModal();
+				handleCloseModal();
 			}
 		} catch (error) {
 			toast.error("Failed to send the message!", toastConfig);
 			console.error("FAILED...", error);
 			setIsPending(false);
-			closeModal();
+			handleCloseModal();
 		}
 
 		recaptcha.current?.reset();
@@ -94,7 +81,7 @@ const ContactModal = () => {
 			<div
 				className="fixed top-0 left-0 bottom-0 right-0 bg-lighter-dark3/95 z-100"
 				onClick={(e) => {
-					if (e.target === e.currentTarget && !isPending) closeModal();
+					if (e.target === e.currentTarget && !isPending) handleCloseModal();
 				}}
 			>
 				<ReCAPTCHA ref={recaptcha} sitekey="6LcIeaorAAAAAMsbMHFg4SOBcSbWsowd8fG-CUci" size="invisible" />
@@ -105,19 +92,19 @@ const ContactModal = () => {
 			>
 				<form
 					ref={form}
-					className="relative flex flex-col gap-y-2"
+					className="relative flex flex-col gap-y-4"
 					onSubmit={async (e) => {
 						e.preventDefault();
 						await sendEmail();
 					}}
 				>
-					<span className="absolute -top-3 right-0 text-xl hover:cursor-pointer" onClick={closeModal}>
+					<span className="absolute -top-3 right-0 text-xl hover:cursor-pointer" onClick={handleCloseModal}>
 						X
 					</span>
 					<input type="hidden" name="time" value={getFormattedDate()}></input>
 					<input id="g-recaptcha-response" type="hidden" name="g-recaptcha-response" />
-					<div className="flex flex-col mb-2">
-						<label htmlFor="name" className="text-xl font-bold text-accent mb-2">
+					<div className="flex flex-col gap-y-2">
+						<label htmlFor="name" className="text-xl font-bold text-accent">
 							Name:
 						</label>
 						<input
@@ -127,11 +114,15 @@ const ContactModal = () => {
 							className="px-2 py-3 bg-white text-black outline-none focus:border focus:border-accent"
 							placeholder="Your Name"
 							autoComplete="name"
+							required
+							max={50}
 							ref={nameRef}
+							onBlur={() => resetFormError("name")}
 						/>
+						{formErrors.nameError && <span className="text-xs text-red-500">{formErrors.nameError}</span>}
 					</div>
-					<div className="flex flex-col mb-2">
-						<label htmlFor="email" className="text-xl font-bold text-accent mb-2">
+					<div className="flex flex-col gap-y-2">
+						<label htmlFor="email" className="text-xl font-bold text-accent">
 							Email:
 						</label>
 						<input
@@ -141,11 +132,16 @@ const ContactModal = () => {
 							className="px-2 py-3 bg-white text-black outline-none focus:border focus:border-accent"
 							placeholder="Your Email"
 							autoComplete="email"
+							required
+							min={3}
+							max={100}
 							ref={emailRef}
+							onBlur={() => resetFormError("email")}
 						/>
+						{formErrors.emailError && <span className="text-xs text-red-500">{formErrors.emailError}</span>}
 					</div>
-					<div className="flex flex-col mb-2">
-						<label htmlFor="title" className="text-xl font-bold text-accent mb-2">
+					<div className="flex flex-col gap-y-2">
+						<label htmlFor="title" className="text-xl font-bold text-accent">
 							Subject:
 						</label>
 						<input
@@ -155,11 +151,15 @@ const ContactModal = () => {
 							className="px-2 py-3 bg-white text-black outline-none focus:border focus:border-accent"
 							placeholder="Subject"
 							autoComplete="off"
+							required
+							max={100}
 							ref={subjectRef}
+							onBlur={() => resetFormError("subject")}
 						/>
+						{formErrors.subjectError && <span className="text-xs text-red-500">{formErrors.subjectError}</span>}
 					</div>
-					<div className="flex flex-col mb-4">
-						<label htmlFor="message" className="text-xl font-bold text-accent mb-2">
+					<div className="flex flex-col gap-y-2">
+						<label htmlFor="message" className="text-xl font-bold text-accent">
 							Message:
 						</label>
 						<textarea
@@ -168,8 +168,13 @@ const ContactModal = () => {
 							className="px-2 py-3 bg-white text-black outline-none focus:border focus:border-accent resize-y"
 							placeholder="Your Message"
 							autoComplete="off"
+							required
+							minLength={10}
+							maxLength={1000}
 							ref={messageRef}
+							onBlur={() => resetFormError("message")}
 						/>
+						{formErrors.messageError && <span className="text-xs text-red-500">{formErrors.messageError}</span>}
 					</div>
 					<div className="flex justify-center items-center">
 						<button
