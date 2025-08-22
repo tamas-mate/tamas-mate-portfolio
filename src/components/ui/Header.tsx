@@ -14,61 +14,42 @@ const Header = ({ name, role, location, cta }: HeaderProps) => {
 	const { openModal } = useModal();
 
 	return (
-		<header className="max-w-260 mx-auto mb-15 sm:px-7.5 xl:px-0">
-			<div className="pb-4 bg-primary">
-				<div className="p-7.5 bg-secondary border border-solid rounded-sm border-lighter-dark">
-					<div className="relative h-87.5 mt-negative-margin mr-negative-margin mb-0 ml-negative-margin">
-						<img
-							src={profileBackground}
-							alt="profile-background"
-							className="w-full h-full object-cover text-transparent"
-						/>
-						<div
-							className="absolute inset-0 overflow-hidden w-60 h-60 m-auto border-6 border-solid border-white 
+		<header className="max-w-260 w-full flex flex-col gap-y-36 justify-between items-center bg-secondary border border-solid border-lighter-dark rounded-b-sm lg:gap-y-18">
+			<div className="relative w-full h-87.5">
+				<img src={profileBackground} alt="profile-background" className="w-full h-full object-cover" />
+				<LanguageSwitcher />
+				<div
+					className="w-60 h-60 m-auto absolute inset-0 overflow-hidden border-6 border-solid border-white 
 						rounded-full transform translate-y-42.5 lg:transform-none lg:translate-y-0 lg:top-auto lg:right-auto lg:-bottom-8.5 lg:left-8.5"
-						>
-							<img
-								src={profilePicture}
-								alt="profile-picture"
-								className="absolute w-full h-full inset-0 object-contain text-transparent"
+				>
+					<img src={profilePicture} alt="profile-picture" className="w-full h-full object-contain" />
+				</div>
+			</div>
+			<div className="w-full flex flex-col lg:flex-row justify-between lg:h-42 lg:px-12 lg:pb-12">
+				<div className="w-full flex flex-col justify-center gap-y-4.5 lg:w-3/4 lg:justify-start">
+					<h1 className="text-center text-2xl font-bold lg:text-left">{t(name)}</h1>
+					<div className="flex flex-col justify-center lg:flex-row lg:justify-start lg:gap-18">
+						<div className="flex flex-row mb-2 justify-center items-center lg:justify-start">
+							<SVGComponent className={"min-w-4 max-w-4 w-4 min-h-4 max-h-4 h-4 mr-3 fill-accent"} {...icons["work"]} />
+							<span>{t(role)}</span>
+						</div>
+						<div className="flex flex-row mb-2 justify-center items-center lg:justify-start">
+							<SVGComponent
+								className={"min-w-4 max-w-4 w-4 min-h-4 max-h-4 h-4 mr-3 fill-accent"}
+								{...icons["location"]}
 							/>
+							<span>{t(location)}</span>
 						</div>
 					</div>
-					<div className="flex flex-col items-end pt-7.5 mr-negative-margin ml-negative-margin lg:flex-row lg:justify-between lg:items-center lg:h-50 lg:pt-15 lg:pb-5 lg:px-1 lg:mx-0">
-						<div className="w-full mt-27.5 text-center lg:flex-[1_1_0] lg:mt-0 lg:text-left">
-							<div className="flex justify-between gap-4">
-								<h1 className="text-2xl font-bold lg:mb-2">{t(name)}</h1>
-								<LanguageSwitcher />
-							</div>
-							{/* <h1 className="text-2xl font-bold lg:mb-2">Tamás Máté</h1> */}
-							<div className="flex flex-col justify-center mt-2.5 lg:flex-row lg:justify-start lg:gap-18 lg:mt-0">
-								<div className="flex flex-row mb-2 justify-center items-center lg:justify-start">
-									<SVGComponent
-										className={"min-w-4 max-w-4 w-4 min-h-4 max-h-4 h-4 mr-3 fill-accent"}
-										{...icons["work"]}
-									/>
-									<span>{t(role)}</span>
-								</div>
-								<div className="flex flex-row mb-2 justify-center items-center lg:justify-start">
-									<SVGComponent
-										className={"min-w-4 max-w-4 w-4 min-h-4 max-h-4 h-4 mr-3 fill-accent"}
-										{...icons["location"]}
-									/>
-									<span>{t(location)}</span>
-								</div>
-							</div>
-						</div>
-						<div className="flex justify-center w-full mt-2 -mb-7.5 px-7.5 py-5 border-t border-solid border-lighter-dark lg:w-auto lg:self-end lg:m-0 lg:p-0 lg:border-none">
-							<button
-								className="inline-block py-3 px-5 border-none rounded-4xl text-lg font-semibold decoration-none 
-							uppercase bg-accent text-primary hover:cursor-pointer hover:bg-accent/50 hover:text-white transition-all duration-300
-							lg:px-18"
-								onClick={openModal}
-							>
-								{t(cta)}
-							</button>
-						</div>
-					</div>
+				</div>
+				<div className="flex justify-center py-7.5 border-t border-solid border-lighter-dark lg:self-end lg:py-0 lg:border-none">
+					<button
+						className="py-3 px-5 border-none rounded-full bg-accent text-lg font-semibold text-primary decoration-none 
+							uppercase hover:cursor-pointer hover:bg-accent/50 hover:text-white transition-all duration-300 "
+						onClick={openModal}
+					>
+						{t(cta)}
+					</button>
 				</div>
 			</div>
 		</header>

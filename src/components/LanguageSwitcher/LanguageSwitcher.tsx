@@ -22,19 +22,23 @@ const LanguageSwitcher = () => {
 	);
 
 	return (
-		<div className="">
-			<select ref={selectRef} name="language" id="language" onChange={(e) => handleLanguageChange(e.target.value)}>
-				<option value="en" className="text-black">
-					EN
-				</option>
-				<option value="hu" className="text-black">
-					HU
-				</option>
-				<option value="ro" className="text-black">
-					RO
-				</option>
-			</select>
-		</div>
+		<select
+			ref={selectRef}
+			name="language"
+			id="language"
+			className="absolute top-7.5 right-7.5 z-1000 bg-transparent text-accent text-bold outline-none hover:cursor-pointer"
+			onChange={(e) => handleLanguageChange(e.target.value)}
+		>
+			<option value="en" className="bg-primary text-accent hover:cursor-pointer">
+				EN
+			</option>
+			<option value="hu" className="bg-primary text-accent hover:cursor-pointer">
+				HU
+			</option>
+			<option value="ro" className="bg-primary text-accent hover:cursor-pointer">
+				RO
+			</option>
+		</select>
 	);
 };
 

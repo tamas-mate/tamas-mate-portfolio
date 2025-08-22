@@ -13,14 +13,16 @@ function App() {
 	return (
 		<ModalProvider>
 			<ContactModal {...content["contact-modal"]} />
-			<Header {...content.header} />
-			<Main {...content.main} />
-			<Footer
-				name={content.header.name}
-				role={content.header.role}
-				cta={content.header.cta}
-				copyright={content.footer.copyright}
-			/>
+			<div className="w-full flex flex-col items-center gap-y-15 sm:px-7.5 xl:px-0">
+				<Header {...content.header} />
+				<Main {...content.main} />
+				<Footer
+					name={content.header.name}
+					role={content.header.role}
+					cta={content.header.cta}
+					copyright={content.footer.copyright}
+				/>
+			</div>
 			<ToastContainer {...toastContainerConfig} />
 		</ModalProvider>
 	);
