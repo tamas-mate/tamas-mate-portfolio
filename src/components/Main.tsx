@@ -16,7 +16,7 @@ const Main = ({ navItems, summary, projects, overview, timeline, skills, languag
 	const { t } = useTranslation();
 	// TODO: 2 refs for timelines, callback jumpToWorkHistoryHandler, forwardRef
 	return (
-		<main className="flex flex-col gap-y-15 max-w-260 mx-auto sm:px-7.5 xl:px-0">
+		<main className="flex flex-col gap-y-15 max-w-260 w-full">
 			<SideNav navItems={navItems} />
 			<Summary summary={summary} />
 			<Projects projects={projects} />
