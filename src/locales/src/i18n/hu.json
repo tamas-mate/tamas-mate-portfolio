@@ -1,0 +1,132 @@
+{
+	"contact-modal": {
+		"name-input": "Név",
+		"name-input-placeholder": "A neve",
+		"email-input": "E-mail",
+		"email-input-placeholder": "Az e-mail címe",
+		"subject-input": "Tárgy",
+		"subject-input-placeholder": "Tárgy",
+		"message-input": "Üzenet",
+		"message-input-placeholder": "Az üzenete",
+		"button-send": "Küldés",
+		"button-sending": "Küldés…",
+		"check-inputs-toast": "Ellenőrizze a mezőket!",
+		"failed-recaptcha-toast": "A reCAPTCHA ellenőrzése sikertelen!",
+		"failed-message-toast": "Az üzenet küldése sikertelen!",
+		"success-message-toast": "Az üzenet sikeresen elküldve!",
+		"input-at-least-error": "legalább",
+		"input-less-than-error": "kevesebb mint",
+		"input-characters-error": "karakter kell legyen!",
+		"input-email-format-error": "Érvénytelen email!",
+		"input-required": "kötelező!",
+		"article": "A(z)"
+	},
+	"header": {
+		"name": "Tamás Máté",
+		"role": "Front-End & React Native Fejlesztő",
+		"location": "Sepsiszentgyörgy, Románia",
+		"cta": "Kapcsolatfelvétel"
+	},
+	"main": {
+		"sections": {
+			"summary": "Összefoglaló",
+			"projects": "Projektek",
+			"overview": "Áttekintés",
+			"work-history": "Munkatapasztalat",
+			"education": "Oktatás",
+			"skills": "Készségek",
+			"languages": "Nyelvek",
+			"quote": "Idézet",
+			"timeline": "Idővonal"
+		},
+		"summary": "React és React Native fejlesztő, növekvő szakértelemmel a TypeScript és a Tailwind CSS területén. Szenvedélyem a felhasználóközpontú webes és mobilalkalmazások fejlesztése, amelyek egyszerűek, intuitívak és élvezetesek a használat során. Fontosnak tartom a tiszta, jól karbantartható kód írását, és mindig nyitott vagyok új eszközök és bevált gyakorlatok megismerésére, amelyek javítják a fejlesztői élményt és a termék minőségét. A technikai aspektusokon túl értékelem a csapatmunkát olyan környezetben, ahol a tudásmegosztás és a közös problémamegoldás a mindennapi kultúra része. Célom, hogy értékes projektekhez járuljak hozzá, miközben folyamatosan fejlődöm szakemberként.",
+		"projects": {
+			"macrame": {
+				"title": "Makramé Ékszer Weboldal",
+				"description": "Modern, reszponzív weboldal kézzel készített ékszerek bemutatására. Felhasznált technológiák React, TypeScript, Tailwind és Vite.",
+				"status": "🚧 Fejlesztés alatt"
+			}
+		},
+		"overview": {
+			"work": {
+				"years": "5",
+				"description": "év munkatapasztalat"
+			},
+			"language": {
+				"years": "3",
+				"description": "nyelv"
+			}
+		},
+		"timeline": {
+			"details": "Részletek",
+			"work": {
+				"pegazus": {
+					"title": "Programozó",
+					"subTitle": "Pegazus Soft",
+					"location": "Gyergyó, Románia",
+					"extraContent": [
+						"Moduláris React + TypeScript funkciók fejlesztése Yii (PHP) alapú webalkalmazásba ágyazva",
+						"Dinamikus űrlapok, 3D vizualizációk és épületszimulációk implementálása Three.js segítségével",
+						"Együttműködés a backendet fejlesztő csapattal PostgreSQL & Yii használatával, beleértve a 2FA-t és adatbázis-migrációkat"
+					]
+				},
+				"camelcoding": {
+					"title": "Programozó",
+					"subTitle": "CamelCoding",
+					"location": "Csíkszereda, Románia",
+					"extraContent": [
+						"Mobilalkalmazások fejlesztése és üzembe helyezése React Native és Redux állapotkezelő használatával",
+						"Vue.js alapú webalkalmazások fejlesztése Laravel és MySQL backenddel",
+						"Python és Node.js scriptek fejlesztése NFT generáláshoz, metaadat-feldolgozáshoz és backend szolgáltatásokhoz",
+						"Több rendszer integrálása és hibakeresése éles környezetben",
+						"Gyors alkalmazkodás a projektigényekhez, miközben folyamatos önálló tanulással bővítette a tudását"
+					]
+				}
+			},
+			"education": {
+				"college": {
+					"title": "Alapképzés (BSc) - Gazdasági informatika",
+					"subTitle": "Sapientia Erdélyi Magyar Tudományegyetem",
+					"location": "Csíkszereda, Románia"
+				},
+				"school": {
+					"title": "Érettségi diploma - Matematika-informatika angol kéttannyelvű tagozat",
+					"subTitle": "Székely Mikó Kollégium",
+					"location": "Sepsiszentgyörgy, Románia"
+				}
+			}
+		},
+		"skills": [
+			"Tailwind CSS",
+			"JavaScript",
+			"TypeScript",
+			"Redux",
+			"Three.js",
+			"React",
+			"React Native",
+			"Git & GitHub",
+			"Jira",
+			"Trello",
+			"Világos kommunikáció",
+			"Önálló, kezdeményező tanulás",
+			"Rugalmasság csoportos távmunkában"
+		],
+		"languages": [
+			"Magyar",
+			"Angol",
+			"Román"
+		],
+		"quote": {
+			"text": "Minden probléma ajándék — problémák nélkül nem fejlődnénk."
+		},
+		"history": {
+			"bachelor-keyword": "Alapképzés",
+			"bachelor-short": "Alapképzés (BSc)",
+			"graduation-keyword": "Érettségi",
+			"graduation-short": "Érettségi diploma"
+		}
+	},
+	"footer": {
+		"copyright": "Minden jog fenntartva"
+	}
+}

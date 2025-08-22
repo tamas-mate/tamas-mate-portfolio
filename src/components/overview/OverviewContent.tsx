@@ -1,22 +1,19 @@
+import { useTranslation } from "react-i18next";
+
 import { cl } from "@/utils/utils";
 
-type Props = {
-	className?: string;
-	content: {
-		years: string;
-		description: string;
-	};
-};
+import type { OverviewContentProps } from "@/types";
 
-const OverviewContent = ({ className: classNamne, content }: Props) => {
+const OverviewContent = ({ className, years, description }: OverviewContentProps) => {
+	const { t } = useTranslation();
+
 	return (
-		<div className={cl("relative py-7.5 px-12 overflow-hidden bg-secondary rounded-sm", classNamne)}>
+		<div className={cl("relative py-7.5 px-12 overflow-hidden bg-secondary rounded-sm", className)}>
 			<div className="absolute left-0 top-0 w-full h-full">
-				<div className="absolute -top-18 -right-10 text-[12rem] font-bold text-lighter-dark2">{content.years}</div>
+				<div className="absolute -top-18 -right-10 text-[12rem] font-bold text-lighter-dark2">{t(years)}</div>
 			</div>
 			<div className="flex items-center uppercase text-xl">
-				<span className="text-8xl font-semibold text-accent mr-10 pb-3">{content.years}</span>{" "}
-				<span>{content.description}</span>
+				<span className="text-8xl font-semibold text-accent mr-10 pb-3">{t(years)}</span> <span>{t(description)}</span>
 			</div>
 		</div>
 	);

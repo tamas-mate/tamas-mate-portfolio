@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 import SectionTitle from "../SectionTitle";
 import SectionWrapper from "../SectionWrapper";
 import ProjectItemWrapper from "./ProjectItemWrapper";
@@ -5,9 +7,11 @@ import ProjectItemWrapper from "./ProjectItemWrapper";
 import type { ProjectsProps } from "@/types";
 
 const Projects = ({ projects }: ProjectsProps) => {
+	const { t } = useTranslation();
+
 	return (
 		<section id="projects">
-			<SectionTitle title="Projects" iconName="projects" />
+			<SectionTitle title={t("main.sections.projects")} iconName="projects" />
 			<SectionWrapper>
 				{projects.map((project, index) => {
 					return <ProjectItemWrapper key={index} {...project} />;

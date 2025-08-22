@@ -1,20 +1,41 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 type FormFields = "name" | "email" | "subject" | "message";
 
 type FormErrors = Record<`${FormFields}Error`, string>;
 
-export const useFormValidation = () => {
+export const useFormValidation = (
+	nameInput: string,
+	emailInput: string,
+	subjectInput: string,
+	messageInput: string,
+	inputAtLeastError: string,
+	inputLessThanError: string,
+	inputCharactersError: string,
+	inputEmailFormatError: string,
+	inputRequired: string,
+	article: string,
+) => {
+	const { t } = useTranslation();
 	const [formErrors, setFormErrors] = useState<FormErrors>({
 		nameError: "",
 		emailError: "",
 		subjectError: "",
 		messageError: "",
 	});
+	const lang = localStorage.getItem("i18nextLng") ?? "en";
+
+	const returnRequiredError = (field: string) => {
+		if (lang === "hu") field = field.toLowerCase();
+		return `${t(article)} ${field} ${t(inputRequired)}`;
+	};
 
 	const validateLength = (field: string, value: string, max: number, min?: number): string => {
-		if (min && value.length < min) return `${field} must be at least ${min} characters!`;
-		if (value.length > max) return `${field} must be less than ${max} characters!`;
+		if (lang === "hu") field = field.toLowerCase();
+		if (min && value.length < min)
+			return `${t(article)} ${field} ${t(inputAtLeastError)} ${min} ${t(inputCharactersError)}`;
+		if (value.length > max) return `${t(article)} ${field} ${t(inputLessThanError)} ${max} ${t(inputCharactersError)}`;
 		return "";
 	};
 
@@ -25,40 +46,38 @@ export const useFormValidation = () => {
 			subject: subject.trim(),
 			message: message.trim(),
 		};
-
 		const newErrors: FormErrors = {
 			nameError: "",
 			emailError: "",
 			subjectError: "",
 			messageError: "",
 		};
-
 		let isValid = true;
 
 		if (!trimmed.name) {
-			newErrors.nameError = "Name is required!";
+			newErrors.nameError = returnRequiredError(t(nameInput));
 		} else {
-			newErrors.nameError = validateLength("Name", trimmed.name, 50);
+			newErrors.nameError = validateLength(t(nameInput), trimmed.name, 50);
 		}
 
 		if (!trimmed.email) {
-			newErrors.emailError = "Email is required!";
+			newErrors.emailError = returnRequiredError(t(emailInput));
 		} else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(trimmed.email)) {
-			newErrors.emailError = "Invalid email format!";
+			newErrors.emailError = t(inputEmailFormatError);
 		} else {
-			newErrors.emailError = validateLength("Email", trimmed.email, 100, 3);
+			newErrors.emailError = validateLength(t(emailInput), trimmed.email, 100, 3);
 		}
 
 		if (!trimmed.subject) {
-			newErrors.subjectError = "Subject is required!";
+			newErrors.subjectError = returnRequiredError(t(subjectInput));
 		} else {
-			newErrors.subjectError = validateLength("Subject", trimmed.subject, 100);
+			newErrors.subjectError = validateLength(t(subjectInput), trimmed.subject, 100);
 		}
 
 		if (!trimmed.message) {
-			newErrors.messageError = "Message is required!";
+			newErrors.messageError = returnRequiredError(t(messageInput));
 		} else {
-			newErrors.messageError = validateLength("Message", trimmed.message, 1000, 10);
+			newErrors.messageError = validateLength(t(messageInput), trimmed.message, 1000, 10);
 		}
 
 		setFormErrors(newErrors);

@@ -1,11 +1,16 @@
+import { useTranslation } from "react-i18next";
+
 import SVGComponent from "../SVGComponent";
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 
 import { useModal } from "@/context/modal-context";
 import profileBackground from "../../assets/images/bg-profile.avif";
 import profilePicture from "../../assets/images/profile.avif";
 import icons from "../../assets/icons/data.json";
+import type { HeaderProps } from "@/types";
 
-const Header = () => {
+const Header = ({ name, role, location, cta }: HeaderProps) => {
+	const { t } = useTranslation();
 	const { openModal } = useModal();
 
 	return (
@@ -31,21 +36,25 @@ const Header = () => {
 					</div>
 					<div className="flex flex-col items-end pt-7.5 mr-negative-margin ml-negative-margin lg:flex-row lg:justify-between lg:items-center lg:h-50 lg:pt-15 lg:pb-5 lg:px-1 lg:mx-0">
 						<div className="w-full mt-27.5 text-center lg:flex-[1_1_0] lg:mt-0 lg:text-left">
-							<h1 className="text-2xl font-bold lg:mb-2">Tamás Máté</h1>
+							<div className="flex justify-between gap-4">
+								<h1 className="text-2xl font-bold lg:mb-2">{t(name)}</h1>
+								<LanguageSwitcher />
+							</div>
+							{/* <h1 className="text-2xl font-bold lg:mb-2">Tamás Máté</h1> */}
 							<div className="flex flex-col justify-center mt-2.5 lg:flex-row lg:justify-start lg:gap-18 lg:mt-0">
 								<div className="flex flex-row mb-2 justify-center items-center lg:justify-start">
 									<SVGComponent
 										className={"min-w-4 max-w-4 w-4 min-h-4 max-h-4 h-4 mr-3 fill-accent"}
 										{...icons["work"]}
 									/>
-									<span>Front-End & React Native Developer</span>
+									<span>{t(role)}</span>
 								</div>
 								<div className="flex flex-row mb-2 justify-center items-center lg:justify-start">
 									<SVGComponent
 										className={"min-w-4 max-w-4 w-4 min-h-4 max-h-4 h-4 mr-3 fill-accent"}
 										{...icons["location"]}
 									/>
-									<span>Saint George, Romania</span>
+									<span>{t(location)}</span>
 								</div>
 							</div>
 						</div>
@@ -56,7 +65,7 @@ const Header = () => {
 							lg:px-18"
 								onClick={openModal}
 							>
-								Contact Me
+								{t(cta)}
 							</button>
 						</div>
 					</div>

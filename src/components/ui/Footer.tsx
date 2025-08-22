@@ -1,17 +1,22 @@
+import { useTranslation } from "react-i18next";
+
 import SVGComponent from "../SVGComponent";
 
 import { useModal } from "@/context/modal-context";
 import icons from "../../assets/icons/data.json";
 
-const Footer = () => {
+import type { FooterProps } from "@/types";
+
+const Footer = ({ name, role, copyright, cta }: FooterProps) => {
+	const { t } = useTranslation();
 	const { openModal } = useModal();
 
 	return (
 		<footer className="flex flex-col items-center w-full mt-15 bg-black py-8 xsl:p-8 gap-y-2 lg:flex-row lg:justify-center lg:gap-y-0 2xl:px-80">
 			<span className="lg:pr-7 lg:border-r border-solid border-lighter-dark3">
-				© {new Date().getFullYear()} Tamás Máté. All rights reserved.
+				© {new Date().getFullYear()} {t(name)}. {t(copyright)}.
 			</span>
-			<span className="lg:px-7 lg:border-r border-solid border-lighter-dark3">Front-End & React Native Developer</span>
+			<span className="lg:px-7 lg:border-r border-solid border-lighter-dark3">{t(role)}</span>
 			<div className="flex justify-center items-center gap-x-5 lg:px-7 lg:border-r border-solid border-lighter-dark3">
 				<a
 					href="https://www.linkedin.com/in/tamasmate/"
@@ -36,7 +41,7 @@ const Footer = () => {
 					className="min-w-3 max-w-3 w-3 min-h-3 max-h-3 h-3 mr-3 fill-white group-hover:fill-accent"
 					{...icons["phone"]}
 				/>
-				<span className="group-hover:text-accent group-hover:underline group-hover:underline-offset-4">Contact me</span>
+				<span className="group-hover:text-accent group-hover:underline group-hover:underline-offset-4">{t(cta)}</span>
 			</button>
 		</footer>
 	);

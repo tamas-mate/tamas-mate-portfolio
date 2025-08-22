@@ -1,3 +1,6 @@
+import { useTranslation } from "react-i18next";
+
+import SideNav from "./sidenav/SideNav";
 import Summary from "./summary/Summary";
 import Projects from "./projects/Projects";
 import Overview from "./overview/Overview";
@@ -7,28 +10,33 @@ import Languages from "./languages/Languages";
 import Quote from "./quote/Quote";
 import History from "./history/History";
 
-import content from "../data/content.json";
-import SideNav from "./sidenav/SideNav";
+import type { MainProps } from "@/types";
 
-const Main = () => {
+const Main = ({ navItems, summary, projects, overview, timeline, skills, languages, quote }: MainProps) => {
+	const { t } = useTranslation();
 	// TODO: 2 refs for timelines, callback jumpToWorkHistoryHandler, forwardRef
 	return (
 		<main className="flex flex-col gap-y-15 max-w-260 mx-auto sm:px-7.5 xl:px-0">
-			<SideNav navItems={content.navItems} />
-			<Summary summary={content.summary} />
-			<Projects projects={content.projects} />
-			<Overview overview={content.overview} />
-			<Timeline sectionId="work-history" title="Work History" iconName="work" timelineContent={content.timeline.work} />
+			<SideNav navItems={navItems} />
+			<Summary summary={summary} />
+			<Projects projects={projects} />
+			<Overview overview={overview} />
+			<Timeline
+				sectionId="work-history"
+				title={t("main.sections.work-history")}
+				iconName="work"
+				timelineContent={timeline.work}
+			/>
 			<Timeline
 				sectionId="education"
-				title="Education"
+				title={t("main.sections.education")}
 				iconName="education"
-				timelineContent={content.timeline.education}
+				timelineContent={timeline.education}
 			/>
-			<Skills skills={content.skills} />
-			<Languages languages={content.languages} />
-			<Quote quote={content.quote.text} author={content.quote.author} />
-			<History timeline={content.timeline} />
+			<Skills skills={skills} />
+			<Languages languages={languages} />
+			<Quote {...quote} />
+			<History timeline={timeline} />
 		</main>
 	);
 };

@@ -2,15 +2,54 @@ import type { ReactNode } from "react";
 
 import type icons from "@/assets/icons/data.json";
 
-export type IconName = keyof typeof icons;
-
-type NavItem = {
-	label: string;
-	href: string;
+export type ModalContextType = {
+	isModalOpen: boolean;
+	openModal: () => void;
+	closeModal: () => void;
 };
 
-export type SideNavProps = {
-	navItems: NavItem[];
+export type ModalProviderProps = {
+	children: ReactNode;
+};
+
+export type ContactModalProps = {
+	"name-input": string;
+	"name-input-placeholder": string;
+	"email-input": string;
+	"email-input-placeholder": string;
+	"subject-input": string;
+	"subject-input-placeholder": string;
+	"message-input": string;
+	"message-input-placeholder": string;
+	"button-send": string;
+	"button-sending": string;
+	"check-inputs-toast": string;
+	"failed-recaptcha-toast": string;
+	"failed-message-toast": string;
+	"success-message-toast": string;
+	"input-at-least-error": string;
+	"input-less-than-error": string;
+	"input-characters-error": string;
+	"input-email-format-error": string;
+	"input-required": string;
+	article: string;
+};
+
+export type IconName = keyof typeof icons;
+
+export type Content = {
+	header: HeaderProps;
+	main: {
+		navItems: NavItem[];
+		summary: string;
+		projects: ProjectProps[];
+		overview: OverviewContentProps[];
+		timeline: Timeline;
+		skills: string;
+		languages: string;
+		quote: QuoteProps;
+	};
+	footer: FooterProps;
 };
 
 export type SectionTitleProps = {
@@ -26,25 +65,26 @@ export type SVGComponentProps = {
 	children?: ReactNode;
 };
 
-export type ModalContextType = {
-	isModalOpen: boolean;
-	openModal: () => void;
-	closeModal: () => void;
+export type HeaderProps = {
+	name: string;
+	role: string;
+	location: string;
+	cta: string;
 };
 
-export type ModalProviderProps = {
-	children: ReactNode;
+export type MainProps = Content["main"];
+
+type NavItem = {
+	label: string;
+	href: string;
+};
+
+export type SideNavProps = {
+	navItems: NavItem[];
 };
 
 export type SummaryProps = {
 	summary: string;
-};
-
-export type OverviewProps = {
-	overview: {
-		years: string;
-		description: string;
-	}[];
 };
 
 export type ProjectProps = {
@@ -59,7 +99,20 @@ export type ProjectsProps = {
 	projects: ProjectProps[];
 };
 
-type WorkEducationType = "work" | "education";
+export type OverviewContentProps = {
+	years: string;
+	description: string;
+	className?: string;
+};
+
+export type OverviewProps = {
+	overview: OverviewContentProps[];
+};
+
+type Timeline = {
+	work: TimelineItemProps[];
+	education: TimelineItemProps[];
+};
 
 export type TimelineItemProps = {
 	title: string;
@@ -67,38 +120,40 @@ export type TimelineItemProps = {
 	location: string;
 	date: string;
 	icon: string;
-	extraContent?: string[];
+	extraContent?: string | string[];
 	sectionId?: string;
 };
 
 export type TimeLineProps = {
 	sectionId: string;
 	title: string;
-	iconName: WorkEducationType;
+	iconName: "work" | "education";
 	timelineContent: TimelineItemProps[];
 };
 
 export type SkillsProps = {
-	skills: string[];
+	skills: string | string[];
 };
 
 export type LanguagesProps = {
-	languages: {
-		name: string;
-		level: {
-			stage: string;
-			rating: string;
-		};
-	}[];
+	languages: string | string[];
 };
 
 export type QuoteProps = {
-	quote: string;
+	text: string;
 	author: string;
 };
 
 export type HistoryProps = {
 	timeline: {
-		[key: string]: TimelineItemProps[];
+		[K in keyof Timeline]: TimelineItemProps[];
 	};
 };
+
+export type HistoryRowProps = {
+	index: number;
+	item: TimelineItemProps;
+	onClick: (id: string) => void;
+};
+
+export type FooterProps = Omit<HeaderProps, "location"> & { copyright: string };
