@@ -17,7 +17,7 @@ const ModalProvider = ({ children }: ModalProviderProps) => {
 			openModal: () => setIsModalOpen(true),
 			closeModal: () => setIsModalOpen(false),
 		}),
-		[isModalOpen]
+		[isModalOpen],
 	);
 
 	return <ModalContext value={value}>{children}</ModalContext>;

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useMemo, useCallback } from "react";
 
 import SectionTitle from "../SectionTitle";
@@ -10,26 +11,22 @@ const normalizeTimeline = (timeline: HistoryProps["timeline"]) => {
 		section.map((rawItem) => {
 			const isWork = "extraContent" in rawItem;
 			const sectionId = isWork ? "work-history" : "education";
-			const derivedTitle = rawItem.title.includes("Bachelor's")
-				? "Bachelor's degree (BSc)"
-				: rawItem.title.includes("Graduation")
-				? "Graduation Diploma"
-				: rawItem.title;
-			const derivedSubTitle = rawItem.title.includes("Bachelor's") ? "Sapientia" : rawItem.subTitle;
 
 			return {
-				title: derivedTitle,
-				subTitle: derivedSubTitle,
+				title: rawItem.title,
+				subTitle: rawItem.subTitle,
 				location: rawItem.location,
 				date: rawItem.date,
 				icon: rawItem.icon,
 				sectionId,
 			};
-		})
+		}),
 	);
 };
 
 const History = ({ timeline }: HistoryProps) => {
+	const { t } = useTranslation();
+
 	const timelineItems = useMemo(() => normalizeTimeline(timeline), [timeline]);
 
 	const onHandleSectionScroll = useCallback((sectionId: string) => {
@@ -39,13 +36,13 @@ const History = ({ timeline }: HistoryProps) => {
 
 	return (
 		<section id="timeline">
-			<SectionTitle title="Timeline" iconName={"timeline"} stroke />
+			<SectionTitle title={t("main.sections.timeline")} iconName={"timeline"} stroke />
 			<div
 				className="relative flex flex-col items-center gap-y-12 w-full py-7.5 px-12 rounded-sm bg-secondary 
 			lg:before:absolute lg:before:top-0 lg:before:bottom-0 lg:before:left-1/2 lg:before:w-1  lg:before:bg-gray/35 lg:before:my-7.5"
 			>
 				{timelineItems.map((item, index) => (
-					<HistoryRow key={index} item={item} index={index} onClick={onHandleSectionScroll} />
+					<HistoryRow key={index} index={index} item={item} onClick={onHandleSectionScroll} />
 				))}
 			</div>
 		</section>

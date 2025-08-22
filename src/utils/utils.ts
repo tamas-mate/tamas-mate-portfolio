@@ -61,7 +61,7 @@ export const initObserver = () => {
 	// The actualy DIV that hides it, is a grandparent. So we get the
 	// parentNode prop 2 times.
 	const recaptchaWindow = [...document.getElementsByTagName("iframe")]?.find((x) =>
-		x.src.includes("google.com/recaptcha/api2/bframe")
+		x.src.includes("google.com/recaptcha/api2/bframe"),
 	)?.parentNode?.parentNode as HTMLDivElement;
 
 	// Make sure it is defined (it was found in the doc) before we add the observer

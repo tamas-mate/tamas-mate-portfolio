@@ -1,13 +1,37 @@
+import { useTranslation } from "react-i18next";
 import { useState, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { toast } from "react-toastify";
 import emailjs from "@emailjs/browser";
 
 import { useModal } from "@/context/modal-context";
-import { getFormattedDate, initObserver, toastConfig } from "@/utils/utils";
 import { useFormValidation } from "@/hooks/useFormValidation";
+import { getFormattedDate, initObserver, toastConfig } from "@/utils/utils";
+import type { ContactModalProps } from "@/types";
 
-const ContactModal = () => {
+const ContactModal = ({
+	"name-input": nameInput,
+	"name-input-placeholder": nameInputPlaceholder,
+	"email-input": emailInput,
+	"email-input-placeholder": emailInputPlaceholder,
+	"subject-input": subjectInput,
+	"subject-input-placeholder": subjectInputPlaceholder,
+	"message-input": messageInput,
+	"message-input-placeholder": messageInputPlaceholder,
+	"button-send": buttonSend,
+	"button-sending": buttonSending,
+	"check-inputs-toast": checkInputsToast,
+	"failed-recaptcha-toast": failedRecaptchaToast,
+	"failed-message-toast": failedMessageToast,
+	"success-message-toast": successMessageToast,
+	"input-at-least-error": inputAtLeastError,
+	"input-less-than-error": inputLessThanError,
+	"input-characters-error": inputCharactersError,
+	"input-email-format-error": inputEmailFormatError,
+	"input-required": inputRequired,
+	article,
+}: ContactModalProps) => {
+	const { t } = useTranslation();
 	const [isPending, setIsPending] = useState(false);
 	const form = useRef<HTMLFormElement>(null);
 	const nameRef = useRef<HTMLInputElement>(null);
@@ -16,7 +40,18 @@ const ContactModal = () => {
 	const messageRef = useRef<HTMLTextAreaElement>(null);
 	const recaptcha = useRef<ReCAPTCHA | null>(null);
 	const { isModalOpen, closeModal } = useModal();
-	const { formErrors, validateInputs, resetFormError, resetFormErrors } = useFormValidation();
+	const { formErrors, validateInputs, resetFormError, resetFormErrors } = useFormValidation(
+		nameInput,
+		emailInput,
+		subjectInput,
+		messageInput,
+		inputAtLeastError,
+		inputLessThanError,
+		inputCharactersError,
+		inputEmailFormatError,
+		inputRequired,
+		article,
+	);
 
 	const handleCloseModal = () => {
 		resetFormErrors();
@@ -31,10 +66,10 @@ const ContactModal = () => {
 				nameRef.current!.value,
 				emailRef.current!.value,
 				subjectRef.current!.value,
-				messageRef.current!.value
+				messageRef.current!.value,
 			)
 		) {
-			toast.error("Please check your inputs!", toastConfig);
+			toast.error(t(checkInputsToast), toastConfig);
 			setIsPending(false);
 			return;
 		}
@@ -43,7 +78,7 @@ const ContactModal = () => {
 		const token = await recaptcha.current!.executeAsync();
 
 		if (!token) {
-			toast.error("Failed to verify reCAPTCHA!", toastConfig);
+			toast.error(t(failedRecaptchaToast), toastConfig);
 			setIsPending(false);
 			return;
 		}
@@ -58,13 +93,13 @@ const ContactModal = () => {
 			});
 
 			if (response.status === 200) {
-				toast.success("Message successfully sent!", toastConfig);
+				toast.success(t(successMessageToast), toastConfig);
 				setIsPending(false);
 				handleCloseModal();
 			}
 		} catch (error) {
-			toast.error("Failed to send the message!", toastConfig);
-			console.error("FAILED...", error);
+			toast.error(t(failedMessageToast), toastConfig);
+			console.error("Failed to send the message! Error:", error);
 			setIsPending(false);
 			handleCloseModal();
 		}
@@ -105,14 +140,14 @@ const ContactModal = () => {
 					<input id="g-recaptcha-response" type="hidden" name="g-recaptcha-response" />
 					<div className="flex flex-col gap-y-2">
 						<label htmlFor="name" className="text-xl font-bold text-accent">
-							Name:
+							{t(nameInput)}
 						</label>
 						<input
 							type="text"
 							id="name"
 							name="name"
 							className="px-2 py-3 bg-white text-black outline-none focus:border focus:border-accent"
-							placeholder="Your Name"
+							placeholder={t(nameInputPlaceholder)}
 							autoComplete="name"
 							required
 							max={50}
@@ -123,14 +158,14 @@ const ContactModal = () => {
 					</div>
 					<div className="flex flex-col gap-y-2">
 						<label htmlFor="email" className="text-xl font-bold text-accent">
-							Email:
+							{t(emailInput)}
 						</label>
 						<input
 							type="email"
 							id="email"
 							name="email"
 							className="px-2 py-3 bg-white text-black outline-none focus:border focus:border-accent"
-							placeholder="Your Email"
+							placeholder={t(emailInputPlaceholder)}
 							autoComplete="email"
 							required
 							min={3}
@@ -142,14 +177,14 @@ const ContactModal = () => {
 					</div>
 					<div className="flex flex-col gap-y-2">
 						<label htmlFor="title" className="text-xl font-bold text-accent">
-							Subject:
+							{t(subjectInput)}
 						</label>
 						<input
 							type="text"
 							id="title"
 							name="title"
 							className="px-2 py-3 bg-white text-black outline-none focus:border focus:border-accent"
-							placeholder="Subject"
+							placeholder={t(subjectInputPlaceholder)}
 							autoComplete="off"
 							required
 							max={100}
@@ -160,13 +195,13 @@ const ContactModal = () => {
 					</div>
 					<div className="flex flex-col gap-y-2">
 						<label htmlFor="message" className="text-xl font-bold text-accent">
-							Message:
+							{t(messageInput)}
 						</label>
 						<textarea
 							id="message"
 							name="message"
 							className="px-2 py-3 bg-white text-black outline-none focus:border focus:border-accent resize-y"
-							placeholder="Your Message"
+							placeholder={t(messageInputPlaceholder)}
 							autoComplete="off"
 							required
 							minLength={10}
@@ -183,7 +218,7 @@ const ContactModal = () => {
 							className="group flex justify-center items-center bg-accent w-1/3 py-2 px-4 rounded-full hover:cursor-pointer hover:bg-accent/50 disabled:cursor-not-allowed"
 						>
 							<span className="text-lg leading-10 text-primary font-bold group-hover:text-white">
-								{isPending ? "Sending" : "Send"}
+								{isPending ? t(buttonSending) : t(buttonSend)}
 							</span>
 						</button>
 					</div>
