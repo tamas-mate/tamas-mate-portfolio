@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useMemo, useCallback } from "react";
+import { useMemo } from "react";
 
 import SectionTitle from "../SectionTitle";
 import HistoryRow from "./HistoryRow";
@@ -24,15 +24,9 @@ const normalizeTimeline = (timeline: HistoryProps["timeline"]) => {
 	);
 };
 
-const History = ({ timeline }: HistoryProps) => {
+const History = ({ timeline, onClick }: HistoryProps) => {
 	const { t } = useTranslation();
-
 	const timelineItems = useMemo(() => normalizeTimeline(timeline), [timeline]);
-
-	const onHandleSectionScroll = useCallback((sectionId: string) => {
-		if (!sectionId) return;
-		document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
-	}, []);
 
 	return (
 		<section id="timeline" className="flex flex-col gap-y-7.5">
@@ -42,7 +36,7 @@ const History = ({ timeline }: HistoryProps) => {
 			lg:before:absolute lg:before:top-0 lg:before:bottom-0 lg:before:left-1/2 lg:before:w-1  lg:before:bg-gray/35 lg:before:my-7.5"
 			>
 				{timelineItems.map((item, index) => (
-					<HistoryRow key={index} index={index} item={item} onClick={onHandleSectionScroll} />
+					<HistoryRow key={index} index={index} item={item} onClick={onClick} />
 				))}
 			</div>
 		</section>

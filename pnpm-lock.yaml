@@ -32,6 +32,9 @@ importers:
       react-i18next:
         specifier: ^15.7.0
         version: 15.7.0(i18next@25.4.0(typescript@5.8.3))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(typescript@5.8.3)
+      react-scrollspy-navigation:
+        specifier: ^2.0.6
+        version: 2.0.6
       react-toastify:
         specifier: ^11.0.5
         version: 11.0.5(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -1285,6 +1288,9 @@ packages:
   react-refresh@0.17.0:
     resolution: {integrity: sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ==}
     engines: {node: '>=0.10.0'}
+
+  react-scrollspy-navigation@2.0.6:
+    resolution: {integrity: sha512-BBnIEI9BsCPIMnp3z/OIEJ6mRSlDgGYf8wty5IjR8nOIhIeRhQp6eDUAKFMyHRoM2RUInA2NDu5DutIFTphoKQ==}
 
   react-toastify@11.0.5:
     resolution: {integrity: sha512-EpqHBGvnSTtHYhCPLxML05NLY2ZX0JURbAdNYa6BUkk+amz4wbKBQvoKQAB0ardvSarUBuY4Q4s1sluAzZwkmA==}
@@ -2553,6 +2559,8 @@ snapshots:
   react-is@16.13.1: {}
 
   react-refresh@0.17.0: {}
+
+  react-scrollspy-navigation@2.0.6: {}
 
   react-toastify@11.0.5(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
     dependencies:
