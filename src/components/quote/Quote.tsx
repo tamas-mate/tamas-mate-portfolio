@@ -10,7 +10,7 @@ const Quote = ({ text, author }: QuoteProps) => {
 	const { t } = useTranslation();
 
 	return (
-		<section id="quote">
+		<section id="quote" className="flex flex-col gap-y-7.5">
 			<SectionTitle title={t("main.sections.quote")} iconName="quote" />
 			<div className="py-7.5 px-12 bg-secondary rounded-sm">
 				<div className="relative w-full min-h-15">
@@ -21,7 +21,7 @@ const Quote = ({ text, author }: QuoteProps) => {
 						/>
 					</div>
 					<figure className="relative flex flex-col text-center">
-						<blockquote className="mt-12 mb-8">
+						<blockquote className="pt-12 pb-8">
 							<p className="text-pretty text-xl italic">{t(text)}</p>
 						</blockquote>
 						<figcaption className=" text-sm text-gray">{author}</figcaption>

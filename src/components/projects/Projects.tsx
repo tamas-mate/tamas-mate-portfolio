@@ -10,7 +10,7 @@ const Projects = ({ projects }: ProjectsProps) => {
 	const { t } = useTranslation();
 
 	return (
-		<section id="projects">
+		<section id="projects" className="flex flex-col gap-y-7.5">
 			<SectionTitle title={t("main.sections.projects")} iconName="projects" />
 			<SectionWrapper>
 				{projects.map((project, index) => {

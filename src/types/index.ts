@@ -120,6 +120,7 @@ export type TimelineItemProps = {
 	location: string;
 	date: string;
 	icon: string;
+	iconName?: keyof typeof icons;
 	extraContent?: string | string[];
 	sectionId?: string;
 };
