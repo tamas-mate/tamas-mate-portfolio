@@ -9,7 +9,7 @@ const Summary = ({ summary }: SummaryProps) => {
 	const { t } = useTranslation();
 
 	return (
-		<section id="summary">
+		<section id="summary" className="flex flex-col gap-y-7.5">
 			<SectionTitle title={t("main.sections.summary")} iconName="summary" />
 			<SectionWrapper>
 				<p className="text-pretty leading-relaxed">{t(summary)}</p>

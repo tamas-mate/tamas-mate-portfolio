@@ -9,7 +9,7 @@ const Languages = ({ languages }: LanguagesProps) => {
 	const { t } = useTranslation();
 
 	return (
-		<section id="languages">
+		<section id="languages" className="flex flex-col gap-y-7.5">
 			<SectionTitle title={t("main.sections.languages")} iconName="languages" />
 			<div className="flex flex-col bg-secondary rounded-sm py-7.5 px-12 gap-y-6 xsl:flex-row xsl:gap-y-0">
 				{(t(languages, { returnObjects: true }) as string[]).map((language, index) => {

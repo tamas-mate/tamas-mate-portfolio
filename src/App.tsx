@@ -13,7 +13,7 @@ function App() {
 	return (
 		<ModalProvider>
 			<ContactModal {...content["contact-modal"]} />
-			<div className="w-full flex flex-col items-center gap-y-15 sm:px-7.5 xl:px-0">
+			<div className="w-full flex flex-col items-center gap-y-15">
 				<Header {...content.header} />
 				<Main {...content.main} />
 				<Footer

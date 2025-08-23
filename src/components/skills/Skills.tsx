@@ -9,7 +9,7 @@ const Skills = ({ skills }: SkillsProps) => {
 	const { t } = useTranslation();
 
 	return (
-		<section id="skills">
+		<section id="skills" className="flex flex-col gap-y-7.5">
 			<SectionTitle title={t("main.sections.skills")} iconName="skills" />
 			<div className="bg-secondary rounded-sm py-7.5 px-12">
 				<ul className="grid grid-cols-2 lg:grid-cols-3 gap-4">

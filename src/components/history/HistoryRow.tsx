@@ -10,9 +10,6 @@ import type { HistoryRowProps, IconName } from "@/types";
 const HistoryRow = memo(({ index, item, onClick }: HistoryRowProps) => {
 	const { t } = useTranslation();
 
-	// const derivedTitle = rawItem.title.includes("Bachelor's") ? "Bachelor's degree (BSc)" : rawItem.title.includes("Graduation") ? "Graduation Diploma": rawItem.title;
-	// const derivedSubTitle = rawItem.title.includes("Bachelor's") ? "Sapientia" : rawItem.subTitle;
-
 	const checkTitle = (title: string) => {
 		return title.includes(t("main.history.bachelor-keyword"))
 			? t("main.history.bachelor-short")
