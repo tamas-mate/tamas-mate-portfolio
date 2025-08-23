@@ -26,7 +26,7 @@ const Header = ({ name, role, location, cta }: HeaderProps) => {
 						<img src={profilePicture} alt="profile-picture" className="w-full h-full object-contain" />
 					</div>
 				</div>
-				<div className="w-full flex flex-col lg:flex-row justify-between lg:h-42 lg:px-12 lg:pb-12">
+				<div className="w-full flex flex-col lg:flex-row justify-between lg:px-12 lg:pb-12">
 					<div className="w-full flex flex-col justify-center gap-y-4.5 lg:w-3/4 lg:justify-start">
 						<h1 className="text-center text-2xl font-bold lg:text-left">{t(name)}</h1>
 						<div className="flex flex-col justify-center lg:flex-row lg:justify-start lg:gap-18">
