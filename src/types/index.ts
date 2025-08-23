@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ReactNode, Ref } from "react";
 
 import type icons from "@/assets/icons/data.json";
 
@@ -125,7 +125,12 @@ export type TimelineItemProps = {
 	sectionId?: string;
 };
 
+export type TimeLineScrollHandle = {
+	scrollIntoView: () => void;
+};
+
 export type TimeLineProps = {
+	handleRef: Ref<TimeLineScrollHandle>;
 	sectionId: string;
 	title: string;
 	iconName: "work" | "education";
@@ -149,6 +154,7 @@ export type HistoryProps = {
 	timeline: {
 		[K in keyof Timeline]: TimelineItemProps[];
 	};
+	onClick: (id: string) => void;
 };
 
 export type HistoryRowProps = {

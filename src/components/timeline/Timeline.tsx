@@ -1,11 +1,23 @@
+import { useImperativeHandle, useRef } from "react";
+
 import SectionTitle from "../SectionTitle";
 import TimelineItem from "./TimelineItem";
 
 import type { IconName, TimeLineProps } from "@/types";
 
-const Timeline = ({ sectionId, title, iconName, timelineContent }: TimeLineProps) => {
+const Timeline = ({ handleRef, sectionId, title, iconName, timelineContent }: TimeLineProps) => {
+	const sectionRef = useRef<HTMLElement>(null);
+
+	useImperativeHandle(handleRef, () => {
+		return {
+			scrollIntoView() {
+				sectionRef.current!.scrollIntoView({ behavior: "smooth" });
+			},
+		};
+	}, []);
+
 	return (
-		<section id={sectionId} className="flex flex-col gap-y-7.5">
+		<section ref={sectionRef} id={sectionId} className="flex flex-col gap-y-7.5">
 			<SectionTitle title={title} iconName={iconName} />
 			{timelineContent.map((item, index) => {
 				return <TimelineItem key={index} iconName={item.icon as IconName} {...item} />;

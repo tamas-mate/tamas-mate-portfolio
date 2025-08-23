@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
 import SideNav from "./sidenav/SideNav";
@@ -10,11 +11,18 @@ import Languages from "./languages/Languages";
 import Quote from "./quote/Quote";
 import History from "./history/History";
 
-import type { MainProps } from "@/types";
+import type { MainProps, TimeLineScrollHandle } from "@/types";
 
 const Main = ({ navItems, summary, projects, overview, timeline, skills, languages, quote }: MainProps) => {
 	const { t } = useTranslation();
-	// TODO: 2 refs for timelines, callback jumpToWorkHistoryHandler, forwardRef
+	const workHistoryTimelineRef = useRef<TimeLineScrollHandle>(null);
+	const educationTimelineRef = useRef<TimeLineScrollHandle>(null);
+
+	const scrollToRelevantTimeline = (sectionId: string) => {
+		if (sectionId === "work-history") workHistoryTimelineRef.current?.scrollIntoView();
+		if (sectionId === "education") educationTimelineRef.current?.scrollIntoView();
+	};
+
 	return (
 		<main className="flex flex-col gap-y-15 max-w-260 w-full sm:px-7.5 xl:px-0">
 			<SideNav navItems={navItems} />
@@ -22,12 +30,14 @@ const Main = ({ navItems, summary, projects, overview, timeline, skills, languag
 			<Projects projects={projects} />
 			<Overview overview={overview} />
 			<Timeline
+				handleRef={workHistoryTimelineRef}
 				sectionId="work-history"
 				title={t("main.sections.work-history")}
 				iconName="work"
 				timelineContent={timeline.work}
 			/>
 			<Timeline
+				handleRef={educationTimelineRef}
 				sectionId="education"
 				title={t("main.sections.education")}
 				iconName="education"
@@ -36,7 +46,7 @@ const Main = ({ navItems, summary, projects, overview, timeline, skills, languag
 			<Skills skills={skills} />
 			<Languages languages={languages} />
 			<Quote {...quote} />
-			<History timeline={timeline} />
+			<History timeline={timeline} onClick={scrollToRelevantTimeline} />
 		</main>
 	);
 };
