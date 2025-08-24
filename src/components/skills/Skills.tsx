@@ -14,7 +14,7 @@ const Skills = ({ skills }: SkillsProps) => {
 			<div className="bg-secondary rounded-sm py-7.5 px-12">
 				<ul className="grid grid-cols-2 lg:grid-cols-3 gap-4">
 					{(t(skills, { returnObjects: true }) as string[]).map((skill, index) => {
-						return <Skill key={index} skill={skill} />;
+						return <Skill key={"skill-" + index} skill={skill} />;
 					})}
 				</ul>
 			</div>

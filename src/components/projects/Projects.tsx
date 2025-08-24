@@ -14,7 +14,7 @@ const Projects = ({ projects }: ProjectsProps) => {
 			<SectionTitle title={t("main.sections.projects")} iconName="projects" />
 			<SectionWrapper>
 				{projects.map((project, index) => {
-					return <ProjectItemWrapper key={index} {...project} />;
+					return <ProjectItemWrapper key={"project-" + index + "-wrapper"} {...project} />;
 				})}
 			</SectionWrapper>
 		</section>

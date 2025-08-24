@@ -24,7 +24,7 @@ const ProjectItem = ({ title, description, images, technologies, status }: Proje
 				<p className="text-pretty">{t(description)}</p>
 				<div className="flex flex-wrap gap-4">
 					{technologies.map((tech, index) => (
-						<span key={index} className="px-3 py-1 bg-accent text-black rounded-full">
+						<span key={"project-" + index + "-tech"} className="px-3 py-1 bg-accent text-black rounded-full">
 							{tech}
 						</span>
 					))}

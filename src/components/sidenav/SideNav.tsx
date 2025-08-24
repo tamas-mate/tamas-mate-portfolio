@@ -10,7 +10,7 @@ const SideNav = ({ navItems }: SideNavProps) => {
 			<nav className="hidden fixed top-30 left-5 p-4 bg-secondary w-78 3xl:block 4xl:left-88">
 				<ul className="flex flex-col items-end gap-y-4">
 					{navItems.map((item, index) => (
-						<li key={index}>
+						<li key={"nav-item-" + index}>
 							<a href={item.href} className="uppercase hover:text-accent">
 								{t(item.label)}
 							</a>

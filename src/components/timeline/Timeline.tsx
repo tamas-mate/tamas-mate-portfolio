@@ -20,7 +20,7 @@ const Timeline = ({ handleRef, sectionId, title, iconName, timelineContent }: Ti
 		<section ref={sectionRef} id={sectionId} className="flex flex-col gap-y-7.5">
 			<SectionTitle title={title} iconName={iconName} />
 			{timelineContent.map((item, index) => {
-				return <TimelineItem key={index} iconName={item.icon as IconName} {...item} />;
+				return <TimelineItem key={"timeline-item-" + index} iconName={item.icon as IconName} {...item} />;
 			})}
 		</section>
 	);
