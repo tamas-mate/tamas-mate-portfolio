@@ -88,6 +88,11 @@ export type SummaryProps = {
 	summary: string;
 };
 
+export type ProjectCarouselProps = {
+	images: string[];
+	title: string;
+};
+
 export type ProjectProps = {
 	title: string;
 	description: string;
