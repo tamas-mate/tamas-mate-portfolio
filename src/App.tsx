@@ -1,17 +1,20 @@
-import { ToastContainer } from "react-toastify";
-
+import LoadingSpinner from "./components/LoadingSpinner";
 import ContactModal from "./components/contact-modal/ContactModal";
 import Header from "./components/ui/Header";
-import Main from "./components/Main";
+import Main from "./components/ui/Main";
 import Footer from "./components/ui/Footer";
 
-import ModalProvider from "./context/ModalProvider";
-import content from "./data/content.json";
-import { toastContainerConfig } from "./utils/utils";
+import { usePortfolioContent } from "./hooks/usePortfolioContent";
 
-function App() {
+const App = () => {
+	const { content, isFetching, errorMessage } = usePortfolioContent();
+
+	if (errorMessage) console.log(errorMessage);
+
+	if (isFetching) return <LoadingSpinner />;
+
 	return (
-		<ModalProvider>
+		<>
 			<ContactModal {...content["contact-modal"]} />
 			<div className="w-full flex flex-col items-center gap-y-15">
 				<Header {...content.header} />
@@ -23,9 +26,8 @@ function App() {
 					copyright={content.footer.copyright}
 				/>
 			</div>
-			<ToastContainer {...toastContainerConfig} />
-		</ModalProvider>
+		</>
 	);
-}
+};
 
 export default App;

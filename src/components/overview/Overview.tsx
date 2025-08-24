@@ -13,7 +13,7 @@ const Overview = ({ overview }: OverviewProps) => {
 			<SectionTitle title={t("main.sections.overview")} iconName="overview" />
 			<div className="flex flex-col gap-y-7.5">
 				{overview.map((item, index) => {
-					return <OverviewContent key={index} {...item} />;
+					return <OverviewContent key={"overview-content-" + index} {...item} />;
 				})}
 			</div>
 		</section>

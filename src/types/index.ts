@@ -50,6 +50,7 @@ export type Content = {
 		quote: QuoteProps;
 	};
 	footer: FooterProps;
+	"contact-modal": ContactModalProps;
 };
 
 export type SectionTitleProps = {
