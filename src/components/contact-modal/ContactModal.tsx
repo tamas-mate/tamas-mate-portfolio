@@ -98,7 +98,7 @@ const ContactModal = ({
 
 		try {
 			const response = await emailjs.sendForm("contact_service", "contact_me", form.current!, {
-				publicKey: "TnYzHr-fPUZUp9y-h",
+				publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
 			});
 
 			if (response.status === 200) {
@@ -128,7 +128,7 @@ const ContactModal = ({
 					if (e.target === e.currentTarget && !isPending) handleCloseModal();
 				}}
 			>
-				<ReCAPTCHA ref={recaptcha} sitekey="6LcIeaorAAAAAMsbMHFg4SOBcSbWsowd8fG-CUci" size="invisible" />
+				<ReCAPTCHA ref={recaptcha} sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY} size="invisible" />
 			</div>
 			<div
 				className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full p-7.5 bg-primary dark:bg-secondary rounded-md z-105 xsl:w-120"
