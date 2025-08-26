@@ -10,6 +10,20 @@ export type ThemeContextType = {
 	isDark: boolean;
 };
 
+export type ScrollButtonProps = {
+	scrollToTop: () => void;
+};
+
+export type SwitcherProps = {
+	extraClasses?: string;
+};
+
+export type MobileMenuContextType = {
+	isMenuOpen: boolean;
+	openMenu: () => void;
+	closeMenu: () => void;
+};
+
 export type ModalContextType = {
 	isModalOpen: boolean;
 	openModal: () => void;

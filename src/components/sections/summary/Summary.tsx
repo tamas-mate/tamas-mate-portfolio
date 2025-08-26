@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
-import SectionTitle from "../SectionTitle";
-import SectionWrapper from "../SectionWrapper";
+import SectionTitle from "../../ui/SectionTitle";
+import SectionWrapper from "../../ui/SectionWrapper";
 
 import type { SummaryProps } from "@/types";
 

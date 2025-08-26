@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import SVGComponent from "../SVGComponent";
+import SVGComponent from "../../ui/SVGComponent";
 
 import { cl } from "@/utils/utils";
 

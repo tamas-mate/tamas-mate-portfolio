@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-import SVGComponent from "../SVGComponent";
+import SVGComponent from "./SVGComponent";
 
 import { useModal } from "@/context/modal-context";
 import icons from "../../assets/icons/data.json";

@@ -7,6 +7,7 @@ import "./index.css";
 import App from "./App.tsx";
 import ModalProvider from "./context/ModalProvider.tsx";
 import ThemeProvider from "./context/ThemeProvider.tsx";
+import MobileMenuProvider from "./context/MobileMenuProvider.tsx";
 
 import { toastContainerConfig } from "./utils/utils.ts";
 
@@ -19,7 +20,9 @@ createRoot(document.getElementById("root")!).render(
 		<QueryClientProvider client={queryClient}>
 			<ModalProvider>
 				<ThemeProvider>
-					<App />
+					<MobileMenuProvider>
+						<App />
+					</MobileMenuProvider>
 					<Suspense fallback={null}>
 						<LazyToastContainer {...toastContainerConfig} />
 					</Suspense>

@@ -1,9 +1,9 @@
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 
-import SVGComponent from "../SVGComponent";
+import SVGComponent from "../../ui/SVGComponent";
 
-import icons from "../../assets/icons/data.json";
+import icons from "../../../assets/icons/data.json";
 import { cl } from "@/utils/utils";
 import type { HistoryRowProps, IconName } from "@/types";
 

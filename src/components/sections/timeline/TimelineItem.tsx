@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 
-import SVGComponent from "../SVGComponent";
+import SVGComponent from "../../ui/SVGComponent";
 import TimelineItemDetails from "./TimelineItemDetails";
 
-import icons from "../../assets/icons/data.json";
+import icons from "../../../assets/icons/data.json";
 import type { TimelineItemProps } from "@/types";
 import { cl } from "@/utils/utils";
 

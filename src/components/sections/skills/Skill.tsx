@@ -1,4 +1,4 @@
-import SVGComponent from "../SVGComponent";
+import SVGComponent from "../../ui/SVGComponent";
 
 const Skill = ({ skill }: { skill: string }) => {
 	return (

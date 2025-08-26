@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 
-import SectionTitle from "../SectionTitle";
-import SVGComponent from "../SVGComponent";
+import SectionTitle from "../../ui/SectionTitle";
+import SVGComponent from "../../ui/SVGComponent";
 
-import icons from "../../assets/icons/data.json";
+import icons from "../../../assets/icons/data.json";
 import type { QuoteProps } from "@/types";
 
 const Quote = ({ text, author }: QuoteProps) => {

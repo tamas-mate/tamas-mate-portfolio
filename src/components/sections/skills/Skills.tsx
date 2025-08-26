@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-import SectionTitle from "../SectionTitle";
+import SectionTitle from "../../ui/SectionTitle";
 import Skill from "./Skill";
 
 import type { SkillsProps } from "@/types";
