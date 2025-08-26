@@ -139,7 +139,11 @@ const ContactModal = ({
 					className="relative flex flex-col gap-y-4"
 					onSubmit={async (e) => {
 						e.preventDefault();
-						await sendEmail();
+						try {
+							await sendEmail();
+						} catch (error) {
+							console.log("Error sending email:", error);
+						}
 					}}
 				>
 					<span
