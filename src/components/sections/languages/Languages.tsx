@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
-import SectionTitle from "../SectionTitle";
-import SVGComponent from "../SVGComponent";
+import SectionTitle from "../../ui/SectionTitle";
+import SVGComponent from "../../ui/SVGComponent";
 
 import type { LanguagesProps } from "@/types";
 

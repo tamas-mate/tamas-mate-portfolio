@@ -1,10 +1,15 @@
 import { useCallback, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 
-import SVGComponent from "../SVGComponent";
+import SVGComponent from "../ui/SVGComponent";
+
 import icons from "../../assets/icons/data.json";
 
-const LanguageSwitcher = () => {
+import { cl } from "@/utils/utils";
+
+import type { SwitcherProps } from "@/types";
+
+const LanguageSwitcher = ({ extraClasses }: SwitcherProps) => {
 	const { i18n } = useTranslation();
 	const selectRef = useRef<HTMLSelectElement>(null);
 
@@ -23,10 +28,9 @@ const LanguageSwitcher = () => {
 	);
 
 	return (
-		<div className="group flex-center text-accent text-bold absolute top-7.5 right-7.5 z-100 gap-x-1 bg-transparent outline-none">
+		<div className={cl("group flex-center text-accent gap-x-1 bg-transparent outline-none", extraClasses)}>
 			<SVGComponent className="fill-accent size-6" {...icons["localization"]} />
 			<select
-				id="language"
 				ref={selectRef}
 				name="language"
 				className="outline-none group-hover:cursor-pointer"

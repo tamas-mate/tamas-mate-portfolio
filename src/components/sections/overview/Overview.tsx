@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-import SectionTitle from "../SectionTitle";
+import SectionTitle from "../../ui/SectionTitle";
 import OverviewContent from "./OverviewContent";
 
 import type { OverviewProps } from "@/types";

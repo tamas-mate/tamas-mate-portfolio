@@ -2,14 +2,15 @@ import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
 import SideNav from "../sidenav/SideNav";
-import Summary from "../summary/Summary";
-import Projects from "../projects/Projects";
-import Overview from "../overview/Overview";
-import Timeline from "../timeline/Timeline";
-import Skills from "../skills/Skills";
-import Languages from "../languages/Languages";
-import Quote from "../quote/Quote";
-import History from "../history/History";
+import MobileMenu from "../sidenav/MobileMenu";
+import Summary from "../sections/summary/Summary";
+import Projects from "../sections/projects/Projects";
+import Overview from "../sections/overview/Overview";
+import Timeline from "../sections/timeline/Timeline";
+import Skills from "../sections/skills/Skills";
+import Languages from "../sections/languages/Languages";
+import Quote from "../sections/quote/Quote";
+import History from "../sections/history/History";
 
 import type { MainProps, TimeLineScrollHandle } from "@/types";
 
@@ -26,6 +27,7 @@ const Main = ({ navItems, summary, projects, overview, timeline, skills, languag
 	return (
 		<main className="flex w-full max-w-260 flex-col gap-y-15 sm:px-7.5 xl:px-0">
 			<SideNav navItems={navItems} />
+			<MobileMenu navItems={navItems} />
 			<Summary summary={summary} />
 			<Projects projects={projects} />
 			<Overview overview={overview} />

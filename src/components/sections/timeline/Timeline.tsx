@@ -1,6 +1,6 @@
 import { useImperativeHandle, useRef } from "react";
 
-import SectionTitle from "../SectionTitle";
+import SectionTitle from "../../ui/SectionTitle";
 import TimelineItem from "./TimelineItem";
 
 import type { IconName, TimeLineProps } from "@/types";

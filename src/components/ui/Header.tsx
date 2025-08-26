@@ -1,10 +1,12 @@
 import { useTranslation } from "react-i18next";
 
-import SVGComponent from "../SVGComponent";
+import SVGComponent from "./SVGComponent";
 import LanguageSwitcher from "../language-switcher/LanguageSwitcher";
 import ThemeSwitcher from "../theme-switcher/ThemeSwitcher";
+import HamburgerButton from "../sidenav/HamburgerButton";
 
 import { useModal } from "@/context/modal-context";
+import { useMobileMenu } from "@/context/mobile-menu-context";
 import profileBackground from "../../assets/images/bg-profile.avif";
 import profilePicture from "../../assets/images/profile.avif";
 import icons from "../../assets/icons/data.json";
@@ -13,14 +15,16 @@ import type { HeaderProps } from "@/types";
 const Header = ({ name, role, location, cta }: HeaderProps) => {
 	const { t } = useTranslation();
 	const { openModal } = useModal();
+	const { isMenuOpen } = useMobileMenu();
 
 	return (
 		<header className="bg-primary w-full max-w-260 sm:px-7.5 xl:px-0">
 			<div className="bg-secondary border-border-gray flex flex-col items-center justify-between gap-y-36 rounded-b-sm border-x border-b border-solid lg:gap-y-18">
 				<div className="relative h-87.5 w-full">
 					<img src={profileBackground} alt="profile-background" className="h-full w-full object-cover" />
-					<LanguageSwitcher />
-					<ThemeSwitcher />
+					<LanguageSwitcher extraClasses="3xl:flex absolute top-1.5 right-12 hidden" />
+					<ThemeSwitcher extraClasses="3xl:flex hover:bg-theme-switcher-bg/50 absolute top-0 right-0 hidden" />
+					{!isMenuOpen && <HamburgerButton extraClasses="absolute top-12 right-12" />}
 					<div className="absolute inset-0 m-auto h-60 w-60 translate-y-42.5 transform overflow-hidden rounded-full border-6 border-solid border-white lg:top-auto lg:right-auto lg:-bottom-8.5 lg:left-12 lg:translate-y-0 lg:transform-none">
 						<img src={profilePicture} alt="profile-picture" className="h-full w-full object-contain" />
 					</div>

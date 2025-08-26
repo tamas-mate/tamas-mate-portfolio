@@ -11,7 +11,7 @@ const SideNav = ({ navItems }: SideNavProps) => {
 				<ul className="flex flex-col items-end gap-y-4">
 					{navItems.map((item, index) => (
 						<li key={"nav-item-" + index}>
-							<a href={item.href} className="hover:text-accent uppercase">
+							<a href={item.href} className="hover:text-accent uppercase hover:underline hover:underline-offset-4">
 								{t(item.label)}
 							</a>
 						</li>
