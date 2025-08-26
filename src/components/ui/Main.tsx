@@ -24,7 +24,7 @@ const Main = ({ navItems, summary, projects, overview, timeline, skills, languag
 	};
 
 	return (
-		<main className="flex flex-col gap-y-15 max-w-260 w-full sm:px-7.5 xl:px-0">
+		<main className="flex w-full max-w-260 flex-col gap-y-15 sm:px-7.5 xl:px-0">
 			<SideNav navItems={navItems} />
 			<Summary summary={summary} />
 			<Projects projects={projects} />

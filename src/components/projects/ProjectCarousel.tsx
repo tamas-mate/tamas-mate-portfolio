@@ -12,12 +12,12 @@ const ProjectCarousel = ({ images, title }: ProjectCarouselProps) => {
 	const { isDark } = useTheme();
 
 	return (
-		<Swiper navigation={true} modules={[Navigation]} className={cl("w-full h-160", isDark && "project-swiper-dark")}>
+		<Swiper navigation={true} modules={[Navigation]} className={cl("h-160 w-full", isDark && "project-swiper-dark")}>
 			<SwiperSlide className="w-full">
-				<img src={images[0]} alt={title} className="w-full h-full object-contain" />
+				<img src={images[0]} alt={title} className="h-full w-full object-contain" />
 			</SwiperSlide>
 			<SwiperSlide className="w-full">
-				<img src={images[1]} alt={title} className="w-full h-full object-contain" />
+				<img src={images[1]} alt={title} className="h-full w-full object-contain" />
 			</SwiperSlide>
 		</Swiper>
 	);

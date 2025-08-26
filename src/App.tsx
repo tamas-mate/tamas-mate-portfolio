@@ -21,7 +21,7 @@ const App = () => {
 
 	return (
 		<>
-			<div className="w-full flex flex-col items-center gap-y-15">
+			<div className="flex w-full flex-col items-center gap-y-15">
 				<title>{t("page-title")}</title>
 				<Header {...content.header} />
 				<Main {...content.main} />

@@ -123,7 +123,7 @@ const ContactModal = ({
 	return (
 		<>
 			<div
-				className="fixed top-0 left-0 bottom-0 right-0 bg-gray-2/95 z-100"
+				className="bg-gray-2/95 fixed top-0 right-0 bottom-0 left-0 z-100"
 				onClick={(e) => {
 					if (e.target === e.currentTarget && !isPending) handleCloseModal();
 				}}
@@ -131,7 +131,7 @@ const ContactModal = ({
 				<ReCAPTCHA ref={recaptcha} sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY} size="invisible" />
 			</div>
 			<div
-				className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full p-7.5 bg-primary dark:bg-secondary rounded-md z-105 xsl:w-120"
+				className="bg-primary dark:bg-secondary xsl:w-120 fixed top-1/2 left-1/2 z-105 w-full -translate-x-1/2 -translate-y-1/2 transform rounded-md p-7.5"
 				onClick={(e) => e.stopPropagation()}
 			>
 				<form
@@ -143,7 +143,7 @@ const ContactModal = ({
 					}}
 				>
 					<span
-						className="absolute -top-3 right-0 text-xl text-gray/50 dark:text-white hover:cursor-pointer"
+						className="text-gray/50 absolute -top-3 right-0 text-xl hover:cursor-pointer dark:text-white"
 						onClick={handleCloseModal}
 					>
 						X
@@ -151,14 +151,14 @@ const ContactModal = ({
 					<input type="hidden" name="time" value={getFormattedDate()}></input>
 					<input id="g-recaptcha-response" type="hidden" name="g-recaptcha-response" />
 					<div className="flex flex-col gap-y-2">
-						<label htmlFor="name" className="text-xl font-bold text-accent">
+						<label htmlFor="name" className="text-accent text-xl font-bold">
 							{t(nameInput)}
 						</label>
 						<input
 							type="text"
 							id="name"
 							name="name"
-							className="px-2 py-3 bg-white text-black outline-none focus:border focus:border-accent"
+							className="input"
 							placeholder={t(nameInputPlaceholder)}
 							autoComplete="name"
 							required
@@ -169,14 +169,14 @@ const ContactModal = ({
 						{formErrors.nameError && <span className="text-xs text-red-500">{formErrors.nameError}</span>}
 					</div>
 					<div className="flex flex-col gap-y-2">
-						<label htmlFor="email" className="text-xl font-bold text-accent">
+						<label htmlFor="email" className="text-accent text-xl font-bold">
 							{t(emailInput)}
 						</label>
 						<input
 							type="email"
 							id="email"
 							name="email"
-							className="px-2 py-3 bg-white text-black outline-none focus:border focus:border-accent"
+							className="input"
 							placeholder={t(emailInputPlaceholder)}
 							autoComplete="email"
 							required
@@ -188,14 +188,14 @@ const ContactModal = ({
 						{formErrors.emailError && <span className="text-xs text-red-500">{formErrors.emailError}</span>}
 					</div>
 					<div className="flex flex-col gap-y-2">
-						<label htmlFor="title" className="text-xl font-bold text-accent">
+						<label htmlFor="title" className="text-accent text-xl font-bold">
 							{t(subjectInput)}
 						</label>
 						<input
 							type="text"
 							id="title"
 							name="title"
-							className="px-2 py-3 bg-white text-black outline-none focus:border focus:border-accent"
+							className="input"
 							placeholder={t(subjectInputPlaceholder)}
 							autoComplete="off"
 							required
@@ -206,13 +206,13 @@ const ContactModal = ({
 						{formErrors.subjectError && <span className="text-xs text-red-500">{formErrors.subjectError}</span>}
 					</div>
 					<div className="flex flex-col gap-y-2">
-						<label htmlFor="message" className="text-xl font-bold text-accent">
+						<label htmlFor="message" className="text-accent text-xl font-bold">
 							{t(messageInput)}
 						</label>
 						<textarea
 							id="message"
 							name="message"
-							className="px-2 py-3 bg-white text-black outline-none focus:border focus:border-accent resize-y"
+							className="input resize-y"
 							placeholder={t(messageInputPlaceholder)}
 							autoComplete="off"
 							required
@@ -223,13 +223,13 @@ const ContactModal = ({
 						/>
 						{formErrors.messageError && <span className="text-xs text-red-500">{formErrors.messageError}</span>}
 					</div>
-					<div className="flex justify-center items-center">
+					<div className="flex-center">
 						<button
 							type="submit"
 							disabled={isPending}
-							className="group flex justify-center items-center bg-accent w-1/3 py-2 px-4 rounded-full hover:cursor-pointer hover:bg-accent/50 disabled:cursor-not-allowed"
+							className="group flex-center bg-accent hover:bg-accent/50 w-1/3 rounded-full px-4 py-2 hover:cursor-pointer disabled:cursor-not-allowed"
 						>
-							<span className="text-lg leading-10 text-primary font-bold group-hover:text-white">
+							<span className="text-primary text-lg leading-10 font-bold group-hover:text-white">
 								{isPending ? t(buttonSending) : t(buttonSend)}
 							</span>
 						</button>

@@ -12,7 +12,7 @@ const Summary = ({ summary }: SummaryProps) => {
 		<section id="summary" className="flex flex-col gap-y-7.5">
 			<SectionTitle title={t("main.sections.summary")} iconName="summary" />
 			<SectionWrapper>
-				<p className="text-pretty leading-relaxed">{t(summary)}</p>
+				<p className="leading-relaxed text-pretty">{t(summary)}</p>
 			</SectionWrapper>
 		</section>
 	);

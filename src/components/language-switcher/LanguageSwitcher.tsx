@@ -23,8 +23,8 @@ const LanguageSwitcher = () => {
 	);
 
 	return (
-		<div className="group absolute top-7.5 right-7.5 flex justify-center items-center gap-x-1 z-100 bg-transparent text-accent text-bold outline-none">
-			<SVGComponent className="min-w-6 max-w-6 w-6 min-h-6 max-h-6 h-6 fill-accent" {...icons["localization"]} />
+		<div className="group flex-center text-accent text-bold absolute top-7.5 right-7.5 z-100 gap-x-1 bg-transparent outline-none">
+			<SVGComponent className="fill-accent size-6" {...icons["localization"]} />
 			<select
 				id="language"
 				ref={selectRef}
