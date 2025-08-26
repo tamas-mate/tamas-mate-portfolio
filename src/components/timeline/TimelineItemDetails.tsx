@@ -11,17 +11,17 @@ const TimelineItemDetails = ({ extraContent }: { extraContent: string[] }) => {
 
 	return (
 		<div className="max-w-xl overflow-hidden">
-			<div className="outline-none group" tabIndex={1}>
+			<div className="group outline-none" tabIndex={1}>
 				<div
-					className="group flex justify-start items-center gap-4 py-3 text-gray-500 transition duration-500 cursor-pointer ease lg:py-0"
+					className="group ease flex cursor-pointer items-center justify-start gap-4 py-3 text-gray-500 transition duration-500 lg:py-0"
 					onClick={() => setIsOpen(!isOpen)}
 				>
-					<span className="text-accent dark:text-white transition duration-500 ease group-hover:text-accent group-focus:text-accent">
+					<span className="text-accent ease group-hover:text-accent group-focus:text-accent transition duration-500 dark:text-white">
 						{t("main.timeline.details")}
 					</span>
-					<div className={cl("transition duration-500 ease -rotate-180", isOpen && "-rotate-360")}>
+					<div className={cl("ease -rotate-180 transition duration-500", isOpen && "-rotate-360")}>
 						<SVGComponent
-							className="w-4.5 h-3 stroke-accent dark:stroke-white group-hover:stroke-accent group-focus:stroke-accent"
+							className="stroke-accent group-hover:stroke-accent group-focus:stroke-accent h-3 w-4.5 dark:stroke-white"
 							viewBox="0 0 18 12"
 						>
 							<path fill="none" strokeWidth="3" d="M2 10 L9 3 L16 10" />
@@ -30,15 +30,15 @@ const TimelineItemDetails = ({ extraContent }: { extraContent: string[] }) => {
 				</div>
 				<div
 					className={cl(
-						"max-h-0 max-w-0 mt-2 overflow-hidden transition duration-500 ease",
+						"ease mt-2 max-h-0 max-w-0 overflow-hidden transition duration-500",
 						isOpen && "max-h-screen max-w-screen",
 					)}
 				>
 					<ul className="flex flex-col gap-y-2">
 						{(t(extraContent, { returnObjects: true }) as string[]).map((item, index) => (
 							<li key={index} className="flex items-start gap-x-4 text-pretty">
-								<span className="flex h-[1lh] items-center -ml-1">
-									<SVGComponent className="size-5 flex-none fill-accent" viewBox="0 0 20 20">
+								<span className="-ml-1 flex h-[1lh] items-center">
+									<SVGComponent className="fill-accent size-5 flex-none" viewBox="0 0 20 20">
 										<circle cx="10" cy="10" r="5" />
 									</SVGComponent>
 								</span>

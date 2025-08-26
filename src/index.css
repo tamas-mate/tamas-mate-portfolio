@@ -25,11 +25,19 @@ html.dark {
 
 @layer base {
 	body {
-		@apply font-sans text-text-primary bg-primary;
+		@apply text-text-primary bg-primary font-sans;
 	}
 }
 
 @layer components {
+	.flex-center {
+		@apply flex items-center justify-center;
+	}
+
+	.input {
+		@apply focus:border-accent bg-white px-2 py-3 text-black outline-none focus:border;
+	}
+
 	.project-swiper-dark {
 		--swiper-navigation-color: #48e5c2;
 	}

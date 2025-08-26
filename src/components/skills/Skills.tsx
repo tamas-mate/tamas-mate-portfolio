@@ -11,8 +11,8 @@ const Skills = ({ skills }: SkillsProps) => {
 	return (
 		<section id="skills" className="flex flex-col gap-y-7.5">
 			<SectionTitle title={t("main.sections.skills")} iconName="skills" />
-			<div className="py-7.5 px-12 bg-secondary border border-solid border-border-gray rounded-sm">
-				<ul className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+			<div className="bg-secondary border-border-gray rounded-sm border border-solid px-12 py-7.5">
+				<ul className="grid grid-cols-2 gap-4 lg:grid-cols-3">
 					{(t(skills, { returnObjects: true }) as string[]).map((skill, index) => {
 						return <Skill key={"skill-" + index} skill={skill} />;
 					})}

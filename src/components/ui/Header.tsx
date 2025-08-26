@@ -15,43 +15,33 @@ const Header = ({ name, role, location, cta }: HeaderProps) => {
 	const { openModal } = useModal();
 
 	return (
-		<header className="max-w-260 w-full bg-primary sm:px-7.5 xl:px-0">
-			<div className="flex flex-col gap-y-36 justify-between items-center bg-secondary border-x border-b border-solid border-border-gray rounded-b-sm lg:gap-y-18 ">
-				<div className="relative w-full h-87.5">
-					<img src={profileBackground} alt="profile-background" className="w-full h-full object-cover" />
+		<header className="bg-primary w-full max-w-260 sm:px-7.5 xl:px-0">
+			<div className="bg-secondary border-border-gray flex flex-col items-center justify-between gap-y-36 rounded-b-sm border-x border-b border-solid lg:gap-y-18">
+				<div className="relative h-87.5 w-full">
+					<img src={profileBackground} alt="profile-background" className="h-full w-full object-cover" />
 					<LanguageSwitcher />
 					<ThemeSwitcher />
-					<div
-						className="w-60 h-60 m-auto absolute inset-0 overflow-hidden border-6 border-solid border-white 
-						rounded-full transform translate-y-42.5 lg:transform-none lg:translate-y-0 lg:top-auto lg:right-auto lg:-bottom-8.5 lg:left-12"
-					>
-						<img src={profilePicture} alt="profile-picture" className="w-full h-full object-contain" />
+					<div className="absolute inset-0 m-auto h-60 w-60 translate-y-42.5 transform overflow-hidden rounded-full border-6 border-solid border-white lg:top-auto lg:right-auto lg:-bottom-8.5 lg:left-12 lg:translate-y-0 lg:transform-none">
+						<img src={profilePicture} alt="profile-picture" className="h-full w-full object-contain" />
 					</div>
 				</div>
-				<div className="w-full flex flex-col lg:flex-row justify-between lg:px-12 lg:pb-12">
-					<div className="w-full flex flex-col justify-center gap-y-4.5 lg:w-3/4 lg:justify-start">
+				<div className="flex w-full flex-col justify-between gap-y-2 lg:flex-row lg:px-12 lg:pb-12">
+					<div className="flex w-full flex-col justify-center gap-y-4.5 lg:w-3/4 lg:justify-start">
 						<h1 className="text-center text-2xl font-bold lg:text-left">{t(name)}</h1>
-						<div className="flex flex-col justify-center lg:flex-row lg:justify-start lg:gap-18">
-							<div className="flex flex-row mb-2 justify-center items-center lg:justify-start">
-								<SVGComponent
-									className={"min-w-4 max-w-4 w-4 min-h-4 max-h-4 h-4 mr-3 fill-accent"}
-									{...icons["work"]}
-								/>
+						<div className="flex flex-col justify-center gap-y-2 lg:flex-row lg:justify-start lg:gap-18">
+							<div className="flex flex-row items-center justify-center gap-x-3 lg:justify-start">
+								<SVGComponent className={"fill-accent size-4"} {...icons["work"]} />
 								<span>{t(role)}</span>
 							</div>
-							<div className="flex flex-row mb-2 justify-center items-center lg:justify-start">
-								<SVGComponent
-									className={"min-w-4 max-w-4 w-4 min-h-4 max-h-4 h-4 mr-3 fill-accent"}
-									{...icons["location"]}
-								/>
+							<div className="flex flex-row items-center justify-center gap-x-3 lg:justify-start">
+								<SVGComponent className={"fill-accent size-4"} {...icons["location"]} />
 								<span>{t(location)}</span>
 							</div>
 						</div>
 					</div>
-					<div className="flex justify-center py-7.5 border-t border-solid border-border-gray lg:self-end lg:py-0 lg:border-none">
+					<div className="border-border-gray flex justify-center border-t border-solid py-7.5 lg:self-end lg:border-none lg:py-0">
 						<button
-							className="py-3 px-5 border-none rounded-full bg-accent text-lg font-semibold text-primary decoration-none 
-							uppercase hover:cursor-pointer hover:bg-accent/50 hover:text-white transition-all duration-300 "
+							className="bg-accent text-primary decoration-none hover:bg-accent/50 rounded-full border-none px-5 py-3 text-lg font-semibold uppercase transition-all duration-300 hover:cursor-pointer hover:text-white"
 							onClick={openModal}
 						>
 							{t(cta)}

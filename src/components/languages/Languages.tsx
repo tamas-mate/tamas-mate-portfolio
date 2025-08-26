@@ -11,16 +11,16 @@ const Languages = ({ languages }: LanguagesProps) => {
 	return (
 		<section id="languages" className="flex flex-col gap-y-7.5">
 			<SectionTitle title={t("main.sections.languages")} iconName="languages" />
-			<div className="flex flex-col gap-y-6 py-7.5 px-12 bg-secondary border border-solid border-border-gray rounded-sm xsl:flex-row xsl:gap-y-0">
+			<div className="bg-secondary border-border-gray xsl:flex-row xsl:gap-y-0 flex flex-col gap-y-6 rounded-sm border border-solid px-12 py-7.5">
 				{(t(languages, { returnObjects: true }) as string[]).map((language, index) => {
 					return (
-						<div className="flex justify-start items-center w-1/3 gap-2" key={"language-" + index}>
+						<div className="flex w-1/3 items-center justify-start gap-2" key={"language-" + index}>
 							<span className="flex h-[1lh] items-center">
-								<SVGComponent className="size-5 flex-none stroke-accent" viewBox="0 0 20 20">
+								<SVGComponent className="stroke-accent size-5 flex-none" viewBox="0 0 20 20">
 									<circle cx="10" cy="10" r="5" fill="none" strokeWidth="5" />
 								</SVGComponent>
 							</span>
-							<div className="flex flex-col w-full">
+							<div className="flex w-full flex-col">
 								<span>{language}</span>
 							</div>
 						</div>
