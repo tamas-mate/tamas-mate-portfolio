@@ -2,9 +2,9 @@ import { useEffect, useMemo, useState } from "react";
 
 import { ModalContext } from "./modal-context";
 
-import type { ModalProviderProps } from "@/types";
+import type { ChildrenProvider } from "@/types";
 
-const ModalProvider = ({ children }: ModalProviderProps) => {
+const ModalProvider = ({ children }: ChildrenProvider) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	useEffect(() => {

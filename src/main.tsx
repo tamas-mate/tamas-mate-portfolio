@@ -6,6 +6,8 @@ import "./index.css";
 
 import App from "./App.tsx";
 import ModalProvider from "./context/ModalProvider.tsx";
+import ThemeProvider from "./context/ThemeProvider.tsx";
+
 import { toastContainerConfig } from "./utils/utils.ts";
 
 const queryClient = new QueryClient();
@@ -16,10 +18,12 @@ createRoot(document.getElementById("root")!).render(
 	<StrictMode>
 		<QueryClientProvider client={queryClient}>
 			<ModalProvider>
-				<App />
-				<Suspense fallback={null}>
-					<LazyToastContainer {...toastContainerConfig} />
-				</Suspense>
+				<ThemeProvider>
+					<App />
+					<Suspense fallback={null}>
+						<LazyToastContainer {...toastContainerConfig} />
+					</Suspense>
+				</ThemeProvider>
 			</ModalProvider>
 		</QueryClientProvider>
 	</StrictMode>,

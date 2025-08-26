@@ -1,13 +1,14 @@
 import { useTranslation } from "react-i18next";
-import { useState, useRef } from "react";
+import { useState, useRef, useMemo } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { toast } from "react-toastify";
 import emailjs from "@emailjs/browser";
 
 import { useModal } from "@/context/modal-context";
 import { useFormValidation } from "@/hooks/useFormValidation";
-import { getFormattedDate, initObserver, toastConfig } from "@/utils/utils";
+import { getFormattedDate, initObserver } from "@/utils/utils";
 import type { ContactModalProps } from "@/types";
+import { useTheme } from "@/context/theme-context";
 
 const ContactModal = ({
 	"name-input": nameInput,
@@ -32,6 +33,7 @@ const ContactModal = ({
 	article,
 }: ContactModalProps) => {
 	const { t } = useTranslation();
+	const { isDark } = useTheme();
 	const [isPending, setIsPending] = useState(false);
 	const form = useRef<HTMLFormElement>(null);
 	const nameRef = useRef<HTMLInputElement>(null);
@@ -58,6 +60,13 @@ const ContactModal = ({
 		closeModal();
 	};
 
+	const toastTheme = useMemo(
+		() => ({
+			theme: isDark ? "dark" : "light",
+		}),
+		[isDark],
+	);
+
 	const sendEmail = async () => {
 		setIsPending(true);
 
@@ -69,7 +78,7 @@ const ContactModal = ({
 				messageRef.current!.value,
 			)
 		) {
-			toast.error(t(checkInputsToast), toastConfig);
+			toast.error(t(checkInputsToast), toastTheme);
 			setIsPending(false);
 			return;
 		}
@@ -78,7 +87,7 @@ const ContactModal = ({
 		const token = await recaptcha.current!.executeAsync();
 
 		if (!token) {
-			toast.error(t(failedRecaptchaToast), toastConfig);
+			toast.error(t(failedRecaptchaToast), toastTheme);
 			setIsPending(false);
 			return;
 		}
@@ -93,12 +102,12 @@ const ContactModal = ({
 			});
 
 			if (response.status === 200) {
-				toast.success(t(successMessageToast), toastConfig);
+				toast.success(t(successMessageToast), toastTheme);
 				setIsPending(false);
 				handleCloseModal();
 			}
 		} catch (error) {
-			toast.error(t(failedMessageToast), toastConfig);
+			toast.error(t(failedMessageToast), toastTheme);
 			console.error("Failed to send the message! Error:", error);
 			setIsPending(false);
 			handleCloseModal();
@@ -114,7 +123,7 @@ const ContactModal = ({
 	return (
 		<>
 			<div
-				className="fixed top-0 left-0 bottom-0 right-0 bg-lighter-dark3/95 z-100"
+				className="fixed top-0 left-0 bottom-0 right-0 bg-gray-2/95 z-100"
 				onClick={(e) => {
 					if (e.target === e.currentTarget && !isPending) handleCloseModal();
 				}}
@@ -122,7 +131,7 @@ const ContactModal = ({
 				<ReCAPTCHA ref={recaptcha} sitekey="6LcIeaorAAAAAMsbMHFg4SOBcSbWsowd8fG-CUci" size="invisible" />
 			</div>
 			<div
-				className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full p-7.5 bg-secondary rounded-md z-105 xsl:w-120"
+				className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full p-7.5 bg-primary dark:bg-secondary rounded-md z-105 xsl:w-120"
 				onClick={(e) => e.stopPropagation()}
 			>
 				<form
@@ -133,7 +142,10 @@ const ContactModal = ({
 						await sendEmail();
 					}}
 				>
-					<span className="absolute -top-3 right-0 text-xl hover:cursor-pointer" onClick={handleCloseModal}>
+					<span
+						className="absolute -top-3 right-0 text-xl text-gray/50 dark:text-white hover:cursor-pointer"
+						onClick={handleCloseModal}
+					>
 						X
 					</span>
 					<input type="hidden" name="time" value={getFormattedDate()}></input>

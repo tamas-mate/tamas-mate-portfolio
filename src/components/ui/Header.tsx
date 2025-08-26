@@ -1,7 +1,8 @@
 import { useTranslation } from "react-i18next";
 
 import SVGComponent from "../SVGComponent";
-import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+import LanguageSwitcher from "../language-switcher/LanguageSwitcher";
+import ThemeSwitcher from "../theme-switcher/ThemeSwitcher";
 
 import { useModal } from "@/context/modal-context";
 import profileBackground from "../../assets/images/bg-profile.avif";
@@ -15,13 +16,14 @@ const Header = ({ name, role, location, cta }: HeaderProps) => {
 
 	return (
 		<header className="max-w-260 w-full bg-primary sm:px-7.5 xl:px-0">
-			<div className="flex flex-col gap-y-36 justify-between items-center bg-secondary border border-solid border-lighter-dark rounded-b-sm lg:gap-y-18 ">
+			<div className="flex flex-col gap-y-36 justify-between items-center bg-secondary border-x border-b border-solid border-border-gray rounded-b-sm lg:gap-y-18 ">
 				<div className="relative w-full h-87.5">
 					<img src={profileBackground} alt="profile-background" className="w-full h-full object-cover" />
 					<LanguageSwitcher />
+					<ThemeSwitcher />
 					<div
 						className="w-60 h-60 m-auto absolute inset-0 overflow-hidden border-6 border-solid border-white 
-						rounded-full transform translate-y-42.5 lg:transform-none lg:translate-y-0 lg:top-auto lg:right-auto lg:-bottom-8.5 lg:left-8.5"
+						rounded-full transform translate-y-42.5 lg:transform-none lg:translate-y-0 lg:top-auto lg:right-auto lg:-bottom-8.5 lg:left-12"
 					>
 						<img src={profilePicture} alt="profile-picture" className="w-full h-full object-contain" />
 					</div>
@@ -46,7 +48,7 @@ const Header = ({ name, role, location, cta }: HeaderProps) => {
 							</div>
 						</div>
 					</div>
-					<div className="flex justify-center py-7.5 border-t border-solid border-lighter-dark lg:self-end lg:py-0 lg:border-none">
+					<div className="flex justify-center py-7.5 border-t border-solid border-border-gray lg:self-end lg:py-0 lg:border-none">
 						<button
 							className="py-3 px-5 border-none rounded-full bg-accent text-lg font-semibold text-primary decoration-none 
 							uppercase hover:cursor-pointer hover:bg-accent/50 hover:text-white transition-all duration-300 "

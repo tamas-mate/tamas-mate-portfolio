@@ -1,31 +1,52 @@
 @import "tailwindcss";
 
 :root {
-	--toastify-color-success: #48e5c2;
+	--color-primary: #f3f5f7;
+	--color-text-primary: #121212;
+	--color-secondary: #ffffff;
+	--color-accent: #3983fa;
+	--color-border-gray: #d9e6f1;
+	--color-lighter-dark3: #e4f0fe;
+	--toastify-color-success: var(--color-accent);
 }
 
+html.dark {
+	--color-primary: #121212;
+	--color-text-primary: #ffffff;
+	--color-secondary: #1e1e1e;
+	--color-accent: #48e5c2;
+	--color-border-gray: #262626;
+	--color-lighter-dark3: #333333;
+	--toastify-color-success: var(--color-accent);
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
 @custom-variant hover (&:hover);
 
 @layer base {
 	body {
-		@apply font-sans text-white bg-primary;
+		@apply font-sans text-text-primary bg-primary;
 	}
 }
 
 @layer components {
-	.project-swiper {
+	.project-swiper-dark {
 		--swiper-navigation-color: #48e5c2;
 	}
 }
 
 @theme {
-	--color-primary: #121212;
-	--color-secondary: #1e1e1e;
-	--color-lighter-dark: #262626;
+	--color-primary: var(--color-primary);
+	--color-text-primary: var(--color-text);
+	--color-secondary: var(--color-secondary);
+	--color-accent: var(--color-accent);
+	--color-border-gray: var(--color-border-gray);
 	--color-lighter-dark2: #282828;
-	--color-lighter-dark3: #333333;
+	--color-lighter-dark3: var(--color-lighter-dark3);
 	--color-gray: #888888;
-	--color-accent: #48e5c2;
+	--color-gray-2: #333333;
+	--color-light-blue: #e4f0fe;
+	--color-theme-switcher-bg: #1e1e1e;
 	--font-sans:
 		-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	--breakpoint-xsl: 31.25rem;

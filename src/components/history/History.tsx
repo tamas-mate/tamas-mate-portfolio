@@ -32,8 +32,8 @@ const History = ({ timeline, onClick }: HistoryProps) => {
 		<section id="timeline" className="flex flex-col gap-y-7.5">
 			<SectionTitle title={t("main.sections.timeline")} iconName={"timeline"} stroke />
 			<div
-				className="relative flex flex-col items-center gap-y-12 w-full py-7.5 px-12 rounded-sm bg-secondary 
-			lg:before:absolute lg:before:top-0 lg:before:bottom-0 lg:before:left-1/2 lg:before:w-1  lg:before:bg-gray/35 lg:before:my-7.5"
+				className="relative flex flex-col items-center gap-y-12 w-full py-7.5 px-12 bg-secondary border border-solid border-border-gray rounded-sm
+			lg:before:absolute lg:before:top-0 lg:before:bottom-0 lg:before:left-1/2 lg:before:w-1 lg:before:bg-border-gray dark:lg:before:bg-gray/35 lg:before:my-7.5"
 			>
 				{timelineItems.map((item, index) => (
 					<HistoryRow key={index} index={index} item={item} onClick={onClick} />

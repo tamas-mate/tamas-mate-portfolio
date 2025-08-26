@@ -13,15 +13,15 @@ const TimelineItemDetails = ({ extraContent }: { extraContent: string[] }) => {
 		<div className="max-w-xl overflow-hidden">
 			<div className="outline-none group" tabIndex={1}>
 				<div
-					className="flex justify-start items-center gap-4 py-3 text-gray-500 transition duration-500 cursor-pointer group ease lg:py-0"
+					className="group flex justify-start items-center gap-4 py-3 text-gray-500 transition duration-500 cursor-pointer ease lg:py-0"
 					onClick={() => setIsOpen(!isOpen)}
 				>
-					<span className="text-white transition duration-500 ease group-hover:text-accent group-focus:text-accent">
+					<span className="text-accent dark:text-white transition duration-500 ease group-hover:text-accent group-focus:text-accent">
 						{t("main.timeline.details")}
 					</span>
 					<div className={cl("transition duration-500 ease -rotate-180", isOpen && "-rotate-360")}>
 						<SVGComponent
-							className="w-4.5 h-3 stroke-white group-hover:stroke-accent group-focus:stroke-accent"
+							className="w-4.5 h-3 stroke-accent dark:stroke-white group-hover:stroke-accent group-focus:stroke-accent"
 							viewBox="0 0 18 12"
 						>
 							<path fill="none" strokeWidth="3" d="M2 10 L9 3 L16 10" />
