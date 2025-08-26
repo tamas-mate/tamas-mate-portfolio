@@ -68,20 +68,8 @@ const ContactModal = ({
 	);
 
 	const sendEmail = async () => {
-		console.log(
-			"sendEmail called with keys:",
-			import.meta.env.VITE_RECAPTCHA_SITE_KEY,
-			import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-		);
 		try {
 			setIsPending(true);
-
-			if (!import.meta.env.VITE_RECAPTCHA_SITE_KEY) {
-				console.error("Missing VITE_RECAPTCHA_SITE_KEY");
-			}
-			if (!import.meta.env.VITE_EMAILJS_PUBLIC_KEY) {
-				console.error("Missing VITE_EMAILJS_PUBLIC_KEY");
-			}
 
 			if (
 				!validateInputs(
