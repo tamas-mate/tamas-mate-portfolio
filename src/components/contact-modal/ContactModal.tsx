@@ -68,37 +68,49 @@ const ContactModal = ({
 	);
 
 	const sendEmail = async () => {
-		setIsPending(true);
-
-		if (
-			!validateInputs(
-				nameRef.current!.value,
-				emailRef.current!.value,
-				subjectRef.current!.value,
-				messageRef.current!.value,
-			)
-		) {
-			toast.error(t(checkInputsToast), toastTheme);
-			setIsPending(false);
-			return;
-		}
-
-		initObserver();
-		const token = await recaptcha.current!.executeAsync();
-
-		if (!token) {
-			toast.error(t(failedRecaptchaToast), toastTheme);
-			setIsPending(false);
-			return;
-		}
-
-		if (form.current) {
-			form.current["g-recaptcha-response"].value = token;
-		}
-
+		console.log(
+			"sendEmail called with keys:",
+			import.meta.env.VITE_RECAPTCHA_SITE_KEY,
+			import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+		);
 		try {
+			setIsPending(true);
+
+			if (!import.meta.env.VITE_RECAPTCHA_SITE_KEY) {
+				console.error("Missing VITE_RECAPTCHA_SITE_KEY");
+			}
+			if (!import.meta.env.VITE_EMAILJS_PUBLIC_KEY) {
+				console.error("Missing VITE_EMAILJS_PUBLIC_KEY");
+			}
+
+			if (
+				!validateInputs(
+					nameRef.current!.value,
+					emailRef.current!.value,
+					subjectRef.current!.value,
+					messageRef.current!.value,
+				)
+			) {
+				toast.error(t(checkInputsToast), toastTheme);
+				setIsPending(false);
+				return;
+			}
+
+			initObserver();
+			const token = await recaptcha.current!.executeAsync();
+
+			if (!token) {
+				toast.error(t(failedRecaptchaToast), toastTheme);
+				setIsPending(false);
+				return;
+			}
+
+			if (form.current) {
+				form.current["g-recaptcha-response"].value = token;
+			}
+
 			const response = await emailjs.sendForm("contact_service", "contact_me", form.current!, {
-				publicKey: "TnYzHr-fPUZUp9y-h",
+				publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
 			});
 
 			if (response.status === 200) {
@@ -128,7 +140,7 @@ const ContactModal = ({
 					if (e.target === e.currentTarget && !isPending) handleCloseModal();
 				}}
 			>
-				<ReCAPTCHA ref={recaptcha} sitekey="6LcIeaorAAAAAMsbMHFg4SOBcSbWsowd8fG-CUci" size="invisible" />
+				<ReCAPTCHA ref={recaptcha} sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY} size="invisible" />
 			</div>
 			<div
 				className="bg-primary dark:bg-secondary xsl:w-120 fixed top-1/2 left-1/2 z-105 w-full -translate-x-1/2 -translate-y-1/2 transform rounded-md p-7.5"
