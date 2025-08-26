@@ -2,13 +2,21 @@ import type { ReactNode, Ref } from "react";
 
 import type icons from "@/assets/icons/data.json";
 
+export type Theme = "light" | "dark" | "system";
+
+export type ThemeContextType = {
+	theme: Theme;
+	setTheme: (theme: Theme) => void;
+	isDark: boolean;
+};
+
 export type ModalContextType = {
 	isModalOpen: boolean;
 	openModal: () => void;
 	closeModal: () => void;
 };
 
-export type ModalProviderProps = {
+export type ChildrenProvider = {
 	children: ReactNode;
 };
 

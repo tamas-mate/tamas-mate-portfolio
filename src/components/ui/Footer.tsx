@@ -13,11 +13,11 @@ const Footer = ({ name, role, copyright, cta }: FooterProps) => {
 
 	return (
 		<footer className="flex flex-col items-center w-full bg-black py-8 xsl:p-8 gap-y-2 lg:flex-row lg:justify-center lg:gap-y-0 2xl:px-80">
-			<span className="lg:pr-7 lg:border-r border-solid border-lighter-dark3">
+			<span className="text-white border-solid border-gray lg:pr-7 lg:border-r">
 				© {new Date().getFullYear()} {t(name)}. {t(copyright)}.
 			</span>
-			<span className="lg:px-7 lg:border-r border-solid border-lighter-dark3">{t(role)}</span>
-			<div className="flex justify-center items-center gap-x-5 lg:px-7 lg:border-r border-solid border-lighter-dark3">
+			<span className="text-white border-solid border-gray lg:px-7 lg:border-r">{t(role)}</span>
+			<div className="flex justify-center items-center gap-x-5 border-solid border-gray lg:px-7 lg:border-r">
 				<a
 					href="https://www.linkedin.com/in/tamasmate/"
 					target="_blank"
@@ -36,7 +36,7 @@ const Footer = ({ name, role, copyright, cta }: FooterProps) => {
 					/>
 				</a>
 			</div>
-			<button className="flex items-center group hover:cursor-pointer lg:pl-7" onClick={openModal}>
+			<button className="group flex items-center text-white hover:cursor-pointer lg:pl-7" onClick={openModal}>
 				<SVGComponent
 					className="min-w-3 max-w-3 w-3 min-h-3 max-h-3 h-3 mr-3 fill-white group-hover:fill-accent"
 					{...icons["phone"]}

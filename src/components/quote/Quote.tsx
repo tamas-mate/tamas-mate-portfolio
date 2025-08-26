@@ -12,7 +12,7 @@ const Quote = ({ text, author }: QuoteProps) => {
 	return (
 		<section id="quote" className="flex flex-col gap-y-7.5">
 			<SectionTitle title={t("main.sections.quote")} iconName="quote" />
-			<div className="py-7.5 px-12 bg-secondary rounded-sm">
+			<div className="py-7.5 px-12 bg-secondary border border-solid border-border-gray rounded-sm">
 				<div className="relative w-full min-h-15">
 					<div className={"absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"}>
 						<SVGComponent

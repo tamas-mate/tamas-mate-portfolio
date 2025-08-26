@@ -34,10 +34,10 @@ const HistoryRow = memo(({ index, item, onClick }: HistoryRowProps) => {
 				)}
 			>
 				<div
-					className="w-87.5 flex justify-start items-start gap-10 pl-10 py-5 bg-lighter-dark3 rounded-sm hover:cursor-pointer group-hover:bg-primary"
+					className="w-87.5 flex justify-start items-start gap-10 pl-10 py-5 bg-primary dark:bg-lighter-dark3 rounded-sm hover:cursor-pointer group-hover:bg-primary"
 					onClick={() => onClick(item.sectionId!)}
 				>
-					<div className="bg-primary/50 rounded-sm p-3 mt-1.5 group-hover:bg-lighter-dark3">
+					<div className="bg-light-blue dark:bg-primary/50 rounded-sm p-3 mt-1.5 group-hover:bg-lighter-dark3">
 						<SVGComponent
 							className={"min-w-6 max-w-6 w-6 min-h-6 max-h-6 h-6 fill-accent"}
 							{...icons[item.icon as IconName]}
@@ -52,7 +52,7 @@ const HistoryRow = memo(({ index, item, onClick }: HistoryRowProps) => {
 				</div>
 				<div
 					className={cl(
-						"hidden absolute top-[calc(50%-0.5rem)] size-4 bg-gray rounded-full group-hover:bg-accent duration-300 lg:block",
+						"hidden absolute top-[calc(50%-0.5rem)] size-4 bg-border-gray dark:bg-gray rounded-full group-hover:bg-accent duration-300 lg:block",
 						index % 2 === 0 ? "-right-2.5" : "-left-1.5",
 					)}
 				></div>

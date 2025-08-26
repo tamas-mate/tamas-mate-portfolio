@@ -24,19 +24,6 @@ export const toastContainerConfig = {
 	pauseOnFocusLoss: true,
 	draggable: true,
 	pauseOnHover: true,
-	theme: "dark",
-	transition: Bounce,
-};
-
-export const toastConfig = {
-	position: "bottom-center" as ToastPosition,
-	autoClose: 5000,
-	hideProgressBar: false,
-	closeOnClick: true,
-	pauseOnHover: true,
-	draggable: true,
-	progress: undefined,
-	theme: "dark",
 	transition: Bounce,
 };
 
