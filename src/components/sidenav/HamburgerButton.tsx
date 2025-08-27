@@ -5,7 +5,9 @@ import { cl } from "@/utils/utils";
 import type { SwitcherProps } from "@/types";
 
 const HamburgerButton = ({ extraClasses }: SwitcherProps) => {
-	const { isMenuOpen, openMenu, closeMenu } = useMobileMenu();
+	const { isMenuOpen, openMenu, closeMenu, setTriggerRef } = useMobileMenu();
+
+	const setRef = (el: HTMLButtonElement | null) => setTriggerRef(el!);
 
 	const handleMenuBtnClick = () => {
 		if (isMenuOpen) {
@@ -17,9 +19,11 @@ const HamburgerButton = ({ extraClasses }: SwitcherProps) => {
 
 	return (
 		<button
+			ref={setRef}
 			id="menu-btn"
-			className={cl("3xl:hidden focus-outline-none hamburger block", extraClasses, isMenuOpen && "open")}
+			className={cl("3xl:hidden hamburger block focus:outline-none", extraClasses, isMenuOpen && "open")}
 			onClick={handleMenuBtnClick}
+			aria-label="Hamburger button"
 		>
 			<span className="hamburger-top"></span>
 			<span className="hamburger-middle"></span>

@@ -7,6 +7,9 @@ const ProjectCarousel = lazy(() => import("./ProjectCarousel"));
 
 const ProjectItem = ({ title, description, images, technologies, status }: ProjectProps) => {
 	const { t } = useTranslation();
+	const titleTxt = t(title);
+	const descTxt = t(description);
+	const statusTxt = t(status);
 
 	return (
 		<>
@@ -14,8 +17,8 @@ const ProjectItem = ({ title, description, images, technologies, status }: Proje
 				<Suspense fallback={<div className="h-10 w-10 animate-pulse rounded-md" />}>
 					<ProjectCarousel images={images} title={title} />
 				</Suspense>
-				<p className="text-xl font-semibold">{t(title)}</p>
-				<p className="text-pretty">{t(description)}</p>
+				<h3 className="text-xl font-semibold">{titleTxt}</h3>
+				<p className="text-pretty">{descTxt}</p>
 				<div className="flex flex-wrap gap-4">
 					{technologies.map((tech) => (
 						<span key={tech} className="bg-accent rounded-full px-3 py-1 text-black">
@@ -23,7 +26,7 @@ const ProjectItem = ({ title, description, images, technologies, status }: Proje
 						</span>
 					))}
 				</div>
-				<p className="text-sm">{t(status)}</p>
+				<p className="text-sm">{statusTxt}</p>
 			</div>
 		</>
 	);
