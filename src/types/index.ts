@@ -22,6 +22,8 @@ export type MobileMenuContextType = {
 	isMenuOpen: boolean;
 	openMenu: () => void;
 	closeMenu: () => void;
+	triggerRef: Ref<HTMLButtonElement>;
+	setTriggerRef: (el: HTMLButtonElement) => void;
 };
 
 export type ModalContextType = {
