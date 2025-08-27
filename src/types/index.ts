@@ -36,6 +36,15 @@ export type ChildrenProvider = {
 	children: ReactNode;
 };
 
+export type FormData = {
+	name: string;
+	email: string;
+	title: string;
+	message: string;
+	time: string;
+	"g-recaptcha-response": string;
+};
+
 export type ContactModalProps = {
 	"name-input": string;
 	"name-input-placeholder": string;

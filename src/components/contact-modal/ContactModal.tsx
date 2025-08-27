@@ -2,13 +2,21 @@ import { useTranslation } from "react-i18next";
 import { useState, useRef, useMemo } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { toast } from "react-toastify";
+import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 
 import { useModal } from "@/context/modal-context";
-import { useFormValidation } from "@/hooks/useFormValidation";
 import { getFormattedDate, initObserver } from "@/utils/utils";
-import type { ContactModalProps } from "@/types";
+import type { ContactModalProps, FormData } from "@/types";
 import { useTheme } from "@/context/theme-context";
+
+const returnRequiredError = (article: string, field: string, inputRequired: string) => {
+	if ((localStorage.getItem("i18nextLng") ?? "en") === "hu") field = field.toLowerCase();
+	return `${article} ${field} ${inputRequired}`;
+};
+
+const returnTrimmedValueOrLength = (type: "value" | "length", value: string) =>
+	type === "value" ? value.trim() : value.trim().length;
 
 const ContactModal = ({
 	"name-input": nameInput,
@@ -32,34 +40,24 @@ const ContactModal = ({
 	"input-required": inputRequired,
 	article,
 }: ContactModalProps) => {
-	const { t } = useTranslation();
-	const { isDark } = useTheme();
-	const [isPending, setIsPending] = useState(false);
-	const form = useRef<HTMLFormElement>(null);
-	const nameRef = useRef<HTMLInputElement>(null);
-	const emailRef = useRef<HTMLInputElement>(null);
-	const subjectRef = useRef<HTMLInputElement>(null);
-	const messageRef = useRef<HTMLTextAreaElement>(null);
 	const recaptcha = useRef<ReCAPTCHA | null>(null);
+	const [isPending, setIsPending] = useState(false);
+	const { t } = useTranslation();
+	const {
+		register,
+		handleSubmit,
+		reset,
+		formState: { errors },
+	} = useForm<FormData>({
+		defaultValues: {
+			name: "",
+			email: "",
+			title: "",
+			message: "",
+		},
+	});
 	const { isModalOpen, closeModal } = useModal();
-	const { formErrors, validateInputs, resetFormError, resetFormErrors } = useFormValidation(
-		nameInput,
-		emailInput,
-		subjectInput,
-		messageInput,
-		inputAtLeastError,
-		inputLessThanError,
-		inputCharactersError,
-		inputEmailFormatError,
-		inputRequired,
-		article,
-	);
-
-	const handleCloseModal = () => {
-		resetFormErrors();
-		closeModal();
-	};
-
+	const { isDark } = useTheme();
 	const toastTheme = useMemo(
 		() => ({
 			theme: isDark ? "dark" : "light",
@@ -67,18 +65,11 @@ const ContactModal = ({
 		[isDark],
 	);
 
-	const sendEmail = async () => {
+	const onSubmit = async (data: FormData) => {
 		try {
 			setIsPending(true);
 
-			if (
-				!validateInputs(
-					nameRef.current!.value,
-					emailRef.current!.value,
-					subjectRef.current!.value,
-					messageRef.current!.value,
-				)
-			) {
+			if (errors.name || errors.email || errors.title || errors.message) {
 				toast.error(t(checkInputsToast), toastTheme);
 				setIsPending(false);
 				return;
@@ -93,24 +84,30 @@ const ContactModal = ({
 				return;
 			}
 
-			if (form.current) {
-				form.current["g-recaptcha-response"].value = token;
-			}
+			const templateParams = {
+				title: returnTrimmedValueOrLength("value", data.title),
+				name: returnTrimmedValueOrLength("value", data.name),
+				email: returnTrimmedValueOrLength("value", data.email),
+				time: getFormattedDate(),
+				message: returnTrimmedValueOrLength("value", data.message),
+				"g-recaptcha-response": token,
+			};
 
-			const response = await emailjs.sendForm("contact_service", "contact_me", form.current!, {
+			const response = await emailjs.send("contact_service", "contact_me", templateParams, {
 				publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
 			});
 
 			if (response.status === 200) {
 				toast.success(t(successMessageToast), toastTheme);
 				setIsPending(false);
-				handleCloseModal();
+				reset();
+				closeModal();
 			}
 		} catch (error) {
 			toast.error(t(failedMessageToast), toastTheme);
 			console.error("Failed to send the message! Error:", error);
 			setIsPending(false);
-			handleCloseModal();
+			closeModal();
 		}
 
 		recaptcha.current?.reset();
@@ -125,103 +122,113 @@ const ContactModal = ({
 			<div
 				className="bg-gray-2/95 fixed top-0 right-0 bottom-0 left-0 z-100"
 				onClick={(e) => {
-					if (e.target === e.currentTarget && !isPending) handleCloseModal();
+					if (e.target === e.currentTarget && !isPending) closeModal();
 				}}
 			>
 				<ReCAPTCHA ref={recaptcha} sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY} size="invisible" />
 			</div>
-			<div
-				className="bg-primary dark:bg-secondary xsl:w-120 fixed top-1/2 left-1/2 z-105 w-full -translate-x-1/2 -translate-y-1/2 transform rounded-md p-7.5"
-				onClick={(e) => e.stopPropagation()}
-			>
-				<form
-					ref={form}
-					className="relative flex flex-col gap-y-4"
-					onSubmit={async (e) => {
-						e.preventDefault();
-						await sendEmail();
-					}}
-				>
+			<div className="bg-primary dark:bg-secondary xsl:w-120 fixed top-1/2 left-1/2 z-105 w-full -translate-x-1/2 -translate-y-1/2 transform rounded-md p-7.5">
+				<form className="relative flex flex-col gap-y-4" onSubmit={handleSubmit(onSubmit)}>
 					<span
 						className="text-gray/50 absolute -top-3 right-0 text-xl hover:cursor-pointer dark:text-white"
-						onClick={handleCloseModal}
+						onClick={closeModal}
 					>
 						X
 					</span>
-					<input type="hidden" name="time" value={getFormattedDate()}></input>
-					<input id="g-recaptcha-response" type="hidden" name="g-recaptcha-response" />
 					<div className="flex flex-col gap-y-2">
 						<label htmlFor="name" className="text-accent text-xl font-bold">
 							{t(nameInput)}
 						</label>
 						<input
-							type="text"
+							{...register("name", {
+								required: returnRequiredError(t(article), t(nameInput), t(inputRequired)),
+								validate: (value) => {
+									if (+returnTrimmedValueOrLength("length", value) === 0)
+										return returnRequiredError(t(article), t(nameInput), t(inputRequired));
+									if (+returnTrimmedValueOrLength("length", value) > 50)
+										return `${t(article)} ${t(nameInput)} ${t(inputLessThanError)} 50 ${t(inputCharactersError)}`;
+								},
+							})}
 							id="name"
-							name="name"
 							className="input"
-							placeholder={t(nameInputPlaceholder)}
+							type="text"
 							autoComplete="name"
-							required
-							max={50}
-							ref={nameRef}
-							onBlur={() => resetFormError("name")}
+							placeholder={t(nameInputPlaceholder)}
 						/>
-						{formErrors.nameError && <span className="text-xs text-red-500">{formErrors.nameError}</span>}
+						{errors.name && <p className="text-xs text-red-500">{errors.name.message}</p>}
 					</div>
 					<div className="flex flex-col gap-y-2">
 						<label htmlFor="email" className="text-accent text-xl font-bold">
 							{t(emailInput)}
 						</label>
 						<input
-							type="email"
+							{...register("email", {
+								required: returnRequiredError(t(article), t(emailInput), t(inputRequired)),
+								pattern: {
+									value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+									message: `${t(inputEmailFormatError)}`,
+								},
+								validate: (value) => {
+									if (+returnTrimmedValueOrLength("length", value) === 0)
+										return returnRequiredError(t(article), t(emailInput), t(inputRequired));
+									if (+returnTrimmedValueOrLength("length", value) < 3)
+										return `${t(article)} ${t(emailInput)} ${t(inputAtLeastError)} 3 ${t(inputCharactersError)}`;
+									if (+returnTrimmedValueOrLength("length", value) > 100)
+										return `${t(article)} ${t(emailInput)} ${t(inputLessThanError)} 100 ${t(inputCharactersError)}`;
+								},
+							})}
 							id="email"
-							name="email"
 							className="input"
-							placeholder={t(emailInputPlaceholder)}
+							type="email"
 							autoComplete="email"
-							required
-							min={3}
-							max={100}
-							ref={emailRef}
-							onBlur={() => resetFormError("email")}
+							placeholder={t(emailInputPlaceholder)}
 						/>
-						{formErrors.emailError && <span className="text-xs text-red-500">{formErrors.emailError}</span>}
+						{errors.email && <p className="text-xs text-red-500">{errors.email.message}</p>}
 					</div>
 					<div className="flex flex-col gap-y-2">
 						<label htmlFor="title" className="text-accent text-xl font-bold">
 							{t(subjectInput)}
 						</label>
 						<input
-							type="text"
+							{...register("title", {
+								required: returnRequiredError(t(article), t(subjectInput), t(inputRequired)),
+								validate: (value) => {
+									if (+returnTrimmedValueOrLength("length", value) === 0)
+										return returnRequiredError(t(article), t(subjectInput), t(inputRequired));
+									if (+returnTrimmedValueOrLength("length", value) > 100)
+										return `${t(article)} ${t(subjectInput)} ${t(inputLessThanError)} 100 ${t(inputCharactersError)}`;
+								},
+							})}
 							id="title"
-							name="title"
 							className="input"
-							placeholder={t(subjectInputPlaceholder)}
+							type="text"
 							autoComplete="off"
-							required
-							max={100}
-							ref={subjectRef}
-							onBlur={() => resetFormError("subject")}
+							placeholder={t(subjectInputPlaceholder)}
 						/>
-						{formErrors.subjectError && <span className="text-xs text-red-500">{formErrors.subjectError}</span>}
+						{errors.title && <p className="text-xs text-red-500">{errors.title.message}</p>}
 					</div>
 					<div className="flex flex-col gap-y-2">
 						<label htmlFor="message" className="text-accent text-xl font-bold">
 							{t(messageInput)}
 						</label>
 						<textarea
+							{...register("message", {
+								required: returnRequiredError(t(article), t(messageInput), t(inputRequired)),
+								validate: (value) => {
+									if (+returnTrimmedValueOrLength("length", value) === 0)
+										return returnRequiredError(t(article), t(messageInput), t(inputRequired));
+									if (+returnTrimmedValueOrLength("length", value) < 10)
+										return `${t(article)} ${t(messageInput)} ${t(inputAtLeastError)} 10 ${t(inputCharactersError)}`;
+									if (+returnTrimmedValueOrLength("length", value) > 1000)
+										return `${t(article)} ${t(messageInput)} ${t(inputLessThanError)} 1000 ${t(inputCharactersError)}`;
+								},
+							})}
 							id="message"
-							name="message"
 							className="input resize-y"
-							placeholder={t(messageInputPlaceholder)}
 							autoComplete="off"
-							required
-							minLength={10}
-							maxLength={1000}
-							ref={messageRef}
-							onBlur={() => resetFormError("message")}
+							placeholder={t(messageInputPlaceholder)}
 						/>
-						{formErrors.messageError && <span className="text-xs text-red-500">{formErrors.messageError}</span>}
+						{errors.message && <p className="text-xs text-red-500">{errors.message.message}</p>}
 					</div>
 					<div className="flex-center">
 						<button
