@@ -3,9 +3,12 @@ import { useQuery } from "@tanstack/react-query";
 
 import fallbackContent from "../data/content.json";
 
+import { useModal } from "@/context/modal-context";
 import type { Content } from "@/types";
 
 export function usePortfolioContent() {
+	const { isModalOpen } = useModal();
+
 	const {
 		data: content,
 		isFetching,
@@ -22,6 +25,7 @@ export function usePortfolioContent() {
 		retry: 1,
 		retryDelay: 1000,
 		placeholderData: fallbackContent as Content,
+		enabled: !isModalOpen,
 	});
 
 	return {
