@@ -1,37 +1,48 @@
-import { Bounce, ToastContainer } from "react-toastify";
+import { lazy, Suspense, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
-import ModalProvider from "./context/ModalProvider";
-import ContactModal from "./components/contact-modal/ContactModal";
-import Header from "./components/ui/Header";
-import Main from "./components/Main";
+import ScrollButton from "./components/ScrollButton";
 import Footer from "./components/ui/Footer";
+import Header from "./components/ui/Header";
+import LoadingSpinner from "./components/ui/LoadingSpinner";
+import Main from "./components/ui/Main";
 
-function App() {
+import { useModal } from "./context/modal-context";
+import { usePortfolioContent } from "./hooks/usePortfolioContent";
+
+const ContactModal = lazy(() => import("./components/contact-modal/ContactModal"));
+
+const App = () => {
+	const divRef = useRef<HTMLDivElement>(null);
+	const { content, isFetching, errorMessage } = usePortfolioContent();
+	const { isModalOpen } = useModal();
+	const { t } = useTranslation();
+
+	const scrollToTop = () => {
+		divRef.current?.scrollIntoView({ behavior: "smooth" });
+	};
+
+	if (errorMessage) console.log(errorMessage);
+	if (isFetching) return <LoadingSpinner />;
+
 	return (
-		<ModalProvider>
-			<div className="relative w-full font-sans text-white bg-primary">
-				<ContactModal />
-				<div className="max-w-260 mx-auto">
-					<Header />
-					<Main />
-				</div>
-				<Footer />
+		<>
+			<div ref={divRef} className="flex w-full flex-col items-center gap-y-15">
+				<title>{t("page-title")}</title>
+				<Header {...content.header} />
+				<Main {...content.main} />
+				<ScrollButton scrollToTop={scrollToTop} />
+				<Footer
+					name={content.header.name}
+					role={content.header.role}
+					cta={content.header.cta}
+					copyright={content.footer.copyright}
+				/>
 			</div>
-			<ToastContainer
-				position="bottom-center"
-				autoClose={5000}
-				hideProgressBar={false}
-				newestOnTop={false}
-				closeOnClick
-				rtl={false}
-				pauseOnFocusLoss
-				draggable
-				pauseOnHover
-				theme="dark"
-				transition={Bounce}
-			/>
-		</ModalProvider>
+
+			<Suspense fallback={null}>{isModalOpen && <ContactModal {...content["contact-modal"]} />}</Suspense>
+		</>
 	);
-}
+};
 
 export default App;

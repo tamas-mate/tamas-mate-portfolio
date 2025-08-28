@@ -1,4 +1,6 @@
+import clsx, { type ClassValue } from "clsx";
 import { Bounce, type ToastPosition } from "react-toastify";
+import { twMerge } from "./../../node_modules/tailwind-merge/src/lib/tw-merge";
 
 import macweb1 from "../assets/images/macweb1.png";
 import macweb2 from "../assets/images/macweb2.png";
@@ -6,6 +8,23 @@ import macweb2 from "../assets/images/macweb2.png";
 export const imageMap: Record<string, string> = {
 	"macweb1.png": macweb1,
 	"macweb2.png": macweb2,
+};
+
+export function cl(...classes: ClassValue[]) {
+	return twMerge(clsx(...classes));
+}
+
+export const toastContainerConfig = {
+	position: "bottom-center" as ToastPosition,
+	autoClose: 5000,
+	hideProgressBar: false,
+	newestOnTop: false,
+	closeOnClick: true,
+	rtl: false,
+	pauseOnFocusLoss: true,
+	draggable: true,
+	pauseOnHover: true,
+	transition: Bounce,
 };
 
 export const getFormattedDate = () => {
@@ -22,18 +41,6 @@ export const getFormattedDate = () => {
 		.replace(",", "");
 };
 
-export const toastConfig = {
-	position: "bottom-center" as ToastPosition,
-	autoClose: 5000,
-	hideProgressBar: false,
-	closeOnClick: true,
-	pauseOnHover: true,
-	draggable: true,
-	progress: undefined,
-	theme: "dark",
-	transition: Bounce,
-};
-
 // Function that initializes a MutationObserver for the captcha
 export const initObserver = () => {
 	// Find the captcha window by first getting a list of iFrames.
@@ -41,7 +48,7 @@ export const initObserver = () => {
 	// The actualy DIV that hides it, is a grandparent. So we get the
 	// parentNode prop 2 times.
 	const recaptchaWindow = [...document.getElementsByTagName("iframe")]?.find((x) =>
-		x.src.includes("google.com/recaptcha/api2/bframe")
+		x.src.includes("google.com/recaptcha/api2/bframe"),
 	)?.parentNode?.parentNode as HTMLDivElement;
 
 	// Make sure it is defined (it was found in the doc) before we add the observer

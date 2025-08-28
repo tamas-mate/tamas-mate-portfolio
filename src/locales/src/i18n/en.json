@@ -1,0 +1,129 @@
+{
+	"page-title": "Tamás Máté Portfolio",
+	"contact-modal": {
+		"name-input": "Name",
+		"name-input-placeholder": "Your name",
+		"email-input": "E-mail",
+		"email-input-placeholder": "Your e-mail address",
+		"subject-input": "Subject",
+		"subject-input-placeholder": "Subject",
+		"message-input": "Message",
+		"message-input-placeholder": "Your message",
+		"button-send": "Send",
+		"button-sending": "Sending",
+		"check-inputs-toast": "Please check your inputs!",
+		"failed-recaptcha-toast": "Failed to verify reCAPTCHA!",
+		"failed-message-toast": "Failed to send the message!",
+		"success-message-toast": "Message successfully sent!",
+		"input-at-least-error": "must be at least",
+		"input-less-than-error": "must be less than",
+		"input-characters-error": "characters!",
+		"input-email-format-error": "Invalid email format!",
+		"input-required": "is required!",
+		"article": ""
+	},
+	"header": {
+		"name": "Tamás Máté",
+		"role": "Front-End & React Native Developer",
+		"location": "Saint George, Romania",
+		"cta": "Contact Me"
+	},
+	"main": {
+		"sections": {
+			"summary": "Summary",
+			"projects": "Projects",
+			"overview": "Overview",
+			"work-history": "Work History",
+			"education": "Education",
+			"skills": "Skills",
+			"languages": "Languages",
+			"quote": "Quote",
+			"timeline": "Timeline"
+		},
+		"summary": "React & React Native developer with growing expertise in TypeScript and Tailwind CSS. Passionate about creating user-focused web and mobile applications that are simple, intuitive, and enjoyable to use. I value writing clean, maintainable code and I am always eager to explore new tools and best practices that improve both developer experience and product quality. Beyond the technical side, I enjoy working in collaborative environments where knowledge-sharing and problem-solving are part of the culture. My goal is to contribute to meaningful projects while continuously growing as a developer.",
+		"projects": {
+			"macrame": {
+				"title": "Macramé Jewelry Website",
+				"description": "Responsive showcase site for handcrafted jewelry. Built with React, TypeScript, Tailwind, and Vite.",
+				"status": "🚧 Work in Progress"
+			}
+		},
+		"overview": {
+			"work": {
+				"years": "5",
+				"description": "years of professional experience"
+			},
+			"language": {
+				"years": "3",
+				"description": "languages"
+			}
+		},
+		"timeline": {
+			"details": "Details",
+			"work": {
+				"pegazus": {
+					"title": "Programmer",
+					"subTitle": "Pegazus Soft",
+					"location": "Gheorgheni, Romania",
+					"extraContent": [
+						"Developed modular React + TypeScript features embedded in a Yii (PHP) web app",
+						"Implemented dynamic forms, 3D visualizations and building simulations using Three.js",
+						"Collaborated with backend using PostgreSQL & Yii, including 2FA and database migrations"
+					]
+				},
+				"camelcoding": {
+					"title": "Programmer",
+					"subTitle": "CamelCoding",
+					"location": "Miercurea Ciuc, Romania",
+					"extraContent": [
+						"Built and deployed mobile applications using React Native and Redux state manager",
+						"Developed Vue.js web applications with Laravel and MySQL backend",
+						"Developed Python and Node.js scripts for NFT generation, metadata processing, and backend services",
+						"Integrated and debugged multiple systems in production environments",
+						"Adapted quickly to project needs while continuously upskilling through self-guided learning"
+					]
+				}
+			},
+			"education": {
+				"college": {
+					"title": "Bachelor's degree (BSc) - Business Informatics",
+					"subTitle": "Sapientia Hungarian University of Transylvania",
+					"location": "Miercurea Ciuc, Romania"
+				},
+				"school": {
+					"title": "Graduation Diploma - English bilingual track specializing in mathematics and computer science",
+					"subTitle": "Székely Mikó College",
+					"location": "Sfantu Gheorghe, Romania"
+				}
+			}
+		},
+		"skills": [
+			"Tailwind CSS",
+			"JavaScript",
+			"TypeScript",
+			"Redux",
+			"Threejs",
+			"React",
+			"React Native",
+			"Git & GitHub",
+			"Jira",
+			"Trello",
+			"Clear communication",
+			"Proactive learning",
+			"Adaptability in remote teams"
+		],
+		"languages": ["Hungarian", "English", "Romanian"],
+		"quote": {
+			"text": "Every problem is a gift — without problems we would not grow."
+		},
+		"history": {
+			"bachelor-keyword": "Bachelor's",
+			"bachelor-short": "Bachelor's degree (BSc)",
+			"graduation-keyword": "Graduation",
+			"graduation-short": "Graduation Diploma"
+		}
+	},
+	"footer": {
+		"copyright": "All rights reserved"
+	}
+}

@@ -1,156 +1,135 @@
 {
-    "navItems": [
-        {
-            "label": "Summary",
-            "href": "#summary"
-        },
-        {
-            "label": "Projects",
-            "href": "#projects"
-        },
-        {
-            "label": "Overview",
-            "href": "#overview"
-        },
-        {
-            "label": "Work History",
-            "href": "#work-history"
-        },
-        {
-            "label": "Education",
-            "href": "#education"
-        },
-        {
-            "label": "Skills",
-            "href": "#skills"
-        },
-        {
-            "label": "Languages",
-            "href": "#languages"
-        },
-        {
-            "label": "Quote",
-            "href": "#quote"
-        },
-        {
-            "label": "Timeline",
-            "href": "#timeline"
-        }
-    ],
-    "summary": "React & React Native developer with growing expertise in TypeScript and Tailwind CSS. Passionate about building user-focused web and mobile applications, solving problems efficiently, and contributing to collaborative teams in remote or hybrid environments.",
-    "projects": [
-        {
-            "title": "Macramé Jewelry Website",
-            "description": "Responsive showcase site for handcrafted jewelry. Built with React, TypeScript, Tailwind, and Vite.",
-            "images": [
-                "macweb1.png",
-                "macweb2.png"
-            ],
-            "technologies": [
-                "Vite",
-                "Tailwind CSS",
-                "TypeScript",
-                "React"
-            ],
-            "status": "🚧 Work in Progress"
-        }
-    ],
-    "overview": [
-        {
-            "years": "5",
-            "description": "years of professional experience"
-        },
-        {
-            "years": "3",
-            "description": "languages"
-        }
-    ],
-    "timeline": {
-        "work": [
-            {
-                "title": "Programmer",
-                "subTitle": "Pegazus Soft",
-                "location": "Gheorgheni, Romania",
-                "date": "11.2024 - 06.2025",
-                "icon": "job2",
-                "extraContent": [
-                    "Developed modular React + TypeScript features embedded in a Yii (PHP) web app",
-                    "Implemented dynamic forms, 3D visualizations and building simulations using Three.js",
-                    "Collaborated with backend using PostgreSQL & Yii, including 2FA and database migrations"
-                ]
-            },
-            {
-                "title": "Programmer",
-                "subTitle": "CamelCoding",
-                "location": "Miercurea Ciuc, Romania",
-                "date": "08.2019 - 10.2024",
-                "icon": "job1",
-                "extraContent": [
-                    "Built and deployed mobile applications using React Native and Redux state manager",
-                    "Developed Vue.js web applications with Laravel and MySQL backend",
-                    "Developed Python and Node.js scripts for NFT generation, metadata processing, and backend services",
-                    "Integrated and debugged multiple systems in production environments",
-                    "Adapted quickly to project needs while continuously upskilling through self-guided learning"
-                ]
-            }
-        ],
-        "education": [
-            {
-                "title": "Bachelor's degree (BSc) - Business Informatics",
-                "subTitle": "Sapientia Hungarian University of Transylvania",
-                "location": "Miercurea Ciuc, Romania",
-                "date": "09.2016 - 06.2019",
-                "icon": "university"
-            },
-            {
-                "title": "Graduation Diploma - English bilingual track specializing in mathematics and computer science",
-                "subTitle": "Székely Mikó College",
-                "location": "Sfantu Gheorghe, Romania",
-                "date": "09.2011 - 09.2015",
-                "icon": "school"
-            }
-        ]
-    },
-    "skills": [
-        "Tailwind CSS",
-        "JavaScript",
-        "TypeScript",
-        "Redux",
-        "Threejs",
-        "React",
-        "React Native",
-        "Git & GitHub",
-        "Jira",
-        "Trello",
-        "Clear communication",
-        "Proactive learning",
-        "Adaptability in remote teams"
-    ],
-    "languages": [
-        {
-            "name": "Hungarian",
-            "level": {
-                "stage": "Native",
-                "rating": "w-full"
-            }
-        },
-        {
-            "name": "English",
-            "level": {
-                "stage": "Advanced (C1)",
-                "rating": "w-[83.33%]"
-            }
-        },
-        {
-            "name": "Romanian",
-            "level": {
-                "stage": "Elementary (A2)",
-                "rating": "w-[33.33%]"
-            }
-        }
-    ],
-    "quote": {
-        "text": "Every problem is a gift — without problems we would not grow.",
-        "author": "Anthony Robbins"
-    }
+	"contact-modal": {
+		"name-input": "contact-modal.name-input",
+		"name-input-placeholder": "contact-modal.name-input-placeholder",
+		"email-input": "contact-modal.email-input",
+		"email-input-placeholder": "contact-modal.email-input-placeholder",
+		"subject-input": "contact-modal.subject-input",
+		"subject-input-placeholder": "contact-modal.subject-input-placeholder",
+		"message-input": "contact-modal.message-input",
+		"message-input-placeholder": "contact-modal.message-input-placeholder",
+		"button-send": "contact-modal.button-send",
+		"button-sending": "contact-modal.button-sending",
+		"check-inputs-toast": "contact-modal.check-inputs-toast",
+		"failed-recaptcha-toast": "contact-modal.failed-recaptcha-toast",
+		"failed-message-toast": "contact-modal.failed-message-toast",
+		"success-message-toast": "contact-modal.success-message-toast",
+		"input-at-least-error": "contact-modal.input-at-least-error",
+		"input-less-than-error": "contact-modal.input-less-than-error",
+		"input-characters-error": "contact-modal.input-characters-error",
+		"input-email-format-error": "contact-modal.input-email-format-error",
+		"input-required": "contact-modal.input-required",
+		"article": "contact-modal.article"
+	},
+	"header": {
+		"name": "header.name",
+		"role": "header.role",
+		"location": "header.location",
+		"cta": "header.cta"
+	},
+	"main": {
+		"navItems": [
+			{
+				"label": "main.sections.summary",
+				"href": "#summary"
+			},
+			{
+				"label": "main.sections.projects",
+				"href": "#projects"
+			},
+			{
+				"label": "main.sections.overview",
+				"href": "#overview"
+			},
+			{
+				"label": "main.sections.work-history",
+				"href": "#work-history"
+			},
+			{
+				"label": "main.sections.education",
+				"href": "#education"
+			},
+			{
+				"label": "main.sections.skills",
+				"href": "#skills"
+			},
+			{
+				"label": "main.sections.languages",
+				"href": "#languages"
+			},
+			{
+				"label": "main.sections.quote",
+				"href": "#quote"
+			},
+			{
+				"label": "main.sections.timeline",
+				"href": "#timeline"
+			}
+		],
+		"summary": "main.summary",
+		"projects": [
+			{
+				"title": "main.projects.macrame.title",
+				"description": "main.projects.macrame.description",
+				"images": ["macweb1.png", "macweb2.png"],
+				"technologies": ["Vite", "Tailwind CSS", "TypeScript", "React"],
+				"status": "main.projects.macrame.status"
+			}
+		],
+		"overview": [
+			{
+				"years": "main.overview.work.years",
+				"description": "main.overview.work.description"
+			},
+			{
+				"years": "main.overview.language.years",
+				"description": "main.overview.language.description"
+			}
+		],
+		"timeline": {
+			"work": [
+				{
+					"title": "main.timeline.work.pegazus.title",
+					"subTitle": "main.timeline.work.pegazus.subTitle",
+					"location": "main.timeline.work.pegazus.location",
+					"date": "11.2024 - 06.2025",
+					"icon": "job2",
+					"extraContent": "main.timeline.work.pegazus.extraContent"
+				},
+				{
+					"title": "main.timeline.work.camelcoding.title",
+					"subTitle": "main.timeline.work.camelcoding.subTitle",
+					"location": "main.timeline.work.camelcoding.location",
+					"date": "08.2019 - 10.2024",
+					"icon": "job1",
+					"extraContent": "main.timeline.work.camelcoding.extraContent"
+				}
+			],
+			"education": [
+				{
+					"title": "main.timeline.education.college.title",
+					"subTitle": "main.timeline.education.college.subTitle",
+					"location": "main.timeline.education.college.location",
+					"date": "09.2016 - 06.2019",
+					"icon": "university"
+				},
+				{
+					"title": "main.timeline.education.school.title",
+					"subTitle": "main.timeline.education.school.subTitle",
+					"location": "main.timeline.education.school.location",
+					"date": "09.2011 - 09.2015",
+					"icon": "school"
+				}
+			]
+		},
+		"skills": "main.skills",
+		"languages": "main.languages",
+		"quote": {
+			"text": "main.quote.text",
+			"author": "Anthony Robbins"
+		}
+	},
+	"footer": {
+		"copyright": "footer.copyright"
+	}
 }
