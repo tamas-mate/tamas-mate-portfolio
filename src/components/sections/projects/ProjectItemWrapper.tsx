@@ -2,8 +2,8 @@ import { useCallback } from "react";
 
 import ProjectItem from "./ProjectItem";
 
-import { imageMap } from "@/utils/utils";
 import type { ProjectProps } from "@/types";
+import { imageMap } from "@/utils/utils";
 
 const ProjectItemWrapper = (project: ProjectProps) => {
 	const getProjectImages = useCallback((project: { images: string[] }) => {

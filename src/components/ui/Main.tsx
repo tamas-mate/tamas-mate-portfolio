@@ -1,16 +1,16 @@
 import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
-import SideNav from "../sidenav/SideNav";
-import MobileMenu from "../sidenav/MobileMenu";
-import Summary from "../sections/summary/Summary";
-import Projects from "../sections/projects/Projects";
-import Overview from "../sections/overview/Overview";
-import Timeline from "../sections/timeline/Timeline";
-import Skills from "../sections/skills/Skills";
-import Languages from "../sections/languages/Languages";
-import Quote from "../sections/quote/Quote";
 import History from "../sections/history/History";
+import Languages from "../sections/languages/Languages";
+import Overview from "../sections/overview/Overview";
+import Projects from "../sections/projects/Projects";
+import Quote from "../sections/quote/Quote";
+import Skills from "../sections/skills/Skills";
+import Summary from "../sections/summary/Summary";
+import Timeline from "../sections/timeline/Timeline";
+import MobileMenu from "../sidenav/MobileMenu";
+import SideNav from "../sidenav/SideNav";
 
 import type { MainProps, TimeLineScrollHandle } from "@/types";
 

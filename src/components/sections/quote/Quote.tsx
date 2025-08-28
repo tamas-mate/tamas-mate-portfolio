@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 import SectionTitle from "../../ui/SectionTitle";
 import SVGComponent from "../../ui/SVGComponent";
 
-import icons from "../../../assets/icons/data.json";
 import type { QuoteProps } from "@/types";
+import icons from "../../../assets/icons/data.json";
 
 const Quote = ({ text, author }: QuoteProps) => {
 	const { t } = useTranslation();

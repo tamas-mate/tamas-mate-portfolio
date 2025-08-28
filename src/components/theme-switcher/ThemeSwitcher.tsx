@@ -2,11 +2,7 @@ import SVGComponent from "../ui/SVGComponent";
 
 import { useTheme } from "@/context/theme-context";
 
-import { cl } from "@/utils/utils";
-
-import type { SwitcherProps } from "@/types";
-
-const ThemeSwitcher = ({ extraClasses }: SwitcherProps) => {
+const ThemeSwitcher = () => {
 	const { isDark, setTheme } = useTheme();
 
 	const handleSwitchTheme = () => {
@@ -15,7 +11,7 @@ const ThemeSwitcher = ({ extraClasses }: SwitcherProps) => {
 
 	return (
 		<button
-			className={cl("rounded-lg p-2.5 text-sm hover:cursor-pointer focus:outline-none", extraClasses)}
+			className="hover:bg-theme-switcher-bg/50 absolute top-0 right-0 rounded-lg p-2.5 text-sm hover:cursor-pointer focus:outline-none"
 			type="button"
 			aria-label="Toggle dark mode"
 			onClick={handleSwitchTheme}

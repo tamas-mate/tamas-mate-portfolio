@@ -32,8 +32,8 @@ html.dark {
 @layer components {
 	.hamburger {
 		cursor: pointer;
-		width: 24px;
-		height: 24px;
+		width: 18px;
+		height: 18px;
 		transition: all 0.25s;
 		position: relative;
 	}
@@ -43,7 +43,7 @@ html.dark {
 	.hamburger-bottom {
 		content: "";
 		position: absolute;
-		width: 24px;
+		width: 18px;
 		height: 2px;
 		top: 0;
 		left: 0;

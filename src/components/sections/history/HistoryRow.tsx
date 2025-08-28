@@ -3,9 +3,9 @@ import { useTranslation } from "react-i18next";
 
 import SVGComponent from "../../ui/SVGComponent";
 
-import icons from "../../../assets/icons/data.json";
-import { cl } from "@/utils/utils";
 import type { HistoryRowProps, IconName } from "@/types";
+import { cl } from "@/utils/utils";
+import icons from "../../../assets/icons/data.json";
 
 const HistoryRow = memo(({ index, item, onClick }: HistoryRowProps) => {
 	const { t } = useTranslation();
@@ -32,7 +32,7 @@ const HistoryRow = memo(({ index, item, onClick }: HistoryRowProps) => {
 			>
 				<div
 					className="bg-primary dark:bg-lighter-dark3 dark:group-hover:bg-primary group-hover:bg-light-blue flex w-87.5 items-start justify-start gap-10 rounded-sm py-5 pl-10 hover:cursor-pointer"
-					onClick={() => onClick(item.sectionId!)}
+					onClick={() => onClick(item?.sectionId)}
 				>
 					<div className="bg-light-blue dark:bg-primary/50 dark:group-hover:bg-lighter-dark3 group-hover:bg-primary mt-1.5 rounded-sm p-3">
 						<SVGComponent className={"fill-accent size-6"} {...icons[item.icon as IconName]} />

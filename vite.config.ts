@@ -1,8 +1,8 @@
-import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
-import { visualizer } from "rollup-plugin-visualizer";
 import { fileURLToPath, URL } from "node:url";
+import { visualizer } from "rollup-plugin-visualizer";
+import { defineConfig } from "vite";
 
 const analyze = process.env.ANALYZE === "true";
 

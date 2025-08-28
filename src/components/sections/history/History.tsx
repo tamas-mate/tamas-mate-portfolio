@@ -1,5 +1,5 @@
-import { useTranslation } from "react-i18next";
 import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 
 import SectionTitle from "../../ui/SectionTitle";
 import HistoryRow from "./HistoryRow";

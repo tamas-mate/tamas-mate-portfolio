@@ -7,7 +7,7 @@ import type { SwitcherProps } from "@/types";
 const HamburgerButton = ({ extraClasses }: SwitcherProps) => {
 	const { isMenuOpen, openMenu, closeMenu, setTriggerRef } = useMobileMenu();
 
-	const setRef = (el: HTMLButtonElement | null) => setTriggerRef(el!);
+	const setRef = (el: HTMLButtonElement | null) => setTriggerRef(el);
 
 	const handleMenuBtnClick = () => {
 		if (isMenuOpen) {

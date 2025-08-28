@@ -1,13 +1,13 @@
-import { StrictMode, lazy, Suspense } from "react";
-import { createRoot } from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { lazy, StrictMode, Suspense } from "react";
+import { createRoot } from "react-dom/client";
 import "./i18n";
 import "./index.css";
 
 import App from "./App.tsx";
+import MobileMenuProvider from "./context/MobileMenuProvider.tsx";
 import ModalProvider from "./context/ModalProvider.tsx";
 import ThemeProvider from "./context/ThemeProvider.tsx";
-import MobileMenuProvider from "./context/MobileMenuProvider.tsx";
 
 import { toastContainerConfig } from "./utils/utils.ts";
 

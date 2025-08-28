@@ -71,16 +71,8 @@
 			{
 				"title": "main.projects.macrame.title",
 				"description": "main.projects.macrame.description",
-				"images": [
-					"macweb1.png",
-					"macweb2.png"
-				],
-				"technologies": [
-					"Vite",
-					"Tailwind CSS",
-					"TypeScript",
-					"React"
-				],
+				"images": ["macweb1.png", "macweb2.png"],
+				"technologies": ["Vite", "Tailwind CSS", "TypeScript", "React"],
 				"status": "main.projects.macrame.status"
 			}
 		],

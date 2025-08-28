@@ -1,10 +1,10 @@
 import js from "@eslint/js";
-import globals from "globals";
+import pluginESx from "eslint-plugin-es-x";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
-import tseslint from "typescript-eslint";
 import { globalIgnores } from "eslint/config";
-import pluginESx from "eslint-plugin-es-x";
+import globals from "globals";
+import tseslint from "typescript-eslint";
 
 export default tseslint.config([
 	globalIgnores(["dist"]),

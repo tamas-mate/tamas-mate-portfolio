@@ -23,7 +23,7 @@ export type MobileMenuContextType = {
 	openMenu: () => void;
 	closeMenu: () => void;
 	triggerRef: Ref<HTMLButtonElement>;
-	setTriggerRef: (el: HTMLButtonElement) => void;
+	setTriggerRef: (el: HTMLButtonElement | null) => void;
 };
 
 export type ModalContextType = {
@@ -193,13 +193,13 @@ export type HistoryProps = {
 	timeline: {
 		[K in keyof Timeline]: TimelineItemProps[];
 	};
-	onClick: (id: string) => void;
+	onClick: (id?: string) => void;
 };
 
 export type HistoryRowProps = {
 	index: number;
 	item: TimelineItemProps;
-	onClick: (id: string) => void;
+	onClick: (id?: string) => void;
 };
 
 export type FooterProps = Omit<HeaderProps, "location"> & { copyright: string };
