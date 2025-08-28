@@ -1,14 +1,14 @@
-import { useTranslation } from "react-i18next";
-import { useState, useRef, useMemo } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
-import { toast } from "react-toastify";
-import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
+import { useMemo, useRef, useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
+import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
 
 import { useModal } from "@/context/modal-context";
-import { getFormattedDate, initObserver } from "@/utils/utils";
-import type { ContactModalProps, FormData } from "@/types";
 import { useTheme } from "@/context/theme-context";
+import type { ContactModalProps, FormData } from "@/types";
+import { getFormattedDate, initObserver } from "@/utils/utils";
 
 const returnRequiredError = (article: string, field: string, inputRequired: string) => {
 	if ((localStorage.getItem("i18nextLng") ?? "en") === "hu") field = field.toLowerCase();
@@ -76,7 +76,7 @@ const ContactModal = ({
 			}
 
 			initObserver();
-			const token = await recaptcha.current!.executeAsync();
+			const token = await recaptcha.current?.executeAsync();
 
 			if (!token) {
 				toast.error(t(failedRecaptchaToast), toastTheme);

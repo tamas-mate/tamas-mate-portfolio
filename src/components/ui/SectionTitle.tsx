@@ -2,8 +2,8 @@ import SVGComponent from "./SVGComponent";
 
 import icons from "../../assets/icons/data.json";
 
-import { cl } from "@/utils/utils";
 import type { SectionTitleProps } from "@/types";
+import { cl } from "@/utils/utils";
 
 const SectionTitle = ({ title, iconName, stroke }: SectionTitleProps) => {
 	return (

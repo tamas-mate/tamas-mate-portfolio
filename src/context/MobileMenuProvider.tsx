@@ -18,7 +18,7 @@ const MobileMenuProvider = ({ children }: ChildrenProvider) => {
 			openMenu: () => setIsMenuOpen(true),
 			closeMenu: () => setIsMenuOpen(false),
 			triggerRef,
-			setTriggerRef: (el: HTMLButtonElement) => (triggerRef.current = el),
+			setTriggerRef: (el: HTMLButtonElement | null) => (triggerRef.current = el),
 		}),
 		[isMenuOpen],
 	);

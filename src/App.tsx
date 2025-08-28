@@ -1,14 +1,14 @@
 import { lazy, Suspense, useRef } from "react";
 import { useTranslation } from "react-i18next";
 
-import LoadingSpinner from "./components/ui/LoadingSpinner";
-import Header from "./components/ui/Header";
-import Main from "./components/ui/Main";
-import Footer from "./components/ui/Footer";
 import ScrollButton from "./components/ScrollButton";
+import Footer from "./components/ui/Footer";
+import Header from "./components/ui/Header";
+import LoadingSpinner from "./components/ui/LoadingSpinner";
+import Main from "./components/ui/Main";
 
-import { usePortfolioContent } from "./hooks/usePortfolioContent";
 import { useModal } from "./context/modal-context";
+import { usePortfolioContent } from "./hooks/usePortfolioContent";
 
 const ContactModal = lazy(() => import("./components/contact-modal/ContactModal"));
 
@@ -18,7 +18,9 @@ const App = () => {
 	const { isModalOpen } = useModal();
 	const { t } = useTranslation();
 
-	const scrollToTop = () => divRef.current!.scrollIntoView({ behavior: "smooth" });
+	const scrollToTop = () => {
+		divRef.current?.scrollIntoView({ behavior: "smooth" });
+	};
 
 	if (errorMessage) console.log(errorMessage);
 	if (isFetching) return <LoadingSpinner />;

@@ -11,7 +11,7 @@ const Timeline = ({ handleRef, sectionId, title, iconName, timelineContent }: Ti
 	useImperativeHandle(handleRef, () => {
 		return {
 			scrollIntoView() {
-				sectionRef.current!.scrollIntoView({ behavior: "smooth" });
+				sectionRef.current?.scrollIntoView({ behavior: "smooth" });
 			},
 		};
 	}, []);

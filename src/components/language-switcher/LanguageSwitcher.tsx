@@ -1,22 +1,12 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 
 import SVGComponent from "../ui/SVGComponent";
 
 import icons from "../../assets/icons/data.json";
 
-import { cl } from "@/utils/utils";
-
-import type { SwitcherProps } from "@/types";
-
-const LanguageSwitcher = ({ extraClasses }: SwitcherProps) => {
+const LanguageSwitcher = () => {
 	const { i18n } = useTranslation();
-	const selectRef = useRef<HTMLSelectElement>(null);
-
-	useEffect(() => {
-		const storedLanguage = localStorage.getItem("i18nextLng");
-		if (storedLanguage) selectRef.current!.value = storedLanguage;
-	}, [i18n]);
 
 	const handleLanguageChange = useCallback(
 		async (lang: string) => {
@@ -28,10 +18,10 @@ const LanguageSwitcher = ({ extraClasses }: SwitcherProps) => {
 	);
 
 	return (
-		<div className={cl("group flex-center text-accent gap-x-1 bg-transparent outline-none", extraClasses)}>
+		<div className="group flex-center text-accent absolute top-1.5 right-12 gap-x-1 bg-transparent outline-none">
 			<SVGComponent className="fill-accent size-6" {...icons["localization"]} />
 			<select
-				ref={selectRef}
+				defaultValue={i18n.language}
 				name="language"
 				className="outline-none group-hover:cursor-pointer"
 				onChange={(e) => handleLanguageChange(e.target.value)}

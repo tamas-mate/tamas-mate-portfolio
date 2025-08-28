@@ -1,5 +1,5 @@
-import { Bounce, type ToastPosition } from "react-toastify";
 import clsx, { type ClassValue } from "clsx";
+import { Bounce, type ToastPosition } from "react-toastify";
 import { twMerge } from "./../../node_modules/tailwind-merge/src/lib/tw-merge";
 
 import macweb1 from "../assets/images/macweb1.png";

@@ -1,133 +1,129 @@
 {
-    "page-title": "Tamás Máté Portofoliu",
-    "contact-modal": {
-        "name-input": "Nume",
-        "name-input-placeholder": "Numele tău",
-        "email-input": "E-mail",
-        "email-input-placeholder": "Adresa ta de e-mail",
-        "subject-input": "Subiect",
-        "subject-input-placeholder": "Subiect",
-        "message-input": "Mesaj",
-        "message-input-placeholder": "Mesajul tău",
-        "button-send": "Trimite",
-        "button-sending": "Se trimite",
-        "check-inputs-toast": "Te rugăm să verifici câmpurile!",
-        "failed-recaptcha-toast": "Verificarea reCAPTCHA a eșuat!",
-        "failed-message-toast": "Trimiterea mesajului a eșuat!",
-        "success-message-toast": "Mesaj trimis cu succes!",
-        "input-at-least-error": "trebuie să aibă cel puțin",
-        "input-less-than-error": "trebuie să aibă mai puțin decât",
-        "input-characters-error": "caractere!",
-        "input-email-format-error": "Format de email invalid!",
-        "input-required": "este obligatoriu!",
-        "article": ""
-    },
-    "header": {
-        "name": "Tamás Máté",
-        "role": "Dezvoltator Front-End & React Native",
-        "location": "Sfântu Gheorghe, România",
-        "cta": "Contact"
-    },
-    "main": {
-        "sections": {
-            "summary": "Rezumat",
-            "projects": "Proiecte",
-            "overview": "Prezentare generală",
-            "work-history": "Experiență profesională",
-            "education": "Educație",
-            "skills": "Competențe",
-            "languages": "Limbi",
-            "quote": "Citat",
-            "timeline": "Cronologie"
-        },
-        "summary": "Dezvoltator React și React Native cu expertiză în creștere în TypeScript și Tailwind CSS. Sunt pasionat de crearea de aplicații web și mobile centrate pe utilizator, care sunt simple, intuitive și plăcute de folosit. Apreciez scrierea unui cod curat și ușor de întreținut și sunt mereu dornic să explorez noi instrumente și bune practici care îmbunătățesc atât experiența dezvoltatorilor, cât și calitatea produsului. Dincolo de partea tehnică, îmi place să lucrez în medii colaborative unde împărtășirea cunoștințelor și rezolvarea problemelor fac parte din cultură. Obiectivul meu este să contribui la proiecte valoroase în timp ce evoluez continuu ca dezvoltator.",
-        "projects": {
-            "macrame": {
-                "title": "Website bijuterii macramé",
-                "description": "Site de prezentare responsiv pentru bijuterii realizate manual. Creat cu React, TypeScript, Tailwind și Vite.",
-                "status": "🚧 În curs de dezvoltare"
-            }
-        },
-        "overview": {
-            "work": {
-                "years": "5",
-                "description": "ani de experiență profesională"
-            },
-            "language": {
-                "years": "3",
-                "description": "limbi"
-            }
-        },
-        "timeline": {
-            "details": "Detalii",
-            "work": {
-                "pegazus": {
-                    "title": "Programator",
-                    "subTitle": "Pegazus Soft",
-                    "location": "Gheorgheni, România",
-                    "extraContent": [
-                        "Am dezvoltat funcționalități modulare React + TypeScript integrate într-o aplicație web Yii (PHP)",
-                        "Am implementat formulare dinamice, vizualizări 3D și simulări de clădiri folosind Three.js",
-                        "Am colaborat cu echipa de backend folosind PostgreSQL & Yii, inclusiv 2FA și migrații de baze de date"
-                    ]
-                },
-                "camelcoding": {
-                    "title": "Programator",
-                    "subTitle": "CamelCoding",
-                    "location": "Miercurea Ciuc, România",
-                    "extraContent": [
-                        "Am construit și lansat aplicații mobile folosind React Native și Redux pentru managementul stării",
-                        "Am dezvoltat aplicații web cu Vue.js folosind backend Laravel și MySQL",
-                        "Am dezvoltat scripturi Python și Node.js pentru generare de NFT-uri, procesare de metadata și servicii backend",
-                        "Am integrat și depanat multiple sisteme în medii de producție",
-                        "M-am adaptat rapid la cerințele proiectelor, continuând să mă perfecționez prin învățare autonomă"
-                    ]
-                }
-            },
-            "education": {
-                "college": {
-                    "title": "Licență (BSc) - Informatică Economică",
-                    "subTitle": "Universitatea Sapientia",
-                    "location": "Miercurea Ciuc, România"
-                },
-                "school": {
-                    "title": "Diplomă de absolvire - specializare matematică-informatică cu studiul bilingv a limbii engleze",
-                    "subTitle": "Colegiul Național Székely Mikó",
-                    "location": "Sfântu Gheorghe, România"
-                }
-            }
-        },
-        "skills": [
-            "Tailwind CSS",
-            "JavaScript",
-            "TypeScript",
-            "Redux",
-            "Threejs",
-            "React",
-            "React Native",
-            "Git & GitHub",
-            "Jira",
-            "Trello",
-            "Comunicare clară",
-            "Învățare proactivă",
-            "Adaptabilitate în echipe la distanță"
-        ],
-        "languages": [
-            "Maghiară",
-            "Engleză",
-            "Română"
-        ],
-        "quote": {
-            "text": "Fiecare problemă este un dar — fără probleme nu am crește."
-        },
-        "history": {
-            "bachelor-keyword": "Licență",
-            "bachelor-short": "Licență (BSc)",
-            "graduation-keyword": "Diplomă de",
-            "graduation-short": "Diplomă de absolvire"
-        }
-    },
-    "footer": {
-        "copyright": "Toate drepturile rezervate"
-    }
+	"page-title": "Tamás Máté Portofoliu",
+	"contact-modal": {
+		"name-input": "Nume",
+		"name-input-placeholder": "Numele tău",
+		"email-input": "E-mail",
+		"email-input-placeholder": "Adresa ta de e-mail",
+		"subject-input": "Subiect",
+		"subject-input-placeholder": "Subiect",
+		"message-input": "Mesaj",
+		"message-input-placeholder": "Mesajul tău",
+		"button-send": "Trimite",
+		"button-sending": "Se trimite",
+		"check-inputs-toast": "Te rugăm să verifici câmpurile!",
+		"failed-recaptcha-toast": "Verificarea reCAPTCHA a eșuat!",
+		"failed-message-toast": "Trimiterea mesajului a eșuat!",
+		"success-message-toast": "Mesaj trimis cu succes!",
+		"input-at-least-error": "trebuie să aibă cel puțin",
+		"input-less-than-error": "trebuie să aibă mai puțin decât",
+		"input-characters-error": "caractere!",
+		"input-email-format-error": "Format de email invalid!",
+		"input-required": "este obligatoriu!",
+		"article": ""
+	},
+	"header": {
+		"name": "Tamás Máté",
+		"role": "Dezvoltator Front-End & React Native",
+		"location": "Sfântu Gheorghe, România",
+		"cta": "Contact"
+	},
+	"main": {
+		"sections": {
+			"summary": "Rezumat",
+			"projects": "Proiecte",
+			"overview": "Prezentare generală",
+			"work-history": "Experiență profesională",
+			"education": "Educație",
+			"skills": "Competențe",
+			"languages": "Limbi",
+			"quote": "Citat",
+			"timeline": "Cronologie"
+		},
+		"summary": "Dezvoltator React și React Native cu expertiză în creștere în TypeScript și Tailwind CSS. Sunt pasionat de crearea de aplicații web și mobile centrate pe utilizator, care sunt simple, intuitive și plăcute de folosit. Apreciez scrierea unui cod curat și ușor de întreținut și sunt mereu dornic să explorez noi instrumente și bune practici care îmbunătățesc atât experiența dezvoltatorilor, cât și calitatea produsului. Dincolo de partea tehnică, îmi place să lucrez în medii colaborative unde împărtășirea cunoștințelor și rezolvarea problemelor fac parte din cultură. Obiectivul meu este să contribui la proiecte valoroase în timp ce evoluez continuu ca dezvoltator.",
+		"projects": {
+			"macrame": {
+				"title": "Website bijuterii macramé",
+				"description": "Site de prezentare responsiv pentru bijuterii realizate manual. Creat cu React, TypeScript, Tailwind și Vite.",
+				"status": "🚧 În curs de dezvoltare"
+			}
+		},
+		"overview": {
+			"work": {
+				"years": "5",
+				"description": "ani de experiență profesională"
+			},
+			"language": {
+				"years": "3",
+				"description": "limbi"
+			}
+		},
+		"timeline": {
+			"details": "Detalii",
+			"work": {
+				"pegazus": {
+					"title": "Programator",
+					"subTitle": "Pegazus Soft",
+					"location": "Gheorgheni, România",
+					"extraContent": [
+						"Am dezvoltat funcționalități modulare React + TypeScript integrate într-o aplicație web Yii (PHP)",
+						"Am implementat formulare dinamice, vizualizări 3D și simulări de clădiri folosind Three.js",
+						"Am colaborat cu echipa de backend folosind PostgreSQL & Yii, inclusiv 2FA și migrații de baze de date"
+					]
+				},
+				"camelcoding": {
+					"title": "Programator",
+					"subTitle": "CamelCoding",
+					"location": "Miercurea Ciuc, România",
+					"extraContent": [
+						"Am construit și lansat aplicații mobile folosind React Native și Redux pentru managementul stării",
+						"Am dezvoltat aplicații web cu Vue.js folosind backend Laravel și MySQL",
+						"Am dezvoltat scripturi Python și Node.js pentru generare de NFT-uri, procesare de metadata și servicii backend",
+						"Am integrat și depanat multiple sisteme în medii de producție",
+						"M-am adaptat rapid la cerințele proiectelor, continuând să mă perfecționez prin învățare autonomă"
+					]
+				}
+			},
+			"education": {
+				"college": {
+					"title": "Licență (BSc) - Informatică Economică",
+					"subTitle": "Universitatea Sapientia",
+					"location": "Miercurea Ciuc, România"
+				},
+				"school": {
+					"title": "Diplomă de absolvire - specializare matematică-informatică cu studiul bilingv a limbii engleze",
+					"subTitle": "Colegiul Național Székely Mikó",
+					"location": "Sfântu Gheorghe, România"
+				}
+			}
+		},
+		"skills": [
+			"Tailwind CSS",
+			"JavaScript",
+			"TypeScript",
+			"Redux",
+			"Threejs",
+			"React",
+			"React Native",
+			"Git & GitHub",
+			"Jira",
+			"Trello",
+			"Comunicare clară",
+			"Învățare proactivă",
+			"Adaptabilitate în echipe la distanță"
+		],
+		"languages": ["Maghiară", "Engleză", "Română"],
+		"quote": {
+			"text": "Fiecare problemă este un dar — fără probleme nu am crește."
+		},
+		"history": {
+			"bachelor-keyword": "Licență",
+			"bachelor-short": "Licență (BSc)",
+			"graduation-keyword": "Diplomă de",
+			"graduation-short": "Diplomă de absolvire"
+		}
+	},
+	"footer": {
+		"copyright": "Toate drepturile rezervate"
+	}
 }
