@@ -19,7 +19,7 @@ const Main = ({ navItems, summary, projects, overview, timeline, skills, languag
 	const workHistoryTimelineRef = useRef<TimeLineScrollHandle>(null);
 	const educationTimelineRef = useRef<TimeLineScrollHandle>(null);
 
-	const scrollToRelevantTimeline = (sectionId: string) => {
+	const scrollToRelevantTimeline = (sectionId?: string) => {
 		if (sectionId === "work-history") workHistoryTimelineRef.current?.scrollIntoView();
 		if (sectionId === "education") educationTimelineRef.current?.scrollIntoView();
 	};
