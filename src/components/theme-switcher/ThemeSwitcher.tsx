@@ -17,7 +17,7 @@ const ThemeSwitcher = () => {
 			onClick={handleSwitchTheme}
 		>
 			{/* Moon */}
-			<SVGComponent className="h-5 w-5 fill-blue-500 dark:hidden" viewBox="0 0 20 20">
+			<SVGComponent className="h-5 w-5 fill-blue-300 dark:hidden" viewBox="0 0 20 20">
 				<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
 			</SVGComponent>
 			{/* Sun */}

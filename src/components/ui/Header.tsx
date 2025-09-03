@@ -7,21 +7,34 @@ import SVGComponent from "./SVGComponent";
 
 import { useMobileMenu } from "@/context/mobile-menu-context";
 import { useModal } from "@/context/modal-context";
+import { useTheme } from "@/context/theme-context";
 import type { HeaderProps } from "@/types";
 import icons from "../../assets/icons/data.json";
-import profileBackground from "../../assets/images/bg-profile.avif";
+import profileBackgroundCoffee from "../../assets/images/bgcoffee.avif";
+import profileBackgroundDark from "../../assets/images/bgdark.png";
+import profileBackgroundLight from "../../assets/images/bglight.png";
 import profilePicture from "../../assets/images/profile.avif";
 
 const Header = ({ name, role, location, cta }: HeaderProps) => {
 	const { t } = useTranslation();
 	const { openModal } = useModal();
 	const { isMenuOpen } = useMobileMenu();
+	const { isDark } = useTheme();
+
+	const decideBackground = () => {
+		const options = isDark
+			? [profileBackgroundDark, profileBackgroundCoffee]
+			: [profileBackgroundLight, profileBackgroundCoffee];
+		const rnd = Math.floor(Math.random() * 2);
+
+		return options[rnd];
+	};
 
 	return (
 		<header className="bg-primary w-full max-w-260 sm:px-7.5 xl:px-0">
-			<div className="bg-secondary border-border-gray flex flex-col items-center justify-between gap-y-36 rounded-b-sm border-x border-b border-solid lg:gap-y-18">
+			<div className="bg-secondary sm:border-border-gray flex flex-col items-center justify-between gap-y-36 rounded-b-sm sm:border-x sm:border-b sm:border-solid lg:gap-y-18">
 				<div className="relative h-87.5 w-full">
-					<img src={profileBackground} alt="profile-background" className="h-full w-full object-cover" />
+					<img src={decideBackground()} alt="profile-background" className="h-full w-full object-cover" />
 					<LanguageSwitcher />
 					<ThemeSwitcher />
 					{!isMenuOpen && <HamburgerButton extraClasses="absolute top-12 right-[11px]" />}
