@@ -18,8 +18,8 @@ const LanguageSwitcher = () => {
 	);
 
 	return (
-		<div className="group flex-center text-accent absolute top-1.5 right-12 gap-x-1 bg-transparent outline-none">
-			<SVGComponent className="fill-accent size-6" {...icons["localization"]} />
+		<div className="group flex-center dark:text-accent absolute top-1.5 right-12 gap-x-1 bg-transparent text-blue-300 outline-none">
+			<SVGComponent className="dark:fill-accent size-6 fill-blue-300" {...icons["localization"]} />
 			<select
 				defaultValue={i18n.language}
 				name="language"

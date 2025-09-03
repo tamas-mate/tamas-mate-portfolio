@@ -47,7 +47,6 @@ html.dark {
 		height: 2px;
 		top: 0;
 		left: 0;
-		background: var(--color-accent);
 		transform: rotate(0);
 		transition: all 0.5s;
 	}
@@ -58,7 +57,6 @@ html.dark {
 
 	.hamburger-bottom {
 		transform: translateY(14px);
-		background: var(--color-accent);
 	}
 
 	.open {
@@ -71,7 +69,6 @@ html.dark {
 
 	.open .hamburger-top {
 		transform: rotate(45deg) translateY(6px) translateX(6px);
-		background: var(--color-accent);
 	}
 
 	.open .hamburger-middle {
@@ -80,7 +77,6 @@ html.dark {
 
 	.open .hamburger-bottom {
 		transform: rotate(-45deg) translateY(6px) translateX(-6px);
-		background: var(--color-accent);
 	}
 
 	.flex-center {
