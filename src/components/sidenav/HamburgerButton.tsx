@@ -25,9 +25,9 @@ const HamburgerButton = ({ extraClasses }: SwitcherProps) => {
 			onClick={handleMenuBtnClick}
 			aria-label="Hamburger button"
 		>
-			<span className="hamburger-top"></span>
-			<span className="hamburger-middle"></span>
-			<span className="hamburger-bottom"></span>
+			<span className={cl("hamburger-top dark:bg-accent", isMenuOpen ? "bg-accent" : "bg-blue-300")}></span>
+			<span className={cl("hamburger-middle dark:bg-accent", isMenuOpen ? "bg-accent" : "bg-blue-300")}></span>
+			<span className={cl("hamburger-bottom dark:bg-accent", isMenuOpen ? "bg-accent" : "bg-blue-300")}></span>
 		</button>
 	);
 };
