@@ -63,7 +63,7 @@ export const initObserver = () => {
 				recaptchaWindow.style.opacity !== "1" ||
 				recaptchaWindow.style.top !== "10px"
 			) {
-				console.log("restoring ReCaptcha visibility");
+				console.info("restoring ReCaptcha visibility");
 				// If changed, put back on default values.
 				recaptchaWindow.style.opacity = "1";
 				recaptchaWindow.style.visibility = "visible";

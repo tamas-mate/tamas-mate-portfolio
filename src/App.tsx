@@ -22,7 +22,7 @@ const App = () => {
 		divRef.current?.scrollIntoView({ behavior: "smooth" });
 	};
 
-	if (errorMessage) console.log(errorMessage);
+	if (errorMessage) console.error(errorMessage);
 	if (isFetching) return <LoadingSpinner />;
 
 	return (
