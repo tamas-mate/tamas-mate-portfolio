@@ -1,26 +1,37 @@
 {
-	"page-title": "Tamás Máté Portfolio",
-	"contact-modal": {
-		"name-input": "Name",
-		"name-input-placeholder": "Your name",
-		"email-input": "E-mail",
-		"email-input-placeholder": "Your e-mail address",
-		"subject-input": "Subject",
-		"subject-input-placeholder": "Subject",
-		"message-input": "Message",
-		"message-input-placeholder": "Your message",
-		"button-send": "Send",
-		"button-sending": "Sending",
-		"check-inputs-toast": "Please check your inputs!",
-		"failed-recaptcha-toast": "Failed to verify reCAPTCHA!",
-		"failed-message-toast": "Failed to send the message!",
-		"success-message-toast": "Message successfully sent!",
-		"input-at-least-error": "must be at least",
-		"input-less-than-error": "must be less than",
-		"input-characters-error": "characters!",
-		"input-email-format-error": "Invalid email format!",
-		"input-required": "is required!",
-		"article": ""
+	"page_title": "Tamás Máté Portfolio",
+	"contact_modal": {
+		"form": {
+			"name": "Name",
+			"name_placeholder": "Your name",
+			"e_mail": "E-mail",
+			"e_mail_placeholder": "Your e-mail",
+			"subject": "Subject",
+			"message": "Message",
+			"message_placeholder": "Your message",
+			"recaptcha": "Complete the reCAPTCHA"
+		},
+		"validation": {
+			"check_inputs": "Please check your inputs!",
+			"recaptcha_failed": "Failed to verify reCAPTCHA!",
+			"success": "Message sent successfully!",
+			"send_failed": "Failed to send the message!",
+			"name_required": "Name is required!",
+			"name_max": "Name must be less than {{value}} characters!",
+			"e_mail_required": "E-mail is required!",
+			"e_mail_invalid": "Invalid email format!",
+			"e_mail_min": "E-mail must be at least {{value}} characters!",
+			"e_mail_max": "E-mail must be less than {{value}} characters!",
+			"subject_required": "Subject is required!",
+			"subject_max": "Subject must be less than {{value}} characters!",
+			"message_required": "Message is required!",
+			"message_min": "Message must be at least {{value}} characters!",
+			"message_max": "Message must be less than {{value}} characters!"
+		},
+		"button": {
+			"send": "Send",
+			"sending": "Sending…"
+		}
 	},
 	"header": {
 		"name": "Tamás Máté",
@@ -33,7 +44,7 @@
 			"summary": "Summary",
 			"projects": "Projects",
 			"overview": "Overview",
-			"work-history": "Work History",
+			"work_history": "Work History",
 			"education": "Education",
 			"skills": "Skills",
 			"languages": "Languages",
@@ -65,7 +76,7 @@
 					"title": "Programmer",
 					"subTitle": "Pegazus Soft",
 					"location": "Gheorgheni, Romania",
-					"extraContent": [
+					"extra_content": [
 						"Developed modular React + TypeScript features embedded in a Yii (PHP) web app",
 						"Implemented dynamic forms, 3D visualizations and building simulations using Three.js",
 						"Collaborated with backend using PostgreSQL & Yii, including 2FA and database migrations"
@@ -75,7 +86,7 @@
 					"title": "Programmer",
 					"subTitle": "CamelCoding",
 					"location": "Miercurea Ciuc, Romania",
-					"extraContent": [
+					"extra_content": [
 						"Built and deployed mobile applications using React Native and Redux state manager",
 						"Developed Vue.js web applications with Laravel and MySQL backend",
 						"Developed Python and Node.js scripts for NFT generation, metadata processing, and backend services",
@@ -112,15 +123,19 @@
 			"Proactive learning",
 			"Adaptability in remote teams"
 		],
-		"languages": ["Hungarian", "English", "Romanian"],
+		"languages": [
+			"Hungarian",
+			"English",
+			"Romanian"
+		],
 		"quote": {
 			"text": "Every problem is a gift — without problems we would not grow."
 		},
 		"history": {
-			"bachelor-keyword": "Bachelor's",
-			"bachelor-short": "Bachelor's degree (BSc)",
-			"graduation-keyword": "Graduation",
-			"graduation-short": "Graduation Diploma"
+			"bachelor_keyword": "Bachelor's",
+			"bachelor_short": "Bachelor's degree (BSc)",
+			"graduation_keyword": "Graduation",
+			"graduation_short": "Graduation Diploma"
 		}
 	},
 	"footer": {

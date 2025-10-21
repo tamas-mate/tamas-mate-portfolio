@@ -11,10 +11,10 @@ const HistoryRow = memo(({ index, item, onClick }: HistoryRowProps) => {
 	const { t } = useTranslation();
 
 	const checkTitle = (title: string) => {
-		return title.includes(t("main.history.bachelor-keyword"))
-			? t("main.history.bachelor-short")
-			: title.includes(t("main.history.graduation-keyword"))
-				? t("main.history.graduation-short")
+		return title.includes(t("main.history.bachelor_keyword"))
+			? t("main.history.bachelor_short")
+			: title.includes(t("main.history.graduation_keyword"))
+				? t("main.history.graduation_short")
 				: title;
 	};
 

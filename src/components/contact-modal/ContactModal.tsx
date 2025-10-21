@@ -7,39 +7,11 @@ import { toast } from "react-toastify";
 
 import { useModal } from "@/context/modal-context";
 import { useTheme } from "@/context/theme-context";
-import type { ContactModalProps, FormData } from "@/types";
-import { getFormattedDate, initObserver } from "@/utils/utils";
+import type { FormData } from "@/types";
+import { collapseTrim, getFormattedDate, initObserver, INPUTLIMITS } from "@/utils/utils";
+import FieldErrorMessage from "./FieldErrorMessage";
 
-const returnRequiredError = (article: string, field: string, inputRequired: string) => {
-	if ((localStorage.getItem("i18nextLng") ?? "en") === "hu") field = field.toLowerCase();
-	return `${article} ${field} ${inputRequired}`;
-};
-
-const returnTrimmedValueOrLength = (type: "value" | "length", value: string) =>
-	type === "value" ? value.trim() : value.trim().length;
-
-const ContactModal = ({
-	"name-input": nameInput,
-	"name-input-placeholder": nameInputPlaceholder,
-	"email-input": emailInput,
-	"email-input-placeholder": emailInputPlaceholder,
-	"subject-input": subjectInput,
-	"subject-input-placeholder": subjectInputPlaceholder,
-	"message-input": messageInput,
-	"message-input-placeholder": messageInputPlaceholder,
-	"button-send": buttonSend,
-	"button-sending": buttonSending,
-	"check-inputs-toast": checkInputsToast,
-	"failed-recaptcha-toast": failedRecaptchaToast,
-	"failed-message-toast": failedMessageToast,
-	"success-message-toast": successMessageToast,
-	"input-at-least-error": inputAtLeastError,
-	"input-less-than-error": inputLessThanError,
-	"input-characters-error": inputCharactersError,
-	"input-email-format-error": inputEmailFormatError,
-	"input-required": inputRequired,
-	article,
-}: ContactModalProps) => {
+const ContactModal = () => {
 	const recaptcha = useRef<ReCAPTCHA | null>(null);
 	const [isPending, setIsPending] = useState(false);
 	const { t } = useTranslation();
@@ -52,7 +24,7 @@ const ContactModal = ({
 		defaultValues: {
 			name: "",
 			email: "",
-			title: "",
+			subject: "",
 			message: "",
 		},
 	});
@@ -69,8 +41,8 @@ const ContactModal = ({
 		try {
 			setIsPending(true);
 
-			if (errors.name || errors.email || errors.title || errors.message) {
-				toast.error(t(checkInputsToast), toastTheme);
+			if (errors.name || errors.email || errors.subject || errors.message) {
+				toast.error(t("contact_modal.validation.check_inputs"), toastTheme);
 				setIsPending(false);
 				return;
 			}
@@ -79,17 +51,17 @@ const ContactModal = ({
 			const token = await recaptcha.current?.executeAsync();
 
 			if (!token) {
-				toast.error(t(failedRecaptchaToast), toastTheme);
+				toast.error(t("contact_modal.validation.recaptcha_failed"), toastTheme);
 				setIsPending(false);
 				return;
 			}
 
 			const templateParams = {
-				title: returnTrimmedValueOrLength("value", data.title),
-				name: returnTrimmedValueOrLength("value", data.name),
-				email: returnTrimmedValueOrLength("value", data.email),
+				name: data.name,
+				email: data.email,
+				title: data.subject,
+				message: data.message,
 				time: getFormattedDate(),
-				message: returnTrimmedValueOrLength("value", data.message),
 				"g-recaptcha-response": token,
 			};
 
@@ -98,13 +70,13 @@ const ContactModal = ({
 			});
 
 			if (response.status === 200) {
-				toast.success(t(successMessageToast), toastTheme);
+				toast.success(t("contact_modal.validation.success"), toastTheme);
 				setIsPending(false);
 				reset();
 				closeModal();
 			}
 		} catch (error) {
-			toast.error(t(failedMessageToast), toastTheme);
+			toast.error(t("contact_modal.validation.send_failed"), toastTheme);
 			console.error("Failed to send the message! Error:", error);
 			setIsPending(false);
 			closeModal();
@@ -125,7 +97,15 @@ const ContactModal = ({
 					if (e.target === e.currentTarget && !isPending) closeModal();
 				}}
 			>
-				<ReCAPTCHA ref={recaptcha} sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY} size="invisible" />
+				<div id="captcha-help" className="sr-only">
+					{t("contact_modal.form.recaptcha")}
+				</div>
+				<ReCAPTCHA
+					ref={recaptcha}
+					sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+					size="invisible"
+					aria-describedby="captcha-help"
+				/>
 			</div>
 			<div className="bg-primary dark:bg-secondary xsl:w-120 fixed top-1/2 left-1/2 z-105 w-full -translate-x-1/2 -translate-y-1/2 transform rounded-md p-7.5">
 				<form className="relative flex flex-col gap-y-4" onSubmit={handleSubmit(onSubmit)}>
@@ -137,107 +117,101 @@ const ContactModal = ({
 					</span>
 					<div className="flex flex-col gap-y-2">
 						<label htmlFor="name" className="text-accent text-xl font-bold">
-							{t(nameInput)}
+							{t("contact_modal.form.name")}
 						</label>
 						<input
 							{...register("name", {
-								required: returnRequiredError(t(article), t(nameInput), t(inputRequired)),
-								validate: (value) => {
-									if (+returnTrimmedValueOrLength("length", value) === 0)
-										return returnRequiredError(t(article), t(nameInput), t(inputRequired));
-									if (+returnTrimmedValueOrLength("length", value) > 50)
-										return `${t(article)} ${t(nameInput)} ${t(inputLessThanError)} 50 ${t(inputCharactersError)}`;
-								},
+								setValueAs: collapseTrim,
+								required: { value: true, message: "contact_modal.validation.name_required" },
+								maxLength: { value: INPUTLIMITS.name.max, message: "contact_modal.validation.name_max" },
 							})}
 							id="name"
 							className="input"
 							type="text"
 							autoComplete="name"
-							placeholder={t(nameInputPlaceholder)}
+							placeholder={t("contact_modal.form.name_placeholder")}
+							aria-invalid={!!errors.name}
+							aria-describedby={errors.name ? "name-error" : undefined}
 						/>
-						{errors.name && <p className="text-xs text-red-500">{errors.name.message}</p>}
+						<FieldErrorMessage id="name-error" field="name" error={errors.name} t={t} />
 					</div>
 					<div className="flex flex-col gap-y-2">
 						<label htmlFor="email" className="text-accent text-xl font-bold">
-							{t(emailInput)}
+							{t("contact_modal.form.e_mail")}
 						</label>
 						<input
 							{...register("email", {
-								required: returnRequiredError(t(article), t(emailInput), t(inputRequired)),
+								setValueAs: collapseTrim,
+								required: { value: true, message: "contact_modal.validation.e_mail_required" },
 								pattern: {
 									value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-									message: `${t(inputEmailFormatError)}`,
+									message: "contact_modal.validation.e_mail_invalid",
 								},
-								validate: (value) => {
-									if (+returnTrimmedValueOrLength("length", value) === 0)
-										return returnRequiredError(t(article), t(emailInput), t(inputRequired));
-									if (+returnTrimmedValueOrLength("length", value) < 3)
-										return `${t(article)} ${t(emailInput)} ${t(inputAtLeastError)} 3 ${t(inputCharactersError)}`;
-									if (+returnTrimmedValueOrLength("length", value) > 100)
-										return `${t(article)} ${t(emailInput)} ${t(inputLessThanError)} 100 ${t(inputCharactersError)}`;
-								},
+								minLength: { value: INPUTLIMITS.email.min, message: "contact_modal.validation.e_mail_min" },
+								maxLength: { value: INPUTLIMITS.email.max, message: "contact_modal.validation.e_mail_max" },
 							})}
 							id="email"
 							className="input"
 							type="email"
 							autoComplete="email"
-							placeholder={t(emailInputPlaceholder)}
+							placeholder={t("contact_modal.form.e_mail_placeholder")}
+							aria-invalid={!!errors.email}
+							aria-describedby={errors.email ? "email-error" : undefined}
 						/>
-						{errors.email && <p className="text-xs text-red-500">{errors.email.message}</p>}
+						<FieldErrorMessage id="email-error" field="email" error={errors.email} t={t} />
 					</div>
 					<div className="flex flex-col gap-y-2">
-						<label htmlFor="title" className="text-accent text-xl font-bold">
-							{t(subjectInput)}
+						<label htmlFor="subject" className="text-accent text-xl font-bold">
+							{t("contact_modal.form.subject")}
 						</label>
 						<input
-							{...register("title", {
-								required: returnRequiredError(t(article), t(subjectInput), t(inputRequired)),
-								validate: (value) => {
-									if (+returnTrimmedValueOrLength("length", value) === 0)
-										return returnRequiredError(t(article), t(subjectInput), t(inputRequired));
-									if (+returnTrimmedValueOrLength("length", value) > 100)
-										return `${t(article)} ${t(subjectInput)} ${t(inputLessThanError)} 100 ${t(inputCharactersError)}`;
-								},
+							{...register("subject", {
+								setValueAs: collapseTrim,
+								required: "contact_modal.validation.subject_required",
+								maxLength: { value: INPUTLIMITS.subject.max, message: "contact_modal.validation.subject_max" },
 							})}
-							id="title"
+							id="subject"
 							className="input"
 							type="text"
 							autoComplete="off"
-							placeholder={t(subjectInputPlaceholder)}
+							placeholder={t("contact_modal.form.subject")}
+							aria-invalid={!!errors.subject}
+							aria-describedby={errors.subject ? "subject-error" : undefined}
 						/>
-						{errors.title && <p className="text-xs text-red-500">{errors.title.message}</p>}
+						<FieldErrorMessage id="subject-error" field="subject" error={errors.subject} t={t} />
 					</div>
 					<div className="flex flex-col gap-y-2">
 						<label htmlFor="message" className="text-accent text-xl font-bold">
-							{t(messageInput)}
+							{t("contact_modal.form.message")}
 						</label>
 						<textarea
 							{...register("message", {
-								required: returnRequiredError(t(article), t(messageInput), t(inputRequired)),
-								validate: (value) => {
-									if (+returnTrimmedValueOrLength("length", value) === 0)
-										return returnRequiredError(t(article), t(messageInput), t(inputRequired));
-									if (+returnTrimmedValueOrLength("length", value) < 10)
-										return `${t(article)} ${t(messageInput)} ${t(inputAtLeastError)} 10 ${t(inputCharactersError)}`;
-									if (+returnTrimmedValueOrLength("length", value) > 1000)
-										return `${t(article)} ${t(messageInput)} ${t(inputLessThanError)} 1000 ${t(inputCharactersError)}`;
-								},
+								required: "contact_modal.validation.message_required",
+								setValueAs: collapseTrim,
+								minLength: { value: INPUTLIMITS.message.min, message: "contact_modal.validation.message_min" },
+								maxLength: { value: INPUTLIMITS.message.max, message: "contact_modal.validation.message_max" },
 							})}
 							id="message"
 							className="input resize-y"
 							autoComplete="off"
-							placeholder={t(messageInputPlaceholder)}
+							placeholder={t("contact_modal.form.message_placeholder")}
+							aria-invalid={!!errors.message}
+							aria-describedby={errors.message ? "message-error" : undefined}
 						/>
-						{errors.message && <p className="text-xs text-red-500">{errors.message.message}</p>}
+						<FieldErrorMessage id="message-error" field="message" error={errors.message} t={t} />
 					</div>
+					<span id="form-status" aria-live="polite" className="sr-only">
+						{isPending ? t("contact_modal.button.sending") : ""}
+					</span>
 					<div className="flex-center">
 						<button
 							type="submit"
 							disabled={isPending}
+							aria-disabled={isPending}
 							className="group flex-center bg-accent hover:bg-accent/50 w-1/3 rounded-full px-4 py-2 hover:cursor-pointer disabled:cursor-not-allowed"
 						>
 							<span className="text-primary text-lg leading-10 font-bold group-hover:text-white">
-								{isPending ? t(buttonSending) : t(buttonSend)}
+								{isPending ? t("contact_modal.button.sending") : t("contact_modal.button.send")}
 							</span>
 						</button>
 					</div>

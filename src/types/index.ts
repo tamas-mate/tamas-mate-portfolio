@@ -1,6 +1,8 @@
 import type { ReactNode, Ref } from "react";
+import type { FieldError } from "react-hook-form";
 
 import type icons from "@/assets/icons/data.json";
+import type { INPUTLIMITS } from "@/utils/utils";
 
 export type Theme = "light" | "dark" | "system";
 
@@ -39,33 +41,17 @@ export type ChildrenProvider = {
 export type FormData = {
 	name: string;
 	email: string;
-	title: string;
+	subject: string;
 	message: string;
 	time: string;
 	"g-recaptcha-response": string;
 };
 
-export type ContactModalProps = {
-	"name-input": string;
-	"name-input-placeholder": string;
-	"email-input": string;
-	"email-input-placeholder": string;
-	"subject-input": string;
-	"subject-input-placeholder": string;
-	"message-input": string;
-	"message-input-placeholder": string;
-	"button-send": string;
-	"button-sending": string;
-	"check-inputs-toast": string;
-	"failed-recaptcha-toast": string;
-	"failed-message-toast": string;
-	"success-message-toast": string;
-	"input-at-least-error": string;
-	"input-less-than-error": string;
-	"input-characters-error": string;
-	"input-email-format-error": string;
-	"input-required": string;
-	article: string;
+export type FieldErrorMessageProps = {
+	id: string;
+	field: keyof typeof INPUTLIMITS;
+	error?: FieldError;
+	t: (key: string, option?: { value: number }) => string;
 };
 
 export type IconName = keyof typeof icons;
@@ -83,7 +69,6 @@ export type Content = {
 		quote: QuoteProps;
 	};
 	footer: FooterProps;
-	"contact-modal": ContactModalProps;
 };
 
 export type SectionTitleProps = {

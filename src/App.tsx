@@ -28,7 +28,7 @@ const App = () => {
 	return (
 		<>
 			<div ref={divRef} className="flex w-full flex-col items-center gap-y-15">
-				<title>{t("page-title")}</title>
+				<title>{t("page_title")}</title>
 				<Header {...content.header} />
 				<Main {...content.main} />
 				<ScrollButton scrollToTop={scrollToTop} />
@@ -40,7 +40,7 @@ const App = () => {
 				/>
 			</div>
 
-			<Suspense fallback={null}>{isModalOpen && <ContactModal {...content["contact-modal"]} />}</Suspense>
+			<Suspense fallback={null}>{isModalOpen && <ContactModal />}</Suspense>
 		</>
 	);
 };
