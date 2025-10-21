@@ -24,7 +24,7 @@ export function usePortfolioContent() {
 		},
 		retry: 1,
 		retryDelay: 1000,
-		placeholderData: fallbackContent as Content,
+		placeholderData: fallbackContent as unknown as Content,
 		enabled: !isModalOpen,
 	});
 

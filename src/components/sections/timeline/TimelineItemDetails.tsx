@@ -39,7 +39,7 @@ const TimelineItemDetails = ({ extraContent }: { extraContent: string[] }) => {
 					<ul className="flex flex-col gap-y-2">
 						{extraContentArray.map((item, index) => (
 							<li key={index} className="flex items-start gap-x-4 text-pretty">
-								<span className="-ml-1 flex h-[1lh] items-center">
+								<span className="-ml-1 flex h-lh items-center">
 									<SVGComponent className="fill-accent size-5 flex-none" viewBox="0 0 20 20">
 										<circle cx="10" cy="10" r="5" />
 									</SVGComponent>

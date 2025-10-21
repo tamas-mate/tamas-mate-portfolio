@@ -9,8 +9,8 @@ import type { HistoryProps } from "@/types";
 const normalizeTimeline = (timeline: HistoryProps["timeline"]) => {
 	return Object.values(timeline).flatMap((section) =>
 		section.map((rawItem) => {
-			const isWork = "extraContent" in rawItem;
-			const sectionId = isWork ? "work-history" : "education";
+			const isWork = "extra_content" in rawItem;
+			const sectionId = isWork ? "work_history" : "education";
 
 			return {
 				title: rawItem.title,

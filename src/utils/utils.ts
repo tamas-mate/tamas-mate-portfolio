@@ -41,6 +41,15 @@ export const getFormattedDate = () => {
 		.replace(",", "");
 };
 
+export const INPUTLIMITS = {
+	name: { max: 50 },
+	email: { min: 3, max: 100 },
+	subject: { max: 100 },
+	message: { min: 10, max: 1000 },
+};
+
+export const collapseTrim = (value: unknown) => (typeof value === "string" ? value.replace(/\s+/g, " ").trim() : value);
+
 // Function that initializes a MutationObserver for the captcha
 export const initObserver = () => {
 	// Find the captcha window by first getting a list of iFrames.

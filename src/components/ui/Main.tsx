@@ -20,7 +20,7 @@ const Main = ({ navItems, summary, projects, overview, timeline, skills, languag
 	const educationTimelineRef = useRef<TimeLineScrollHandle>(null);
 
 	const scrollToRelevantTimeline = (sectionId?: string) => {
-		if (sectionId === "work-history") workHistoryTimelineRef.current?.scrollIntoView();
+		if (sectionId === "work_history") workHistoryTimelineRef.current?.scrollIntoView();
 		if (sectionId === "education") educationTimelineRef.current?.scrollIntoView();
 	};
 
@@ -33,8 +33,8 @@ const Main = ({ navItems, summary, projects, overview, timeline, skills, languag
 			<Overview overview={overview} />
 			<Timeline
 				handleRef={workHistoryTimelineRef}
-				sectionId="work-history"
-				title={t("main.sections.work-history")}
+				sectionId="work_history"
+				title={t("main.sections.work_history")}
 				iconName="work"
 				timelineContent={timeline.work}
 			/>

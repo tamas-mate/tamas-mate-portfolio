@@ -1,26 +1,37 @@
 {
-	"page-title": "Tamás Máté Portofoliu",
-	"contact-modal": {
-		"name-input": "Nume",
-		"name-input-placeholder": "Numele tău",
-		"email-input": "E-mail",
-		"email-input-placeholder": "Adresa ta de e-mail",
-		"subject-input": "Subiect",
-		"subject-input-placeholder": "Subiect",
-		"message-input": "Mesaj",
-		"message-input-placeholder": "Mesajul tău",
-		"button-send": "Trimite",
-		"button-sending": "Se trimite",
-		"check-inputs-toast": "Te rugăm să verifici câmpurile!",
-		"failed-recaptcha-toast": "Verificarea reCAPTCHA a eșuat!",
-		"failed-message-toast": "Trimiterea mesajului a eșuat!",
-		"success-message-toast": "Mesaj trimis cu succes!",
-		"input-at-least-error": "trebuie să aibă cel puțin",
-		"input-less-than-error": "trebuie să aibă mai puțin decât",
-		"input-characters-error": "caractere!",
-		"input-email-format-error": "Format de email invalid!",
-		"input-required": "este obligatoriu!",
-		"article": ""
+	"page_title": "Tamás Máté Portofoliu",
+	"contact_modal": {
+		"form": {
+			"name": "Nume",
+			"name_placeholder": "Numele dumneavoastră",
+			"e_mail": "E-mail",
+			"e_mail_placeholder": "Adresa de e-mail",
+			"subject": "Subiect",
+			"message": "Mesaj",
+			"message_placeholder": "Mesajul dumneavoastră",
+			"recaptcha": "Completează reCAPTCHA"
+		},
+		"validation": {
+			"check_inputs": "Vă rugăm să verificați datele introduse!",
+			"recaptcha_failed": "Verificarea reCAPTCHA a eșuat!",
+			"success": "Mesajul a fost trimis cu succes!",
+			"send_failed": "Trimiterea mesajului a eșuat!",
+			"name_required": "Numele este obligatoriu!",
+			"name_max": "Numele trebuie să aibă mai puțin de {{value}} caractere!",
+			"e_mail_required": "E-mailul este obligatoriu!",
+			"e_mail_invalid": "Format de email invalid!",
+			"e_mail_min": "E-mailul trebuie să aibă cel puțin {{value}} caractere!",
+			"e_mail_max": "E-mailul trebuie să aibă mai puțin de {{value}} caractere!",
+			"subject_required": "Subiectul este obligatoriu!",
+			"subject_max": "Subiectul trebuie să aibă mai puțin de {{value}} caractere!",
+			"message_required": "Mesajul este obligatoriu!",
+			"message_min": "Mesajul trebuie să aibă cel puțin {{value}} caractere!",
+			"message_max": "Mesajul trebuie să aibă mai puțin de {{value}} caractere!"
+		},
+		"button": {
+			"send": "Trimite",
+			"sending": "Se trimite…"
+		}
 	},
 	"header": {
 		"name": "Tamás Máté",
@@ -33,7 +44,7 @@
 			"summary": "Rezumat",
 			"projects": "Proiecte",
 			"overview": "Prezentare generală",
-			"work-history": "Experiență profesională",
+			"work_history": "Experiență profesională",
 			"education": "Educație",
 			"skills": "Competențe",
 			"languages": "Limbi",
@@ -65,7 +76,7 @@
 					"title": "Programator",
 					"subTitle": "Pegazus Soft",
 					"location": "Gheorgheni, România",
-					"extraContent": [
+					"extra_content": [
 						"Am dezvoltat funcționalități modulare React + TypeScript integrate într-o aplicație web Yii (PHP)",
 						"Am implementat formulare dinamice, vizualizări 3D și simulări de clădiri folosind Three.js",
 						"Am colaborat cu echipa de backend folosind PostgreSQL & Yii, inclusiv 2FA și migrații de baze de date"
@@ -75,7 +86,7 @@
 					"title": "Programator",
 					"subTitle": "CamelCoding",
 					"location": "Miercurea Ciuc, România",
-					"extraContent": [
+					"extra_content": [
 						"Am construit și lansat aplicații mobile folosind React Native și Redux pentru managementul stării",
 						"Am dezvoltat aplicații web cu Vue.js folosind backend Laravel și MySQL",
 						"Am dezvoltat scripturi Python și Node.js pentru generare de NFT-uri, procesare de metadata și servicii backend",
@@ -112,15 +123,19 @@
 			"Învățare proactivă",
 			"Adaptabilitate în echipe la distanță"
 		],
-		"languages": ["Maghiară", "Engleză", "Română"],
+		"languages": [
+			"Maghiară",
+			"Engleză",
+			"Română"
+		],
 		"quote": {
 			"text": "Fiecare problemă este un dar — fără probleme nu am crește."
 		},
 		"history": {
-			"bachelor-keyword": "Licență",
-			"bachelor-short": "Licență (BSc)",
-			"graduation-keyword": "Diplomă de",
-			"graduation-short": "Diplomă de absolvire"
+			"bachelor_keyword": "Licență",
+			"bachelor_short": "Licență (BSc)",
+			"graduation_keyword": "Diplomă de",
+			"graduation_short": "Diplomă de absolvire"
 		}
 	},
 	"footer": {

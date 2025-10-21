@@ -1,26 +1,37 @@
 {
-	"page-title": "Tamás Máté Portfolió",
-	"contact-modal": {
-		"name-input": "Név",
-		"name-input-placeholder": "A neve",
-		"email-input": "E-mail",
-		"email-input-placeholder": "Az e-mail címe",
-		"subject-input": "Tárgy",
-		"subject-input-placeholder": "Tárgy",
-		"message-input": "Üzenet",
-		"message-input-placeholder": "Az üzenete",
-		"button-send": "Küldés",
-		"button-sending": "Küldés…",
-		"check-inputs-toast": "Ellenőrizze a mezőket!",
-		"failed-recaptcha-toast": "A reCAPTCHA ellenőrzése sikertelen!",
-		"failed-message-toast": "Az üzenet küldése sikertelen!",
-		"success-message-toast": "Az üzenet sikeresen elküldve!",
-		"input-at-least-error": "legalább",
-		"input-less-than-error": "kevesebb mint",
-		"input-characters-error": "karakter kell legyen!",
-		"input-email-format-error": "Érvénytelen email!",
-		"input-required": "kötelező!",
-		"article": "A(z)"
+	"page_title": "Tamás Máté Portfolió",
+	"contact_modal": {
+		"form": {
+			"name": "Név",
+			"name_placeholder": "Az ön neve",
+			"e_mail": "E-mail",
+			"e_mail_placeholder": "Az ön e-mail címe",
+			"subject": "Tárgy",
+			"message": "Üzenet",
+			"message_placeholder": "Az ön üzenete",
+			"recaptcha": "Töltse ki a reCAPTCHA-t"
+		},
+		"validation": {
+			"check_inputs": "Kérjük, ellenőrizze a megadott adatokat!",
+			"recaptcha_failed": "A reCAPTCHA ellenőrzése sikertelen!",
+			"success": "Üzenet sikeresen elküldve!",
+			"send_failed": "Az üzenet elküldése nem sikerült!",
+			"name_required": "A név megadása kötelező!",
+			"name_max": "A név legfeljebb {{value}} karakter lehet!",
+			"e_mail_required": "Az e-mail megadása kötelező!",
+			"e_mail_invalid": "Érvénytelen email!",
+			"e_mail_min": "Az e-mailnek legalább {{value}} karakterből kell állnia!",
+			"e_mail_max": "Az e-mail legfeljebb {{value}} karakter lehet!",
+			"subject_required": "A tárgy megadása kötelező!",
+			"subject_max": "A tárgy legfeljebb {{value}} karakter lehet!",
+			"message_required": "Az üzenet megadása kötelező!",
+			"message_min": "Az üzenetnek legalább {{value}} karakterből kell állnia!",
+			"message_max": "Az üzenet legfennebb {{value}} karakter lehet!"
+		},
+		"button": {
+			"send": "Küldés",
+			"sending": "Küldés…"
+		}
 	},
 	"header": {
 		"name": "Tamás Máté",
@@ -33,7 +44,7 @@
 			"summary": "Összefoglaló",
 			"projects": "Projektek",
 			"overview": "Áttekintés",
-			"work-history": "Munkatapasztalat",
+			"work_history": "Munkatapasztalat",
 			"education": "Oktatás",
 			"skills": "Készségek",
 			"languages": "Nyelvek",
@@ -65,7 +76,7 @@
 					"title": "Programozó",
 					"subTitle": "Pegazus Soft",
 					"location": "Gyergyó, Románia",
-					"extraContent": [
+					"extra_content": [
 						"Moduláris React + TypeScript funkciók fejlesztése Yii (PHP) alapú webalkalmazásba ágyazva",
 						"Dinamikus űrlapok, 3D vizualizációk és épületszimulációk implementálása Three.js segítségével",
 						"Együttműködés a backendet fejlesztő csapattal PostgreSQL & Yii használatával, beleértve a 2FA-t és adatbázis-migrációkat"
@@ -75,7 +86,7 @@
 					"title": "Programozó",
 					"subTitle": "CamelCoding",
 					"location": "Csíkszereda, Románia",
-					"extraContent": [
+					"extra_content": [
 						"Mobilalkalmazások fejlesztése és üzembe helyezése React Native és Redux állapotkezelő használatával",
 						"Vue.js alapú webalkalmazások fejlesztése Laravel és MySQL backenddel",
 						"Python és Node.js scriptek fejlesztése NFT generáláshoz, metaadat-feldolgozáshoz és backend szolgáltatásokhoz",
@@ -112,15 +123,19 @@
 			"Önálló, kezdeményező tanulás",
 			"Rugalmasság csoportos távmunkában"
 		],
-		"languages": ["Magyar", "Angol", "Román"],
+		"languages": [
+			"Magyar",
+			"Angol",
+			"Román"
+		],
 		"quote": {
 			"text": "Minden probléma ajándék — problémák nélkül nem fejlődnénk."
 		},
 		"history": {
-			"bachelor-keyword": "Alapképzés",
-			"bachelor-short": "Alapképzés (BSc)",
-			"graduation-keyword": "Érettségi",
-			"graduation-short": "Érettségi diploma"
+			"bachelor_keyword": "Alapképzés",
+			"bachelor_short": "Alapképzés (BSc)",
+			"graduation_keyword": "Érettségi",
+			"graduation_short": "Érettségi diploma"
 		}
 	},
 	"footer": {
