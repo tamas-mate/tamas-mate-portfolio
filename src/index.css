@@ -8,6 +8,8 @@
 	--color-border-gray: #d9e6f1;
 	--color-lighter-dark3: #e4f0fe;
 	--toastify-color-success: var(--color-accent);
+	--swiper-pagination-bullet-size: 12px;
+	--swiper-pagination-bullet-inactive-color: var(--color-gray);
 }
 
 html.dark {
@@ -89,6 +91,7 @@ html.dark {
 
 	.project-swiper-dark {
 		--swiper-navigation-color: #48e5c2;
+		--swiper-pagination-color: #48e5c2;
 	}
 }
 
