@@ -26,7 +26,7 @@ const ProjectItem = ({ title, description, images, technologies, status }: Proje
 						</span>
 					))}
 				</div>
-				<p className="text-sm">{statusTxt}</p>
+				<p className="pb-10 text-sm">{statusTxt}</p>
 			</div>
 		</>
 	);
