@@ -1,31 +1,31 @@
 @import "tailwindcss";
 
-:root {
-	--color-primary: #f3f5f7;
-	--color-text-primary: #121212;
-	--color-secondary: #ffffff;
-	--color-accent: #3983fa;
-	--color-border-gray: #d9e6f1;
-	--color-lighter-dark3: #e4f0fe;
-	--toastify-color-success: var(--color-accent);
-	--swiper-pagination-bullet-size: 12px;
-	--swiper-pagination-bullet-inactive-color: var(--color-gray);
-}
-
-html.dark {
-	--color-primary: #121212;
-	--color-text-primary: #ffffff;
-	--color-secondary: #1e1e1e;
-	--color-accent: #48e5c2;
-	--color-border-gray: #262626;
-	--color-lighter-dark3: #333333;
-	--toastify-color-success: var(--color-accent);
-}
-
 @custom-variant dark (&:where(.dark, .dark *));
 @custom-variant hover (&:hover);
 
 @layer base {
+	:root {
+		--color-primary: #f3f5f7;
+		--color-text-primary: #121212;
+		--color-secondary: #ffffff;
+		--color-accent: #3983fa;
+		--color-border-gray: #d9e6f1;
+		--color-lighter-dark3: #e4f0fe;
+		--toastify-color-success: var(--color-accent);
+		--swiper-pagination-bullet-size: 12px;
+		--swiper-pagination-bullet-inactive-color: var(--color-gray);
+	}
+
+	html.dark {
+		--color-primary: #121212;
+		--color-text-primary: #ffffff;
+		--color-secondary: #1e1e1e;
+		--color-accent: #48e5c2;
+		--color-border-gray: #262626;
+		--color-lighter-dark3: #333333;
+		--toastify-color-success: var(--color-accent);
+	}
+
 	body {
 		@apply text-text-primary bg-primary font-sans;
 	}
@@ -81,17 +81,21 @@ html.dark {
 		transform: rotate(-45deg) translateY(6px) translateX(-6px);
 	}
 
-	.flex-center {
-		@apply flex items-center justify-center;
-	}
-
-	.input {
-		@apply focus:border-accent bg-white px-2 py-3 text-black outline-none focus:border;
-	}
-
 	.project-swiper-dark {
 		--swiper-navigation-color: #48e5c2;
 		--swiper-pagination-color: #48e5c2;
+	}
+
+	.swiper-wrapper {
+		margin-bottom: 2.5rem;
+	}
+
+	.project-carousel .swiper-wrapper {
+		margin-bottom: 0;
+	}
+
+	.project-carousel .swiper-slide {
+		height: 100% !important;
 	}
 }
 
@@ -112,4 +116,12 @@ html.dark {
 	--breakpoint-xsl: 31.25rem;
 	--breakpoint-3xl: 110rem;
 	--breakpoint-4xl: 160rem;
+}
+
+@utility flex-center {
+	@apply flex items-center justify-center;
+}
+
+@utility input {
+	@apply focus:border-accent bg-white px-2 py-3 text-black outline-none focus:border;
 }
