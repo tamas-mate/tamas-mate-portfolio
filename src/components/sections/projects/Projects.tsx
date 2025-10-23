@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import SectionTitle from "../../ui/SectionTitle";
@@ -20,17 +20,30 @@ const Projects = ({ projects }: ProjectsProps) => {
 		<section id="projects" className="flex flex-col gap-y-7.5">
 			<SectionTitle title={t("main.sections.projects")} iconName="projects" />
 			<SectionWrapper>
-				<Swiper
-					pagination={{ clickable: true }}
-					modules={[Pagination]}
-					className={cl("", isDark && "project-swiper-dark")}
-				>
-					{projects.map((project, index) => (
-						<SwiperSlide key={"project-" + index + "-slide"} className="w-full px-2">
-							<ProjectItemWrapper {...project} />
-						</SwiperSlide>
-					))}
-				</Swiper>
+				{projects.length === 1 ? (
+					<ProjectItemWrapper {...projects[0]} />
+				) : (
+					<Swiper
+						modules={[Autoplay, Pagination]}
+						autoplay={{
+							delay: 10000,
+							disableOnInteraction: true,
+						}}
+						pagination={{ clickable: true }}
+						grabCursor
+						autoHeight
+						noSwiping
+						noSwipingClass="swiper-no-swiping"
+						spaceBetween={5}
+						className={cl("", isDark && "project-swiper-dark")}
+					>
+						{projects.map((project, index) => (
+							<SwiperSlide key={"project-" + index + "-slide"} className="w-full">
+								<ProjectItemWrapper {...project} />
+							</SwiperSlide>
+						))}
+					</Swiper>
+				)}
 			</SectionWrapper>
 		</section>
 	);

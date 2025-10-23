@@ -1,6 +1,6 @@
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { useTheme } from "@/context/theme-context";
@@ -12,9 +12,18 @@ const ProjectCarousel = ({ images, title }: ProjectCarouselProps) => {
 	const { isDark } = useTheme();
 
 	return (
-		<Swiper navigation modules={[Navigation]} className={cl("h-160 w-full", isDark && "project-swiper-dark")}>
+		<Swiper
+			modules={[Autoplay, Navigation]}
+			autoplay={{
+				delay: 5000,
+				disableOnInteraction: true,
+			}}
+			navigation
+			nested
+			className={cl("project-carousel swiper-no-swiping h-160 w-full", isDark && "project-swiper-dark")}
+		>
 			{images.map((image, index) => (
-				<SwiperSlide className="w-full">
+				<SwiperSlide key={title + " image " + index}>
 					<img src={image} alt={title + " image " + index} className="h-full w-full object-contain" />
 				</SwiperSlide>
 			))}
