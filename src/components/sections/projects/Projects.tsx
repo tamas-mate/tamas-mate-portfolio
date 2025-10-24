@@ -8,6 +8,7 @@ import SectionTitle from "../../ui/SectionTitle";
 import SectionWrapper from "../../ui/SectionWrapper";
 import ProjectItemWrapper from "./ProjectItemWrapper";
 
+import { useSwiper } from "@/context/swiper-context";
 import { useTheme } from "@/context/theme-context";
 import type { ProjectsProps } from "@/types";
 import { cl } from "@/utils/utils";
@@ -15,6 +16,7 @@ import { cl } from "@/utils/utils";
 const Projects = ({ projects }: ProjectsProps) => {
 	const { isDark } = useTheme();
 	const { t } = useTranslation();
+	const { setSwiperRef } = useSwiper();
 
 	return (
 		<section id="projects" className="flex flex-col gap-y-7.5">
@@ -24,16 +26,15 @@ const Projects = ({ projects }: ProjectsProps) => {
 					<ProjectItemWrapper {...projects[0]} />
 				) : (
 					<Swiper
+						onSwiper={(swiper) => setSwiperRef(swiper)}
 						modules={[Autoplay, Pagination]}
 						autoplay={{
-							delay: 10000,
+							delay: 60000,
 							disableOnInteraction: true,
 						}}
 						pagination={{ clickable: true }}
 						grabCursor
 						autoHeight
-						noSwiping
-						noSwipingClass="swiper-no-swiping"
 						spaceBetween={5}
 						className={cl("", isDark && "project-swiper-dark")}
 					>

@@ -5,11 +5,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import { useTheme } from "@/context/theme-context";
 
+import { useSwiper } from "@/context/swiper-context";
 import type { ProjectCarouselProps } from "@/types";
 import { cl } from "@/utils/utils";
 
 const ProjectCarousel = ({ images, title }: ProjectCarouselProps) => {
 	const { isDark } = useTheme();
+	const { lockSwiper, unlockSwiper } = useSwiper();
 
 	return (
 		<Swiper
@@ -20,7 +22,10 @@ const ProjectCarousel = ({ images, title }: ProjectCarouselProps) => {
 			}}
 			navigation
 			nested
-			className={cl("project-carousel swiper-no-swiping h-160 w-full", isDark && "project-swiper-dark")}
+			className={cl("project-carousel h-160 w-full", isDark && "project-swiper-dark")}
+			onTouchStart={lockSwiper}
+			onSliderFirstMove={lockSwiper}
+			onTouchEnd={unlockSwiper}
 		>
 			{images.map((image, index) => (
 				<SwiperSlide key={title + " image " + index}>
