@@ -1,5 +1,6 @@
 import type { ReactNode, Ref } from "react";
 import type { FieldError } from "react-hook-form";
+import type Swiper from "swiper";
 
 import type icons from "@/assets/icons/data.json";
 import type { INPUTLIMITS } from "@/utils/utils";
@@ -10,14 +11,6 @@ export type ThemeContextType = {
 	theme: Theme;
 	setTheme: (theme: Theme) => void;
 	isDark: boolean;
-};
-
-export type ScrollButtonProps = {
-	scrollToTop: () => void;
-};
-
-export type SwitcherProps = {
-	extraClasses?: string;
 };
 
 export type MobileMenuContextType = {
@@ -32,6 +25,21 @@ export type ModalContextType = {
 	isModalOpen: boolean;
 	openModal: () => void;
 	closeModal: () => void;
+};
+
+export type SwiperContextType = {
+	lockSwiper: () => void;
+	unlockSwiper: () => void;
+	outerSwiperRef: Ref<Swiper>;
+	setSwiperRef: (el: Swiper | null) => void;
+};
+
+export type ScrollButtonProps = {
+	scrollToTop: () => void;
+};
+
+export type SwitcherProps = {
+	extraClasses?: string;
 };
 
 export type ChildrenProvider = {

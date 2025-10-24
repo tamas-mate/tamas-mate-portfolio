@@ -12,6 +12,7 @@ import Timeline from "../sections/timeline/Timeline";
 import MobileMenu from "../sidenav/MobileMenu";
 import SideNav from "../sidenav/SideNav";
 
+import SwiperProvider from "@/context/SwiperProvider";
 import type { MainProps, TimeLineScrollHandle } from "@/types";
 
 const Main = ({ navItems, summary, projects, overview, timeline, skills, languages, quote }: MainProps) => {
@@ -29,7 +30,9 @@ const Main = ({ navItems, summary, projects, overview, timeline, skills, languag
 			<SideNav navItems={navItems} />
 			<MobileMenu navItems={navItems} />
 			<Summary summary={summary} />
-			<Projects projects={projects} />
+			<SwiperProvider>
+				<Projects projects={projects} />
+			</SwiperProvider>
 			<Overview overview={overview} />
 			<Timeline
 				handleRef={workHistoryTimelineRef}
