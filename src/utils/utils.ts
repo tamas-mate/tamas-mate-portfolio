@@ -4,10 +4,18 @@ import { twMerge } from "./../../node_modules/tailwind-merge/src/lib/tw-merge";
 
 import macweb1 from "../assets/images/macweb1.png";
 import macweb2 from "../assets/images/macweb2.png";
+import volt1 from "../assets/images/volt1.png";
+import volt2 from "../assets/images/volt2.png";
+import volt3 from "../assets/images/volt3.png";
+import volt4 from "../assets/images/volt4.png";
 
 export const imageMap: Record<string, string> = {
 	"macweb1.png": macweb1,
 	"macweb2.png": macweb2,
+	"volt1.png": volt1,
+	"volt2.png": volt2,
+	"volt3.png": volt3,
+	"volt4.png": volt4,
 };
 
 export function cl(...classes: ClassValue[]) {

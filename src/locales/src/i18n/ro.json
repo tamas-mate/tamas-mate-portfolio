@@ -53,10 +53,19 @@
 		},
 		"summary": "Dezvoltator React și React Native cu expertiză în creștere în TypeScript și Tailwind CSS. Sunt pasionat de crearea de aplicații web și mobile centrate pe utilizator, care sunt simple, intuitive și plăcute de folosit. Apreciez scrierea unui cod curat și ușor de întreținut și sunt mereu dornic să explorez noi instrumente și bune practici care îmbunătățesc atât experiența dezvoltatorilor, cât și calitatea produsului. Dincolo de partea tehnică, îmi place să lucrez în medii colaborative unde împărtășirea cunoștințelor și rezolvarea problemelor fac parte din cultură. Obiectivul meu este să contribui la proiecte valoroase în timp ce evoluez continuu ca dezvoltator.",
 		"projects": {
+			"volt": {
+				"title": "Volt Delta - pagină de prezentare pentru laptop de gaming",
+				"description": "Demo responsiv pentru brandul imaginar Volt Labs și „Seria Delta”. Include un model 3D de laptop interactiv și mai multe secțiuni animate. Realizat cu React, Three.js și GSAP.",
+				"status": {
+					"text": "🔗 Vezi proiectul"
+				}
+			},
 			"macrame": {
 				"title": "Website bijuterii macramé",
 				"description": "Site de prezentare responsiv pentru bijuterii realizate manual. Creat cu React, TypeScript, Tailwind și Vite.",
-				"status": "🚧 În curs de dezvoltare"
+				"status": {
+					"text": "🚧 În curs de dezvoltare"
+				}
 			}
 		},
 		"overview": {

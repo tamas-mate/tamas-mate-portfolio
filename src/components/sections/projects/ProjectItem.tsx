@@ -9,7 +9,17 @@ const ProjectItem = ({ title, description, images, technologies, status }: Proje
 	const { t } = useTranslation();
 	const titleTxt = t(title);
 	const descTxt = t(description);
-	const statusTxt = t(status);
+	const statusTxt = t(status.text);
+
+	const displayStatus = () => {
+		return status.link ? (
+			<a href={status.link} target="_blank" rel="noreferrer" className="text-accent">
+				{statusTxt}
+			</a>
+		) : (
+			statusTxt
+		);
+	};
 
 	return (
 		<>
@@ -26,7 +36,7 @@ const ProjectItem = ({ title, description, images, technologies, status }: Proje
 						</span>
 					))}
 				</div>
-				<p className="text-sm">{statusTxt}</p>
+				<p className="text-base">{displayStatus()}</p>
 			</div>
 		</>
 	);

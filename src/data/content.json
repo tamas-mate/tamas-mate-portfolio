@@ -47,6 +47,29 @@
 		"summary": "main.summary",
 		"projects": [
 			{
+				"title": "main.projects.volt.title",
+				"description": "main.projects.volt.description",
+				"images": [
+					"volt1.png",
+					"volt2.png",
+					"volt3.png",
+					"volt4.png"
+				],
+				"technologies": [
+					"Vite",
+					"Tailwind CSS",
+					"TypeScript",
+					"React",
+					"Three.js",
+					"GSAP",
+					"Zustand"
+				],
+				"status": {
+					"text": "main.projects.volt.status.text",
+					"link": "https://voltdelta.vercel.app/"
+				}
+			},
+			{
 				"title": "main.projects.macrame.title",
 				"description": "main.projects.macrame.description",
 				"images": [
@@ -59,7 +82,10 @@
 					"TypeScript",
 					"React"
 				],
-				"status": "main.projects.macrame.status"
+				"status": {
+					"text": "main.projects.macrame.status.text",
+					"link": null
+				}
 			}
 		],
 		"overview": [
