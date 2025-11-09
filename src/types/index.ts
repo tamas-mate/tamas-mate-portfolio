@@ -124,7 +124,10 @@ export type ProjectProps = {
 	description: string;
 	images: string[];
 	technologies: string[];
-	status: string;
+	status: {
+		text: string;
+		link: string | null;
+	};
 };
 
 export type ProjectsProps = {

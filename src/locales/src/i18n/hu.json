@@ -53,10 +53,19 @@
 		},
 		"summary": "React és React Native fejlesztő, növekvő szakértelemmel a TypeScript és a Tailwind CSS területén. Szenvedélyem a felhasználóközpontú webes és mobilalkalmazások fejlesztése, amelyek egyszerűek, intuitívak és élvezetesek a használat során. Fontosnak tartom a tiszta, jól karbantartható kód írását, és mindig nyitott vagyok új eszközök és bevált gyakorlatok megismerésére, amelyek javítják a fejlesztői élményt és a termék minőségét. A technikai aspektusokon túl értékelem a csapatmunkát olyan környezetben, ahol a tudásmegosztás és a közös problémamegoldás a mindennapi kultúra része. Célom, hogy értékes projektekhez járuljak hozzá, miközben folyamatosan fejlődöm szakemberként.",
 		"projects": {
+			"volt": {
+				"title": "Volt Delta - gamer laptop bemutató oldal",
+				"description": "Reszponzív weboldal a fiktív Volt Labs „Delta sorozat” bemutatására. Interaktív 3D-s laptopmodellt és több animált szekciót tartalmaz. Felhasznált technológiák React, Three.js, GSAP.",
+				"status": {
+					"text": "🔗 Megtekintés"
+				}
+			},
 			"macrame": {
 				"title": "Makramé Ékszer Weboldal",
 				"description": "Modern, reszponzív weboldal kézzel készített ékszerek bemutatására. Felhasznált technológiák React, TypeScript, Tailwind és Vite.",
-				"status": "🚧 Fejlesztés alatt"
+				"status": {
+					"text": "🚧 Fejlesztés alatt"
+				}
 			}
 		},
 		"overview": {

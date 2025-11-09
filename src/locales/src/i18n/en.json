@@ -53,10 +53,19 @@
 		},
 		"summary": "React & React Native developer with growing expertise in TypeScript and Tailwind CSS. Passionate about creating user-focused web and mobile applications that are simple, intuitive, and enjoyable to use. I value writing clean, maintainable code and I am always eager to explore new tools and best practices that improve both developer experience and product quality. Beyond the technical side, I enjoy working in collaborative environments where knowledge-sharing and problem-solving are part of the culture. My goal is to contribute to meaningful projects while continuously growing as a developer.",
 		"projects": {
+			"volt": {
+				"title": "Volt Delta - Gaming Laptop Showcase",
+				"description": "A responsive demo for the fictional Volt Labs “Delta Series”. Features an interactive 3D laptop model and several animated sections. Built with React, Three.js, and GSAP.",
+				"status": {
+					"text": "🔗 View project"
+				}
+			},
 			"macrame": {
 				"title": "Macramé Jewelry Website",
 				"description": "Responsive showcase site for handcrafted jewelry. Built with React, TypeScript, Tailwind, and Vite.",
-				"status": "🚧 Work in Progress"
+				"status": {
+					"text": "🚧 Work in Progress"
+				}
 			}
 		},
 		"overview": {
