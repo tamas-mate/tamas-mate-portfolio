@@ -7,7 +7,14 @@ import type { TimelineItemProps } from "@/types";
 import { cl } from "@/utils/utils";
 import icons from "../../../assets/icons/data.json";
 
-const TimelineItem = ({ iconName, title, subTitle, location, date, extraContent }: TimelineItemProps) => {
+const TimelineItem = ({
+	iconName,
+	title,
+	subTitle,
+	location,
+	date,
+	extra_content: extraContent,
+}: TimelineItemProps) => {
 	const { t } = useTranslation();
 
 	return (

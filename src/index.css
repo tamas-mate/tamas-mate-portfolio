@@ -29,6 +29,12 @@
 	body {
 		@apply text-text-primary bg-primary font-sans;
 	}
+
+	@media (max-width: 1280px) {
+		:root {
+			--swiper-pagination-bullet-size: 16px;
+		}
+	}
 }
 
 @layer components {
