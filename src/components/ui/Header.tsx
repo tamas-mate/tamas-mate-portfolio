@@ -44,7 +44,7 @@ const Header = ({ name, role, location, cta }: HeaderProps) => {
 				</div>
 				<div className="flex w-full flex-col justify-between gap-y-2 lg:flex-row lg:px-12 lg:pb-12">
 					<div className="flex w-full flex-col justify-center gap-y-4.5 lg:w-3/4 lg:justify-start">
-						<h1 className="text-center text-2xl font-bold lg:text-left">{t(name)}</h1>
+						<h1 className="text-center text-3xl font-bold lg:text-left">{t(name)}</h1>
 						<div className="flex flex-col justify-center gap-y-2 lg:flex-row lg:justify-start lg:gap-18">
 							<div className="flex flex-row items-center justify-center gap-x-3 lg:justify-start">
 								<SVGComponent className={"fill-accent size-4"} {...icons["work"]} />

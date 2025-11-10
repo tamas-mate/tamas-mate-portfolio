@@ -55,7 +55,7 @@
 		"projects": {
 			"volt": {
 				"title": "Volt Delta - pagină de prezentare pentru laptop de gaming",
-				"description": "Demo responsiv pentru brandul imaginar Volt Labs și „Seria Delta”. Include un model 3D de laptop interactiv și mai multe secțiuni animate. Realizat cu React, Three.js și GSAP.",
+				"description": "Demo responsiv pentru brandul imaginar Volt Labs și „Seria Delta”. Include un model 3D de laptop interactiv și mai multe secțiuni animate. Realizat cu React, Three.js și GSAP. Inspirat de JS Mastery.",
 				"status": {
 					"text": "🔗 Vezi proiectul"
 				}

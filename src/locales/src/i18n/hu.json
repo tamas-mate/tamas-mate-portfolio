@@ -55,7 +55,7 @@
 		"projects": {
 			"volt": {
 				"title": "Volt Delta - gamer laptop bemutató oldal",
-				"description": "Reszponzív weboldal a fiktív Volt Labs „Delta sorozat” bemutatására. Interaktív 3D-s laptopmodellt és több animált szekciót tartalmaz. Felhasznált technológiák React, Three.js, GSAP.",
+				"description": "Reszponzív weboldal a fiktív Volt Labs „Delta sorozat” bemutatására. Interaktív 3D-s laptopmodellt és több animált szekciót tartalmaz. Felhasznált technológiák React, Three.js, GSAP. Inspirálta a JS Mastery.",
 				"status": {
 					"text": "🔗 Megtekintés"
 				}
