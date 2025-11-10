@@ -55,7 +55,7 @@
 		"projects": {
 			"volt": {
 				"title": "Volt Delta - Gaming Laptop Showcase",
-				"description": "A responsive demo for the fictional Volt Labs “Delta Series”. Features an interactive 3D laptop model and several animated sections. Built with React, Three.js, and GSAP.",
+				"description": "A responsive demo for the fictional Volt Labs “Delta Series”. Features an interactive 3D laptop model and several animated sections. Built with React, Three.js, and GSAP. Inspired by JS Mastery.",
 				"status": {
 					"text": "🔗 View project"
 				}

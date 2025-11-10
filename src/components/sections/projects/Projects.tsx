@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import SectionTitle from "../../ui/SectionTitle";
@@ -27,15 +27,10 @@ const Projects = ({ projects }: ProjectsProps) => {
 				) : (
 					<Swiper
 						onSwiper={(swiper) => setSwiperRef(swiper)}
-						modules={[Autoplay, Pagination]}
-						autoplay={{
-							delay: 60000,
-							disableOnInteraction: true,
-						}}
+						modules={[Pagination]}
 						pagination={{ clickable: true }}
 						grabCursor
 						autoHeight
-						spaceBetween={5}
 						className={cl("", isDark && "project-swiper-dark")}
 					>
 						{projects.map((project, index) => (

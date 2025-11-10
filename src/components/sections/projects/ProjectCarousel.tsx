@@ -22,7 +22,9 @@ const ProjectCarousel = ({ images, title }: ProjectCarouselProps) => {
 			}}
 			navigation
 			nested
-			className={cl("project-carousel h-160 w-full", isDark && "project-swiper-dark")}
+			grabCursor
+			spaceBetween={25}
+			className={cl("project-carousel h-80 w-full lg:h-160", isDark && "project-swiper-dark")}
 			onTouchStart={lockSwiper}
 			onSliderFirstMove={lockSwiper}
 			onTouchEnd={unlockSwiper}
