@@ -156,7 +156,7 @@ export type TimelineItemProps = {
 	date: string;
 	icon: string;
 	iconName?: keyof typeof icons;
-	extraContent?: string | string[];
+	extra_content?: string | string[];
 	sectionId?: string;
 };
 
