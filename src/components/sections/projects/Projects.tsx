@@ -30,6 +30,7 @@ const Projects = ({ projects }: ProjectsProps) => {
 						modules={[Pagination]}
 						pagination={{ clickable: true }}
 						grabCursor
+						spaceBetween={25}
 						autoHeight
 						className={cl("", isDark && "project-swiper-dark")}
 					>
