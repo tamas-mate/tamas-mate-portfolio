@@ -17,18 +17,13 @@ export default defineConfig({
 	build: {
 		rollupOptions: {
 			output: {
-				manualChunks(id) {
-					if (!id.includes("node_modules")) return;
-
-					if (id.includes("swiper")) return "chunk-swiper";
-					// if (id.includes("@supabase/")) return "chunk-supabase";
-					if (id.includes("react-toastify")) return "chunk-toastify";
-					if (id.includes("react-google-recaptcha")) return "chunk-recaptcha";
-					return "vendor";
+				manualChunks: {
+					"chunk-swiper": ["swiper"],
+					"chunk-supabase": ["@supabase/supabase-js"],
+					"chunk-toastify": ["react-toastify"],
+					"chunk-recaptcha": ["react-google-recaptcha"],
 				},
 			},
 		},
-		// chunkSizeWarningLimit: 800,
-		// esbuild: { drop: ["console", "debugger"] },
 	},
 });
