@@ -21,7 +21,7 @@ export default defineConfig({
 					if (!id.includes("node_modules")) return;
 
 					if (id.includes("swiper")) return "chunk-swiper";
-					if (id.includes("@supabase/")) return "chunk-supabase";
+					// if (id.includes("@supabase/")) return "chunk-supabase";
 					if (id.includes("react-toastify")) return "chunk-toastify";
 					if (id.includes("react-google-recaptcha")) return "chunk-recaptcha";
 					return "vendor";
