@@ -36,6 +36,7 @@
 		"@types/react-google-recaptcha": "^2.1.9",
 		"@vitejs/plugin-react": "^5.1.1",
 		"clsx": "^2.1.1",
+		"cross-env": "^10.1.0",
 		"eslint": "^9.39.1",
 		"eslint-plugin-es-x": "^9.1.2",
 		"eslint-plugin-react-hooks": "^7.0.1",

@@ -28,10 +28,7 @@ export default defineConfig({
 				},
 			},
 		},
-		// Optional: quiet the warning or keep it strict
 		// chunkSizeWarningLimit: 800,
-
-		// Optional: tiny size win
 		// esbuild: { drop: ["console", "debugger"] },
 	},
 });
