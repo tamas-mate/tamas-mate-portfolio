@@ -1,4 +1,4 @@
-# Tamás Máté — Portfolio
+# Tamás Máté Portfolio
 
 A fast, multi-language portfolio built with **Vite + React + Tailwind CSS (v4)**.  
 It showcases projects, skills, and contact options with a focus on **performance**, **accessibility**, and **clean DX**.
@@ -94,4 +94,3 @@ MIT © Tamás Máté
 - Website: [https://tamas-mate-portfolio.vercel.app/](https://tamas-mate-portfolio.vercel.app/)
 - Email: `tamasmate.dev@gmail.com`
 - GitHub: [https://github.com/tamas-mate](https://github.com/tamas-mate)
-
