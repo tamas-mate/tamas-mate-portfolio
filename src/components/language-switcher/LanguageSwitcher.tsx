@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 
 import SVGComponent from "../ui/SVGComponent";
@@ -8,14 +7,11 @@ import icons from "../../assets/icons/data.json";
 const LanguageSwitcher = () => {
 	const { i18n } = useTranslation();
 
-	const handleLanguageChange = useCallback(
-		async (lang: string) => {
-			await i18n.changeLanguage(lang).then(() => {
-				localStorage.setItem("i18nextLng", lang);
-			});
-		},
-		[i18n],
-	);
+	const handleLanguageChange = async (lang: string) => {
+		await i18n.changeLanguage(lang).then(() => {
+			localStorage.setItem("i18nextLng", lang);
+		});
+	};
 
 	return (
 		<div className="group flex-center dark:text-accent absolute top-1.5 right-12 gap-x-1 bg-transparent text-blue-300 outline-none">

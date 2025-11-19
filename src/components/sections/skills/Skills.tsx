@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 
 import SectionTitle from "../../ui/SectionTitle";
@@ -8,7 +7,7 @@ import type { SkillsProps } from "@/types";
 
 const Skills = ({ skills }: SkillsProps) => {
 	const { t } = useTranslation();
-	const skillsArray = useMemo(() => t(skills, { returnObjects: true }) as string[], [t, skills]);
+	const skillsArray = t(skills, { returnObjects: true }) as string[];
 
 	return (
 		<section id="skills" className="flex flex-col gap-y-7.5">

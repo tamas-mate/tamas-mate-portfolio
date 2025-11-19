@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import SVGComponent from "../../ui/SVGComponent";
@@ -8,7 +8,7 @@ import { cl } from "@/utils/utils";
 const TimelineItemDetails = ({ extraContent }: { extraContent: string[] }) => {
 	const { t } = useTranslation();
 	const [isOpen, setIsOpen] = useState(false);
-	const extraContentArray = useMemo(() => t(extraContent, { returnObjects: true }) as string[], [t, extraContent]);
+	const extraContentArray = t(extraContent, { returnObjects: true }) as string[];
 
 	return (
 		<div className="max-w-xl overflow-hidden">

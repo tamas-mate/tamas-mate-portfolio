@@ -1,4 +1,3 @@
-import { memo } from "react";
 import { useTranslation } from "react-i18next";
 
 import SVGComponent from "../../ui/SVGComponent";
@@ -7,7 +6,7 @@ import type { HistoryRowProps, IconName } from "@/types";
 import { cl } from "@/utils/utils";
 import icons from "../../../assets/icons/data.json";
 
-const HistoryRow = memo(({ index, item, onClick }: HistoryRowProps) => {
+const HistoryRow = ({ index, item, onClick }: HistoryRowProps) => {
 	const { t } = useTranslation();
 
 	const checkTitle = (title: string) => {
@@ -53,6 +52,6 @@ const HistoryRow = memo(({ index, item, onClick }: HistoryRowProps) => {
 			</div>
 		</div>
 	);
-});
+};
 
 export default HistoryRow;

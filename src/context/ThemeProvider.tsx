@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { ThemeContext } from "./theme-context";
 
@@ -22,7 +22,7 @@ const ThemeProvider = ({ children }: ChildrenProvider) => {
 		root.setAttribute("data-theme", isDark ? "dark" : "light");
 	}, [isDark]);
 
-	const value = useMemo(() => ({ theme, setTheme, isDark }), [theme, isDark]);
+	const value = { theme, setTheme, isDark };
 
 	return <ThemeContext value={value}>{children}</ThemeContext>;
 };
