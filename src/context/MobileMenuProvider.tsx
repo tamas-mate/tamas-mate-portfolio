@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { MobileMenuContext } from "./mobile-menu-context";
 
@@ -12,16 +12,13 @@ const MobileMenuProvider = ({ children }: ChildrenProvider) => {
 		document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
 	}, [isMenuOpen]);
 
-	const value = useMemo(
-		() => ({
-			isMenuOpen,
-			openMenu: () => setIsMenuOpen(true),
-			closeMenu: () => setIsMenuOpen(false),
-			triggerRef,
-			setTriggerRef: (el: HTMLButtonElement | null) => (triggerRef.current = el),
-		}),
-		[isMenuOpen],
-	);
+	const value = {
+		isMenuOpen,
+		openMenu: () => setIsMenuOpen(true),
+		closeMenu: () => setIsMenuOpen(false),
+		triggerRef,
+		setTriggerRef: (el: HTMLButtonElement | null) => (triggerRef.current = el),
+	};
 
 	return <MobileMenuContext value={value}>{children}</MobileMenuContext>;
 };

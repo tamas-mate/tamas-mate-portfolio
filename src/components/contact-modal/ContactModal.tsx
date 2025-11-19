@@ -1,5 +1,5 @@
 import emailjs from "@emailjs/browser";
-import { useMemo, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -30,12 +30,9 @@ const ContactModal = () => {
 	});
 	const { isModalOpen, closeModal } = useModal();
 	const { isDark } = useTheme();
-	const toastTheme = useMemo(
-		() => ({
-			theme: isDark ? "dark" : "light",
-		}),
-		[isDark],
-	);
+	const toastTheme = {
+		theme: isDark ? "dark" : "light",
+	};
 
 	const onSubmit = async (data: FormData) => {
 		try {

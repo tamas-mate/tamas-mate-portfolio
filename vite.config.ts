@@ -8,9 +8,15 @@ const analyze = process.env.ANALYZE === "true";
 
 // https://vite.dev/config/
 export default defineConfig({
-	plugins: [tailwindcss(), react(), analyze && visualizer({ filename: "stats.html", brotliSize: true })].filter(
-		Boolean,
-	),
+	plugins: [
+		tailwindcss(),
+		react({
+			babel: {
+				plugins: ["babel-plugin-react-compiler"],
+			},
+		}),
+		analyze && visualizer({ filename: "stats.html", brotliSize: true }),
+	].filter(Boolean),
 	resolve: {
 		alias: { "@": fileURLToPath(new URL("./src", import.meta.url)) },
 	},

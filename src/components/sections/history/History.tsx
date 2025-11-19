@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 
 import SectionTitle from "../../ui/SectionTitle";
@@ -26,7 +25,7 @@ const normalizeTimeline = (timeline: HistoryProps["timeline"]) => {
 
 const History = ({ timeline, onClick }: HistoryProps) => {
 	const { t } = useTranslation();
-	const timelineItems = useMemo(() => normalizeTimeline(timeline), [timeline]);
+	const timelineItems = normalizeTimeline(timeline);
 
 	return (
 		<section id="timeline" className="flex flex-col gap-y-7.5">
