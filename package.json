@@ -13,15 +13,15 @@
 	},
 	"dependencies": {
 		"@emailjs/browser": "^4.4.1",
-		"@supabase/supabase-js": "^2.81.1",
+		"@supabase/supabase-js": "^2.86.0",
 		"@tailwindcss/vite": "^4.1.17",
-		"@tanstack/react-query": "^5.90.8",
-		"i18next": "^25.6.2",
+		"@tanstack/react-query": "^5.90.11",
+		"i18next": "^25.6.3",
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0",
 		"react-google-recaptcha": "^3.1.0",
-		"react-hook-form": "^7.66.0",
-		"react-i18next": "^16.3.1",
+		"react-hook-form": "^7.66.1",
+		"react-i18next": "^16.3.5",
 		"react-scrollspy-navigation": "^2.0.6",
 		"react-toastify": "^11.0.5",
 		"swiper": "^12.0.3",
@@ -31,7 +31,7 @@
 		"@eslint/js": "^9.39.1",
 		"@tanstack/eslint-plugin-query": "^5.91.2",
 		"@types/node": "^24.10.1",
-		"@types/react": "^19.2.4",
+		"@types/react": "^19.2.7",
 		"@types/react-dom": "^19.2.3",
 		"@types/react-google-recaptcha": "^2.1.9",
 		"@vitejs/plugin-react": "^5.1.1",
@@ -39,7 +39,7 @@
 		"clsx": "^2.1.1",
 		"cross-env": "^10.1.0",
 		"eslint": "^9.39.1",
-		"eslint-plugin-es-x": "^9.1.2",
+		"eslint-plugin-es-x": "^9.2.0",
 		"eslint-plugin-react-hooks": "^7.0.1",
 		"eslint-plugin-react-refresh": "^0.4.24",
 		"globals": "^16.5.0",
@@ -48,7 +48,7 @@
 		"rollup-plugin-visualizer": "^6.0.5",
 		"tailwind-merge": "^3.4.0",
 		"typescript": "~5.9.3",
-		"typescript-eslint": "^8.46.4",
-		"vite": "^7.2.2"
+		"typescript-eslint": "^8.48.0",
+		"vite": "^7.2.4"
 	}
 }
