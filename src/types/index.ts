@@ -35,7 +35,7 @@ export type SwiperContextType = {
 };
 
 export type ScrollButtonProps = {
-	scrollToTop: () => void;
+	onClick: () => void;
 };
 
 export type SwitcherProps = {
@@ -157,15 +157,11 @@ export type TimelineItemProps = {
 	icon: string;
 	iconName?: keyof typeof icons;
 	extra_content?: string | string[];
-	sectionId?: string;
-};
-
-export type TimeLineScrollHandle = {
-	scrollIntoView: () => void;
+	sectionId: string;
 };
 
 export type TimeLineProps = {
-	handleRef: Ref<TimeLineScrollHandle>;
+	ref: Ref<HTMLElement>;
 	sectionId: string;
 	title: string;
 	iconName: "work" | "education";
@@ -189,13 +185,13 @@ export type HistoryProps = {
 	timeline: {
 		[K in keyof Timeline]: TimelineItemProps[];
 	};
-	onClick: (id?: string) => void;
+	onClick: (id: string) => void;
 };
 
 export type HistoryRowProps = {
 	index: number;
 	item: TimelineItemProps;
-	onClick: (id?: string) => void;
+	onClick: (id: string) => void;
 };
 
 export type FooterProps = Omit<HeaderProps, "location"> & { copyright: string };

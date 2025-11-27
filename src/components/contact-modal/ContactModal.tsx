@@ -1,18 +1,19 @@
 import emailjs from "@emailjs/browser";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 
-import { useModal } from "@/context/modal-context";
-import { useTheme } from "@/context/theme-context";
+import { useModal } from "@/context/modal/modal-context";
 import type { FormData } from "@/types";
 import { collapseTrim, getFormattedDate, initObserver, INPUTLIMITS } from "@/utils/utils";
+import type { FormEvent } from "react";
 import FieldErrorMessage from "./FieldErrorMessage";
 
 const ContactModal = () => {
 	const recaptcha = useRef<ReCAPTCHA | null>(null);
+	const modalRef = useRef<HTMLDivElement | null>(null);
 	const [isPending, setIsPending] = useState(false);
 	const { t } = useTranslation();
 	const {
@@ -29,17 +30,55 @@ const ContactModal = () => {
 		},
 	});
 	const { isModalOpen, closeModal } = useModal();
-	const { isDark } = useTheme();
-	const toastTheme = {
-		theme: isDark ? "dark" : "light",
-	};
+
+	useEffect(() => {
+		if (!isModalOpen) return;
+
+		const modalNode = modalRef.current;
+		if (!modalNode) return;
+
+		const previouslyFocusedElement = document.activeElement as HTMLElement | null;
+
+		const focusableSelectors = 'button, input, textarea, [tabindex]:not([tabindex="-1"])';
+
+		const focusableElements = Array.from(modalNode.querySelectorAll<HTMLElement>(focusableSelectors));
+		const first = focusableElements[0];
+		const last = focusableElements[focusableElements.length - 1];
+
+		first?.focus();
+
+		const handleKeyDown = (event: KeyboardEvent) => {
+			if (event.key !== "Tab" || focusableElements.length === 0) return;
+
+			if (event.shiftKey) {
+				// Shift+Tab: wrap from first → last
+				if (document.activeElement === first) {
+					event.preventDefault();
+					last?.focus();
+				}
+			} else {
+				// Tab: wrap from last → first
+				if (document.activeElement === last) {
+					event.preventDefault();
+					first?.focus();
+				}
+			}
+		};
+
+		modalNode.addEventListener("keydown", handleKeyDown);
+
+		return () => {
+			modalNode.removeEventListener("keydown", handleKeyDown);
+			previouslyFocusedElement?.focus();
+		};
+	}, [isModalOpen]);
 
 	const onSubmit = async (data: FormData) => {
 		try {
 			setIsPending(true);
 
 			if (errors.name || errors.email || errors.subject || errors.message) {
-				toast.error(t("contact_modal.validation.check_inputs"), toastTheme);
+				toast.error(t("contact_modal.validation.check_inputs"));
 				setIsPending(false);
 				return;
 			}
@@ -48,7 +87,7 @@ const ContactModal = () => {
 			const token = await recaptcha.current?.executeAsync();
 
 			if (!token) {
-				toast.error(t("contact_modal.validation.recaptcha_failed"), toastTheme);
+				toast.error(t("contact_modal.validation.recaptcha_failed"));
 				setIsPending(false);
 				return;
 			}
@@ -67,19 +106,23 @@ const ContactModal = () => {
 			});
 
 			if (response.status === 200) {
-				toast.success(t("contact_modal.validation.success"), toastTheme);
+				toast.success(t("contact_modal.validation.success"));
 				setIsPending(false);
 				reset();
 				closeModal();
 			}
 		} catch (error) {
-			toast.error(t("contact_modal.validation.send_failed"), toastTheme);
+			toast.error(t("contact_modal.validation.send_failed"));
 			console.error("Failed to send the message! Error:", error);
 			setIsPending(false);
 			closeModal();
 		}
 
 		recaptcha.current?.reset();
+	};
+
+	const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
+		handleSubmit(onSubmit)(event);
 	};
 
 	if (!isModalOpen) {
@@ -104,8 +147,13 @@ const ContactModal = () => {
 					aria-describedby="captcha-help"
 				/>
 			</div>
-			<div className="bg-primary dark:bg-secondary xsl:w-120 fixed top-1/2 left-1/2 z-105 w-full -translate-x-1/2 -translate-y-1/2 transform rounded-md p-7.5">
-				<form className="relative flex flex-col gap-y-4" onSubmit={handleSubmit(onSubmit)}>
+			<div
+				ref={modalRef}
+				role="dialog"
+				aria-modal="true"
+				className="bg-primary dark:bg-secondary xsl:w-120 fixed top-1/2 left-1/2 z-105 w-full -translate-x-1/2 -translate-y-1/2 transform rounded-md p-7.5"
+			>
+				<form className="relative flex flex-col gap-y-4" onSubmit={handleFormSubmit}>
 					<span
 						className="text-gray/50 absolute -top-3 right-0 text-xl hover:cursor-pointer dark:text-white"
 						onClick={closeModal}
@@ -122,6 +170,7 @@ const ContactModal = () => {
 								required: { value: true, message: "contact_modal.validation.name_required" },
 								maxLength: { value: INPUTLIMITS.name.max, message: "contact_modal.validation.name_max" },
 							})}
+							autoFocus
 							id="name"
 							className="input"
 							type="text"

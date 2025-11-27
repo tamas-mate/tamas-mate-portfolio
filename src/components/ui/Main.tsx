@@ -12,15 +12,15 @@ import Timeline from "../sections/timeline/Timeline";
 import MobileMenu from "../sidenav/MobileMenu";
 import SideNav from "../sidenav/SideNav";
 
-import SwiperProvider from "@/context/SwiperProvider";
-import type { MainProps, TimeLineScrollHandle } from "@/types";
+import SwiperProvider from "@/context/swiper/SwiperProvider";
+import type { MainProps } from "@/types";
 
 const Main = ({ navItems, summary, projects, overview, timeline, skills, languages, quote }: MainProps) => {
 	const { t } = useTranslation();
-	const workHistoryTimelineRef = useRef<TimeLineScrollHandle>(null);
-	const educationTimelineRef = useRef<TimeLineScrollHandle>(null);
+	const workHistoryTimelineRef = useRef<HTMLElement | null>(null);
+	const educationTimelineRef = useRef<HTMLElement | null>(null);
 
-	const scrollToRelevantTimeline = (sectionId?: string) => {
+	const handleScrollToTimeline = (sectionId: string) => {
 		if (sectionId === "work_history") workHistoryTimelineRef.current?.scrollIntoView();
 		if (sectionId === "education") educationTimelineRef.current?.scrollIntoView();
 	};
@@ -35,14 +35,14 @@ const Main = ({ navItems, summary, projects, overview, timeline, skills, languag
 			</SwiperProvider>
 			<Overview overview={overview} />
 			<Timeline
-				handleRef={workHistoryTimelineRef}
+				ref={workHistoryTimelineRef}
 				sectionId="work_history"
 				title={t("main.sections.work_history")}
 				iconName="work"
 				timelineContent={timeline.work}
 			/>
 			<Timeline
-				handleRef={educationTimelineRef}
+				ref={educationTimelineRef}
 				sectionId="education"
 				title={t("main.sections.education")}
 				iconName="education"
@@ -51,7 +51,7 @@ const Main = ({ navItems, summary, projects, overview, timeline, skills, languag
 			<Skills skills={skills} />
 			<Languages languages={languages} />
 			<Quote {...quote} />
-			<History timeline={timeline} onClick={scrollToRelevantTimeline} />
+			<History timeline={timeline} onClick={handleScrollToTimeline} />
 		</main>
 	);
 };

@@ -1,19 +1,16 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { lazy, StrictMode, Suspense } from "react";
+import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./i18n";
 import "./index.css";
 
 import App from "./App.tsx";
-import MobileMenuProvider from "./context/MobileMenuProvider.tsx";
-import ModalProvider from "./context/ModalProvider.tsx";
-import ThemeProvider from "./context/ThemeProvider.tsx";
-
-import { toastContainerConfig } from "./utils/utils.ts";
+import ToastHost from "./components/ToastHost.tsx";
+import MobileMenuProvider from "./context/menu/MobileMenuProvider.tsx";
+import ModalProvider from "./context/modal/ModalProvider.tsx";
+import ThemeProvider from "./context/theme/ThemeProvider.tsx";
 
 const queryClient = new QueryClient();
-
-const LazyToastContainer = lazy(() => import("react-toastify").then((module) => ({ default: module.ToastContainer })));
 
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
@@ -22,10 +19,8 @@ createRoot(document.getElementById("root")!).render(
 				<ThemeProvider>
 					<MobileMenuProvider>
 						<App />
+						<ToastHost />
 					</MobileMenuProvider>
-					<Suspense fallback={null}>
-						<LazyToastContainer {...toastContainerConfig} />
-					</Suspense>
 				</ThemeProvider>
 			</ModalProvider>
 		</QueryClientProvider>

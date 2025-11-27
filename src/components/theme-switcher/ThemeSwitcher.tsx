@@ -1,6 +1,6 @@
 import SVGComponent from "../ui/SVGComponent";
 
-import { useTheme } from "@/context/theme-context";
+import { useTheme } from "@/context/theme/theme-context";
 
 const ThemeSwitcher = () => {
 	const { isDark, setTheme } = useTheme();

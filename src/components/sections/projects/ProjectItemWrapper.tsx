@@ -1,18 +1,18 @@
 import ProjectItem from "./ProjectItem";
 
 import type { ProjectProps } from "@/types";
-import { imageMap } from "@/utils/utils";
+import { imageMap, type ImageKey } from "@/utils/utils";
 
 const ProjectItemWrapper = (project: ProjectProps) => {
-	const getProjectImages = (project: { images: string[] }) => {
-		return project.images.filter((image) => imageMap[image]).map((image) => imageMap[image]);
+	const getProjectImages = (projectImages: ImageKey[]) => {
+		return projectImages.map((image) => imageMap[image]);
 	};
 
 	return (
 		<ProjectItem
 			title={project.title}
 			description={project.description}
-			images={getProjectImages(project)}
+			images={getProjectImages(project.images)}
 			technologies={project.technologies}
 			status={project.status}
 		/>

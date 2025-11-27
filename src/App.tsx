@@ -7,23 +7,23 @@ import Header from "./components/ui/Header";
 import LoadingSpinner from "./components/ui/LoadingSpinner";
 import Main from "./components/ui/Main";
 
-import { useModal } from "./context/modal-context";
+import { useModal } from "./context/modal/modal-context";
 import { usePortfolioContent } from "./hooks/usePortfolioContent";
 
 const ContactModal = lazy(() => import("./components/contact-modal/ContactModal"));
 
 const App = () => {
 	const divRef = useRef<HTMLDivElement>(null);
-	const { content, isFetching, errorMessage } = usePortfolioContent();
 	const { isModalOpen } = useModal();
+	const { isFetching, content, errorMessage } = usePortfolioContent(!isModalOpen);
 	const { t } = useTranslation();
 
-	const scrollToTop = () => {
+	const handleScrollToTop = () => {
 		divRef.current?.scrollIntoView({ behavior: "smooth" });
 	};
 
-	if (errorMessage) console.error(errorMessage);
 	if (isFetching) return <LoadingSpinner />;
+	if (errorMessage) console.error(errorMessage);
 
 	return (
 		<>
@@ -31,7 +31,7 @@ const App = () => {
 				<title>{t("page_title")}</title>
 				<Header {...content.header} />
 				<Main {...content.main} />
-				<ScrollButton scrollToTop={scrollToTop} />
+				<ScrollButton onClick={handleScrollToTop} />
 				<Footer
 					name={content.header.name}
 					role={content.header.role}
@@ -39,7 +39,6 @@ const App = () => {
 					copyright={content.footer.copyright}
 				/>
 			</div>
-
 			<Suspense fallback={null}>{isModalOpen && <ContactModal />}</Suspense>
 		</>
 	);

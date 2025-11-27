@@ -8,8 +8,8 @@ import SectionTitle from "../../ui/SectionTitle";
 import SectionWrapper from "../../ui/SectionWrapper";
 import ProjectItemWrapper from "./ProjectItemWrapper";
 
-import { useSwiper } from "@/context/swiper-context";
-import { useTheme } from "@/context/theme-context";
+import { useSwiper } from "@/context/swiper/swiper-context";
+import { useTheme } from "@/context/theme/theme-context";
 import type { ProjectsProps } from "@/types";
 import { cl } from "@/utils/utils";
 
@@ -34,8 +34,8 @@ const Projects = ({ projects }: ProjectsProps) => {
 						autoHeight
 						className={cl("", isDark && "project-swiper-dark")}
 					>
-						{projects.map((project, index) => (
-							<SwiperSlide key={"project-" + index + "-slide"} className="w-full">
+						{projects.map((project) => (
+							<SwiperSlide key={project.title} className="w-full">
 								<ProjectItemWrapper {...project} />
 							</SwiperSlide>
 						))}

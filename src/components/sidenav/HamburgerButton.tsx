@@ -1,4 +1,4 @@
-import { useMobileMenu } from "@/context/mobile-menu-context";
+import { useMobileMenu } from "@/context/menu/mobile-menu-context";
 
 import { cl } from "@/utils/utils";
 
@@ -9,12 +9,9 @@ const HamburgerButton = ({ extraClasses }: SwitcherProps) => {
 
 	const setRef = (el: HTMLButtonElement | null) => setTriggerRef(el);
 
-	const handleMenuBtnClick = () => {
-		if (isMenuOpen) {
-			closeMenu();
-		} else {
-			openMenu();
-		}
+	const handleClick = () => {
+		if (isMenuOpen) closeMenu();
+		else openMenu();
 	};
 
 	return (
@@ -22,7 +19,7 @@ const HamburgerButton = ({ extraClasses }: SwitcherProps) => {
 			ref={setRef}
 			id="menu-btn"
 			className={cl("3xl:hidden hamburger block focus:outline-none", extraClasses, isMenuOpen && "open")}
-			onClick={handleMenuBtnClick}
+			onClick={handleClick}
 			aria-label="Hamburger button"
 		>
 			<span className={cl("hamburger-top dark:bg-accent", isMenuOpen ? "bg-accent" : "bg-blue-300")}></span>

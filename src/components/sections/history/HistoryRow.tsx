@@ -22,17 +22,14 @@ const HistoryRow = ({ index, item, onClick }: HistoryRowProps) => {
 	};
 
 	return (
-		<div className="before:bg-accent relative flex w-full justify-center before:absolute before:top-full before:left-1/2 before:h-full before:w-1 last:before:content-none lg:before:content-none lg:odd:justify-start lg:even:justify-end">
+		<div className="history-row-wrapper">
 			<div
 				className={cl(
 					"group relative flex w-full justify-center lg:w-1/2",
 					index % 2 === 0 ? "lg:justify-end lg:pr-10" : "lg:justify-start lg:pl-10",
 				)}
 			>
-				<div
-					className="bg-primary dark:bg-lighter-dark3 dark:group-hover:bg-primary group-hover:bg-light-blue flex w-87.5 items-start justify-start gap-10 rounded-sm py-5 pl-10 hover:cursor-pointer"
-					onClick={() => onClick(item?.sectionId)}
-				>
+				<div className="history-row-item" onClick={() => onClick(item.sectionId)}>
 					<div className="bg-light-blue dark:bg-primary/50 dark:group-hover:bg-lighter-dark3 group-hover:bg-primary mt-1.5 rounded-sm p-3">
 						<SVGComponent className={"fill-accent size-6"} {...icons[item.icon as IconName]} />
 					</div>

@@ -14,8 +14,8 @@ const Skills = ({ skills }: SkillsProps) => {
 			<SectionTitle title={t("main.sections.skills")} iconName="skills" />
 			<div className="bg-secondary border-border-gray rounded-sm border border-solid px-12 py-7.5">
 				<ul className="grid grid-cols-2 gap-4 lg:grid-cols-3">
-					{skillsArray.map((skill, index) => {
-						return <Skill key={"skill-" + index} skill={skill} />;
+					{skillsArray.map((skill) => {
+						return <Skill key={skill} skill={skill} />;
 					})}
 				</ul>
 			</div>
