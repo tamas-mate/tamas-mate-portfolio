@@ -4,7 +4,7 @@ import ScrollSpy from "react-scrollspy-navigation";
 
 import HamburgerButton from "./HamburgerButton";
 
-import { useMobileMenu } from "@/context/mobile-menu-context";
+import { useMobileMenu } from "@/context/menu/mobile-menu-context";
 
 import { cl } from "@/utils/utils";
 
@@ -15,7 +15,8 @@ const MobileMenu = ({ navItems }: SideNavProps) => {
 	const { isMenuOpen, closeMenu, triggerRef } = useMobileMenu();
 
 	useEffect(() => {
-		if (!isMenuOpen && triggerRef && "current" in triggerRef) requestAnimationFrame(() => triggerRef.current?.focus());
+		if (!isMenuOpen && triggerRef && "current" in triggerRef)
+			requestAnimationFrame(() => triggerRef.current?.focus({ preventScroll: true }));
 	}, [isMenuOpen, triggerRef]);
 
 	return (

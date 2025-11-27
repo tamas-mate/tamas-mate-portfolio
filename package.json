@@ -8,7 +8,7 @@
 		"build": "tsc -b tsconfig.build.json && vite build",
 		"analyze": "cross-env ANALYZE=true vite build",
 		"lint": "eslint .",
-		"preview": "vite preview",
+		"preview": "vite preview --host",
 		"pretty": "prettier --write \"./**/*.{js,ts,jsx,tsx,css,json,cjs,cts,mjs,mts,vue,astro}\""
 	},
 	"dependencies": {

@@ -6,29 +6,24 @@ import { cl } from "@/utils/utils";
 
 import type { ScrollButtonProps } from "@/types";
 
-const ScrollButton = ({ scrollToTop }: ScrollButtonProps) => {
+const ScrollButton = ({ onClick }: ScrollButtonProps) => {
 	const [visible, setVisible] = useState(false);
-
-	const toggleVisible = () => {
+	const handleScroll = () => {
 		const scrolled = document.documentElement.scrollTop;
-
-		if (scrolled > 300) {
-			setVisible(true);
-		} else if (scrolled <= 300) {
-			setVisible(false);
-		}
+		if (scrolled > 300) setVisible(true);
+		else setVisible(false);
 	};
 
 	useEffect(() => {
-		window.addEventListener("scroll", toggleVisible);
+		window.addEventListener("scroll", handleScroll);
 		return () => {
-			window.removeEventListener("scroll", toggleVisible);
+			window.removeEventListener("scroll", handleScroll);
 		};
 	}, []);
 
 	return (
 		<button
-			onClick={scrollToTop}
+			onClick={onClick}
 			className={cl("group fixed right-7.5 bottom-7.5 p-5 hover:cursor-pointer", !visible && "hidden")}
 		>
 			<SVGComponent

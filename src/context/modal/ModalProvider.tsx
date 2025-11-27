@@ -9,6 +9,9 @@ const ModalProvider = ({ children }: ChildrenProvider) => {
 
 	useEffect(() => {
 		document.body.style.overflow = isModalOpen ? "hidden" : "auto";
+		return () => {
+			document.body.style.overflow = "auto";
+		};
 	}, [isModalOpen]);
 
 	const value = {

@@ -1,5 +1,5 @@
 import clsx, { type ClassValue } from "clsx";
-import { Bounce, type ToastPosition } from "react-toastify";
+import { Bounce, type ToastContainerProps } from "react-toastify";
 import { twMerge } from "./../../node_modules/tailwind-merge/src/lib/tw-merge";
 
 import macweb1 from "../assets/images/macweb1.png";
@@ -16,14 +16,17 @@ export const imageMap: Record<string, string> = {
 	"volt2.png": volt2,
 	"volt3.png": volt3,
 	"volt4.png": volt4,
-};
+} as const;
+
+export type ImageKey = keyof typeof imageMap;
 
 export function cl(...classes: ClassValue[]) {
 	return twMerge(clsx(...classes));
 }
 
-export const toastContainerConfig = {
-	position: "bottom-center" as ToastPosition,
+export const toastContainerConfig: ToastContainerProps = {
+	["aria-label"]: "Form Notification",
+	position: "bottom-center",
 	autoClose: 5000,
 	hideProgressBar: false,
 	newestOnTop: false,

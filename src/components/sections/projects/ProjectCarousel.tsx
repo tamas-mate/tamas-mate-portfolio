@@ -3,9 +3,9 @@ import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { useTheme } from "@/context/theme-context";
+import { useTheme } from "@/context/theme/theme-context";
 
-import { useSwiper } from "@/context/swiper-context";
+import { useSwiper } from "@/context/swiper/swiper-context";
 import type { ProjectCarouselProps } from "@/types";
 import { cl } from "@/utils/utils";
 

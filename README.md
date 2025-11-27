@@ -1,7 +1,7 @@
 # Tamás Máté Portfolio
 
 A fast, multi-language portfolio built with **Vite + React + Tailwind CSS (v4)**.  
-It showcases projects, skills, and contact options with a focus on **performance**, **accessibility**, and **clean DX**.
+It showcases projects, skills, and contact options with a focus on **performance**, **accessibility**, and **clean UX/UI**.
 
 **Repo:** [https://github.com/tamas-mate/tamas-mate-portfolio](https://github.com/tamas-mate/tamas-mate-portfolio)
 

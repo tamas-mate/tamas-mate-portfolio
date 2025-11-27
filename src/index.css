@@ -103,6 +103,18 @@
 	.project-carousel .swiper-slide {
 		height: 100% !important;
 	}
+
+	.history-wrapper {
+		@apply bg-secondary border-border-gray lg:before:bg-border-gray dark:lg:before:bg-gray/35 relative flex w-full flex-col items-center gap-y-12 rounded-sm border border-solid px-12 py-7.5 lg:before:absolute lg:before:top-0 lg:before:bottom-0 lg:before:left-1/2 lg:before:my-7.5 lg:before:w-1;
+	}
+
+	.history-row-wrapper {
+		@apply before:bg-accent relative flex w-full justify-center before:absolute before:top-full before:left-1/2 before:h-full before:w-1 last:before:content-none lg:before:content-none lg:odd:justify-start lg:even:justify-end;
+	}
+
+	.history-row-item {
+		@apply bg-primary dark:bg-lighter-dark3 dark:group-hover:bg-primary group-hover:bg-light-blue flex w-87.5 items-start justify-start gap-10 rounded-sm py-5 pl-10 hover:cursor-pointer;
+	}
 }
 
 @theme {

@@ -30,7 +30,7 @@ const History = ({ timeline, onClick }: HistoryProps) => {
 	return (
 		<section id="timeline" className="flex flex-col gap-y-7.5">
 			<SectionTitle title={t("main.sections.timeline")} iconName={"timeline"} stroke />
-			<div className="bg-secondary border-border-gray lg:before:bg-border-gray dark:lg:before:bg-gray/35 relative flex w-full flex-col items-center gap-y-12 rounded-sm border border-solid px-12 py-7.5 lg:before:absolute lg:before:top-0 lg:before:bottom-0 lg:before:left-1/2 lg:before:my-7.5 lg:before:w-1">
+			<div className="history-wrapper">
 				{timelineItems.map((item, index) => (
 					<HistoryRow key={index} index={index} item={item} onClick={onClick} />
 				))}

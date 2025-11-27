@@ -5,15 +5,17 @@ import HamburgerButton from "../sidenav/HamburgerButton";
 import ThemeSwitcher from "../theme-switcher/ThemeSwitcher";
 import SVGComponent from "./SVGComponent";
 
-import { useMobileMenu } from "@/context/mobile-menu-context";
-import { useModal } from "@/context/modal-context";
-import { useTheme } from "@/context/theme-context";
+import { useMobileMenu } from "@/context/menu/mobile-menu-context";
+import { useModal } from "@/context/modal/modal-context";
+import { useTheme } from "@/context/theme/theme-context";
 import type { HeaderProps } from "@/types";
 import icons from "../../assets/icons/data.json";
 import profileBackgroundCoffee from "../../assets/images/bgcoffee.avif";
 import profileBackgroundDark from "../../assets/images/bgdark.png";
 import profileBackgroundLight from "../../assets/images/bglight.png";
 import profilePicture from "../../assets/images/profile.avif";
+
+const rndNr = Math.floor(Math.random() * 2);
 
 const Header = ({ name, role, location, cta }: HeaderProps) => {
 	const { t } = useTranslation();
@@ -25,9 +27,8 @@ const Header = ({ name, role, location, cta }: HeaderProps) => {
 		const options = isDark
 			? [profileBackgroundDark, profileBackgroundCoffee]
 			: [profileBackgroundLight, profileBackgroundCoffee];
-		const rnd = Math.floor(Math.random() * 2);
 
-		return options[rnd];
+		return options[rndNr];
 	};
 
 	return (

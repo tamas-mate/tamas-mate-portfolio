@@ -10,12 +10,15 @@ const TimelineItemDetails = ({ extraContent }: { extraContent: string[] }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const extraContentArray = t(extraContent, { returnObjects: true }) as string[];
 
+	const handleClick = () => setIsOpen(!isOpen);
+
 	return (
 		<div className="max-w-xl overflow-hidden">
-			<div className="group outline-none" tabIndex={0}>
+			<div className="group outline-none">
 				<button
+					tabIndex={0}
 					className="group ease flex cursor-pointer items-center justify-start gap-4 py-3 text-gray-500 transition duration-500 lg:py-0"
-					onClick={() => setIsOpen(!isOpen)}
+					onClick={handleClick}
 					aria-expanded={isOpen}
 				>
 					<span className="text-accent ease group-hover:text-accent group-focus:text-accent transition duration-500 dark:text-white">
