@@ -132,11 +132,7 @@
 			"Proactive learning",
 			"Adaptability in remote teams"
 		],
-		"languages": [
-			"Hungarian",
-			"English",
-			"Romanian"
-		],
+		"languages": ["Hungarian", "English", "Romanian"],
 		"quote": {
 			"text": "Every problem is a gift — without problems we would not grow."
 		},

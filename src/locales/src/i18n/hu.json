@@ -132,11 +132,7 @@
 			"Önálló, kezdeményező tanulás",
 			"Rugalmasság csoportos távmunkában"
 		],
-		"languages": [
-			"Magyar",
-			"Angol",
-			"Román"
-		],
+		"languages": ["Magyar", "Angol", "Román"],
 		"quote": {
 			"text": "Minden probléma ajándék — problémák nélkül nem fejlődnénk."
 		},
