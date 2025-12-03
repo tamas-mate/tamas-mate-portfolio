@@ -94,3 +94,36 @@ export const initObserver = () => {
 		});
 	}
 };
+
+export const setupFocusTrap = (node: HTMLElement, selectors: string, callback: () => void) => {
+	const focusableElements = Array.from(node.querySelectorAll<HTMLElement>(selectors));
+
+	const first = focusableElements[0];
+	const last = focusableElements[focusableElements.length - 1];
+
+	first.focus();
+
+	const keyDownHandlerFn = (event: KeyboardEvent) => {
+		if (event.key === "Escape") {
+			event.preventDefault();
+			callback();
+			return;
+		}
+
+		if (event.key !== "Tab") return;
+
+		if (event.shiftKey) {
+			if (document.activeElement === first) {
+				event.preventDefault();
+				last.focus();
+			}
+		} else {
+			if (document.activeElement === last) {
+				event.preventDefault();
+				first.focus();
+			}
+		}
+	};
+
+	return keyDownHandlerFn;
+};

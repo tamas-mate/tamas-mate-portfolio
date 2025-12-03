@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useEffectEvent, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import ScrollSpy from "react-scrollspy-navigation";
 
@@ -6,18 +6,31 @@ import HamburgerButton from "./HamburgerButton";
 
 import { useMobileMenu } from "@/context/menu/mobile-menu-context";
 
-import { cl } from "@/utils/utils";
+import { cl, setupFocusTrap } from "@/utils/utils";
 
 import type { SideNavProps } from "@/types";
 
 const MobileMenu = ({ navItems }: SideNavProps) => {
+	const navRef = useRef<HTMLElement | null>(null);
 	const { t } = useTranslation();
-	const { isMenuOpen, closeMenu, triggerRef } = useMobileMenu();
+	const { isMenuOpen, closeMenu } = useMobileMenu();
+
+	const onSetupFocusTrap = useEffectEvent((node: HTMLElement) =>
+		setupFocusTrap(node, 'a, button, [tabindex]:not([tabindex="-1"])', closeMenu),
+	);
 
 	useEffect(() => {
-		if (!isMenuOpen && triggerRef && "current" in triggerRef)
-			requestAnimationFrame(() => triggerRef.current?.focus({ preventScroll: true }));
-	}, [isMenuOpen, triggerRef]);
+		if (!isMenuOpen) return;
+
+		const menuNode = navRef.current;
+		if (!menuNode) return;
+
+		const handleKeyDown = onSetupFocusTrap(menuNode);
+
+		menuNode.addEventListener("keydown", handleKeyDown);
+
+		return () => menuNode.removeEventListener("keydown", handleKeyDown);
+	}, [isMenuOpen]);
 
 	return (
 		<>
@@ -30,6 +43,7 @@ const MobileMenu = ({ navItems }: SideNavProps) => {
 				onClick={closeMenu}
 			/>
 			<nav
+				ref={navRef}
 				role="dialog"
 				aria-modal="true"
 				aria-label="Mobile navigation"
