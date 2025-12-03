@@ -9,6 +9,7 @@ const MobileMenuProvider = ({ children }: ChildrenProvider) => {
 	const triggerRef = useRef<HTMLButtonElement | null>(null);
 
 	useEffect(() => {
+		if (!isMenuOpen) requestAnimationFrame(() => triggerRef.current?.focus({ preventScroll: true }));
 		document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
 	}, [isMenuOpen]);
 

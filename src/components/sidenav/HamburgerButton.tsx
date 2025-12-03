@@ -18,7 +18,11 @@ const HamburgerButton = ({ extraClasses }: SwitcherProps) => {
 		<button
 			ref={setRef}
 			id="menu-btn"
-			className={cl("3xl:hidden hamburger block focus:outline-none", extraClasses, isMenuOpen && "open")}
+			className={cl(
+				"3xl:hidden hamburger block focus:outline-none",
+				extraClasses,
+				isMenuOpen && "open focus:outline-2 focus:outline-offset-2 focus:outline-white focus:outline-solid",
+			)}
 			onClick={handleClick}
 			aria-label="Hamburger button"
 		>

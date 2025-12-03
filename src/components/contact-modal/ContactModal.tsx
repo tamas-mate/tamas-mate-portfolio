@@ -1,5 +1,5 @@
 import emailjs from "@emailjs/browser";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useEffectEvent, useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 import { useModal } from "@/context/modal/modal-context";
 import type { FormData } from "@/types";
-import { collapseTrim, getFormattedDate, initObserver, INPUTLIMITS } from "@/utils/utils";
+import { collapseTrim, getFormattedDate, initObserver, INPUTLIMITS, setupFocusTrap } from "@/utils/utils";
 import type { FormEvent } from "react";
 import FieldErrorMessage from "./FieldErrorMessage";
 
@@ -31,46 +31,21 @@ const ContactModal = () => {
 	});
 	const { isModalOpen, closeModal } = useModal();
 
+	const onSetupFocusTrap = useEffectEvent((node: HTMLElement) =>
+		setupFocusTrap(node, 'input, textarea, button, [tabindex]:not([tabindex="-1"])', closeModal),
+	);
+
 	useEffect(() => {
 		if (!isModalOpen) return;
 
 		const modalNode = modalRef.current;
 		if (!modalNode) return;
 
-		const previouslyFocusedElement = document.activeElement as HTMLElement | null;
-
-		const focusableSelectors = 'button, input, textarea, [tabindex]:not([tabindex="-1"])';
-
-		const focusableElements = Array.from(modalNode.querySelectorAll<HTMLElement>(focusableSelectors));
-		const first = focusableElements[0];
-		const last = focusableElements[focusableElements.length - 1];
-
-		first?.focus();
-
-		const handleKeyDown = (event: KeyboardEvent) => {
-			if (event.key !== "Tab" || focusableElements.length === 0) return;
-
-			if (event.shiftKey) {
-				// Shift+Tab: wrap from first → last
-				if (document.activeElement === first) {
-					event.preventDefault();
-					last?.focus();
-				}
-			} else {
-				// Tab: wrap from last → first
-				if (document.activeElement === last) {
-					event.preventDefault();
-					first?.focus();
-				}
-			}
-		};
+		const handleKeyDown = onSetupFocusTrap(modalNode);
 
 		modalNode.addEventListener("keydown", handleKeyDown);
 
-		return () => {
-			modalNode.removeEventListener("keydown", handleKeyDown);
-			previouslyFocusedElement?.focus();
-		};
+		return () => modalNode.removeEventListener("keydown", handleKeyDown);
 	}, [isModalOpen]);
 
 	const onSubmit = async (data: FormData) => {

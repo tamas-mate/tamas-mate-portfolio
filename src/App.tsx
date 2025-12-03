@@ -39,7 +39,11 @@ const App = () => {
 					copyright={content.footer.copyright}
 				/>
 			</div>
-			<Suspense fallback={null}>{isModalOpen && <ContactModal />}</Suspense>
+			{isModalOpen && (
+				<Suspense fallback={null}>
+					<ContactModal />
+				</Suspense>
+			)}
 		</>
 	);
 };
