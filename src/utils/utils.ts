@@ -1,6 +1,6 @@
 import clsx, { type ClassValue } from "clsx";
 import { Bounce, type ToastContainerProps } from "react-toastify";
-import { twMerge } from "./../../node_modules/tailwind-merge/src/lib/tw-merge";
+import { twMerge } from "tailwind-merge";
 
 import macweb1 from "../assets/images/macweb1.png";
 import macweb2 from "../assets/images/macweb2.png";
