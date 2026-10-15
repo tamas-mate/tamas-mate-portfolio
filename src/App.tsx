@@ -15,15 +15,14 @@ const ContactModal = lazy(() => import("./components/contact-modal/ContactModal"
 const App = () => {
 	const divRef = useRef<HTMLDivElement>(null);
 	const { isModalOpen } = useModal();
-	const { isFetching, content, errorMessage } = usePortfolioContent(!isModalOpen);
+	const { showInitialLoader, content } = usePortfolioContent();
 	const { t } = useTranslation();
 
 	const handleScrollToTop = () => {
 		divRef.current?.scrollIntoView({ behavior: "smooth" });
 	};
 
-	if (isFetching) return <LoadingSpinner />;
-	if (errorMessage) console.error(errorMessage);
+	if (showInitialLoader) return <LoadingSpinner />;
 
 	return (
 		<>
