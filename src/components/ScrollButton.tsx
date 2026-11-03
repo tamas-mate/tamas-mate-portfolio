@@ -8,14 +8,17 @@ import type { ScrollButtonProps } from "@/types";
 
 const ScrollButton = ({ onClick }: ScrollButtonProps) => {
 	const [visible, setVisible] = useState(false);
+
 	const handleScroll = () => {
 		const scrolled = document.documentElement.scrollTop;
+
 		if (scrolled > 300) setVisible(true);
 		else setVisible(false);
 	};
 
 	useEffect(() => {
 		window.addEventListener("scroll", handleScroll);
+
 		return () => {
 			window.removeEventListener("scroll", handleScroll);
 		};
