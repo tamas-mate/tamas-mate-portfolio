@@ -12,7 +12,6 @@
 			"recaptcha": "Töltse ki a reCAPTCHA-t"
 		},
 		"validation": {
-			"check_inputs": "Kérjük, ellenőrizze a megadott adatokat!",
 			"recaptcha_failed": "A reCAPTCHA ellenőrzése sikertelen!",
 			"success": "Üzenet sikeresen elküldve!",
 			"send_failed": "Az üzenet elküldése nem sikerült!",
@@ -49,7 +48,8 @@
 			"skills": "Készségek",
 			"languages": "Nyelvek",
 			"quote": "Idézet",
-			"timeline": "Idővonal"
+			"timeline": "Idővonal",
+			"contact": "Beszéljünk!"
 		},
 		"summary": "React és React Native fejlesztő, növekvő szakértelemmel a TypeScript és a Tailwind CSS területén. Szenvedélyem a felhasználóközpontú webes és mobilalkalmazások fejlesztése, amelyek egyszerűek, intuitívak és élvezetesek a használat során. Fontosnak tartom a tiszta, jól karbantartható kód írását, és mindig nyitott vagyok új eszközök és bevált gyakorlatok megismerésére, amelyek javítják a fejlesztői élményt és a termék minőségét. A technikai aspektusokon túl értékelem a csapatmunkát olyan környezetben, ahol a tudásmegosztás és a közös problémamegoldás a mindennapi kultúra része. Célom, hogy értékes projektekhez járuljak hozzá, miközben folyamatosan fejlődöm szakemberként.",
 		"projects": {

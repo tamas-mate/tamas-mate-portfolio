@@ -6,7 +6,6 @@ import ThemeSwitcher from "../theme-switcher/ThemeSwitcher";
 import SVGComponent from "./SVGComponent";
 
 import { useMobileMenu } from "@/context/menu/mobile-menu-context";
-import { useModal } from "@/context/modal/modal-context";
 import { useTheme } from "@/context/theme/theme-context";
 import type { HeaderProps } from "@/types";
 import icons from "../../assets/icons/data.json";
@@ -19,7 +18,6 @@ const rndNr = Math.floor(Math.random() * 2);
 
 const Header = ({ name, role, location, cta }: HeaderProps) => {
 	const { t } = useTranslation();
-	const { openModal } = useModal();
 	const { isMenuOpen } = useMobileMenu();
 	const { isDark } = useTheme();
 
@@ -58,12 +56,12 @@ const Header = ({ name, role, location, cta }: HeaderProps) => {
 						</div>
 					</div>
 					<div className="border-border-gray flex justify-center border-t border-solid py-7.5 lg:self-end lg:border-none lg:py-0">
-						<button
+						<a
+							href="#contact"
 							className="bg-accent text-primary decoration-none hover:bg-accent/50 rounded-full border-none px-5 py-3 text-lg font-semibold uppercase transition-all duration-300 hover:cursor-pointer hover:text-white"
-							onClick={openModal}
 						>
 							{t(cta)}
-						</button>
+						</a>
 					</div>
 				</div>
 			</div>

@@ -12,7 +12,6 @@
 			"recaptcha": "Completează reCAPTCHA"
 		},
 		"validation": {
-			"check_inputs": "Vă rugăm să verificați datele introduse!",
 			"recaptcha_failed": "Verificarea reCAPTCHA a eșuat!",
 			"success": "Mesajul a fost trimis cu succes!",
 			"send_failed": "Trimiterea mesajului a eșuat!",
@@ -49,7 +48,8 @@
 			"skills": "Competențe",
 			"languages": "Limbi",
 			"quote": "Citat",
-			"timeline": "Cronologie"
+			"timeline": "Cronologie",
+			"contact": "Hai să vorbim!"
 		},
 		"summary": "Dezvoltator React și React Native cu expertiză în creștere în TypeScript și Tailwind CSS. Sunt pasionat de crearea de aplicații web și mobile centrate pe utilizator, care sunt simple, intuitive și plăcute de folosit. Apreciez scrierea unui cod curat și ușor de întreținut și sunt mereu dornic să explorez noi instrumente și bune practici care îmbunătățesc atât experiența dezvoltatorilor, cât și calitatea produsului. Dincolo de partea tehnică, îmi place să lucrez în medii colaborative unde împărtășirea cunoștințelor și rezolvarea problemelor fac parte din cultură. Obiectivul meu este să contribui la proiecte valoroase în timp ce evoluez continuu ca dezvoltator.",
 		"projects": {

@@ -1,4 +1,4 @@
-import { lazy, Suspense, useRef } from "react";
+import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
 import ScrollButton from "./components/ScrollButton";
@@ -7,14 +7,10 @@ import Header from "./components/ui/Header";
 import LoadingSpinner from "./components/ui/LoadingSpinner";
 import Main from "./components/ui/Main";
 
-import { useModal } from "./context/modal/modal-context";
 import { usePortfolioContent } from "./hooks/usePortfolioContent";
-
-const ContactModal = lazy(() => import("./components/contact-modal/ContactModal"));
 
 const App = () => {
 	const divRef = useRef<HTMLDivElement>(null);
-	const { isModalOpen } = useModal();
 	const { showInitialLoader, content } = usePortfolioContent();
 	const { t } = useTranslation();
 
@@ -31,18 +27,8 @@ const App = () => {
 				<Header {...content.header} />
 				<Main {...content.main} />
 				<ScrollButton onClick={handleScrollToTop} />
-				<Footer
-					name={content.header.name}
-					role={content.header.role}
-					cta={content.header.cta}
-					copyright={content.footer.copyright}
-				/>
+				<Footer name={content.header.name} role={content.header.role} copyright={content.footer.copyright} />
 			</div>
-			{isModalOpen && (
-				<Suspense fallback={null}>
-					<ContactModal />
-				</Suspense>
-			)}
 		</>
 	);
 };

@@ -61,40 +61,6 @@ export const INPUTLIMITS = {
 
 export const collapseTrim = (value: unknown) => (typeof value === "string" ? value.replace(/\s+/g, " ").trim() : value);
 
-// Function that initializes a MutationObserver for the captcha
-export const initObserver = () => {
-	// Find the captcha window by first getting a list of iFrames.
-	// After that we find the correct iFrame based on the src attribute
-	// The actualy DIV that hides it, is a grandparent. So we get the
-	// parentNode prop 2 times.
-	const recaptchaWindow = [...document.getElementsByTagName("iframe")]?.find((x) =>
-		x.src.includes("google.com/recaptcha/api2/bframe"),
-	)?.parentNode?.parentNode as HTMLDivElement;
-
-	// Make sure it is defined (it was found in the doc) before we add the observer
-	if (recaptchaWindow) {
-		new MutationObserver(() => {
-			// ReCaptcha changes these 3 props when going invisible.
-			// To solve this, we put an observer on the attributes and
-			// check if one of these 3 properties changed from their
-			// initial value.
-			if (
-				recaptchaWindow.style.visibility !== "visible" ||
-				recaptchaWindow.style.opacity !== "1" ||
-				recaptchaWindow.style.top !== "10px"
-			) {
-				console.info("restoring ReCaptcha visibility");
-				// If changed, put back on default values.
-				recaptchaWindow.style.opacity = "1";
-				recaptchaWindow.style.visibility = "visible";
-				recaptchaWindow.style.top = "10px";
-			}
-		}).observe(recaptchaWindow, {
-			attributeFilter: ["style"],
-		});
-	}
-};
-
 export const setupFocusTrap = (node: HTMLElement, selectors: string, callback: () => void) => {
 	const focusableElements = Array.from(node.querySelectorAll<HTMLElement>(selectors));
 

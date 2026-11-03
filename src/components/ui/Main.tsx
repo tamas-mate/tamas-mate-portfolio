@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
+import ContactForm from "../sections/contact-form/ContactForm";
 import History from "../sections/history/History";
 import Languages from "../sections/languages/Languages";
 import Overview from "../sections/overview/Overview";
@@ -52,6 +53,7 @@ const Main = ({ navItems, summary, projects, overview, timeline, skills, languag
 			<Languages languages={languages} />
 			<Quote {...quote} />
 			<History timeline={timeline} onClick={handleScrollToTimeline} />
+			<ContactForm />
 		</main>
 	);
 };

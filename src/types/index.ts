@@ -194,4 +194,4 @@ export type HistoryRowProps = {
 	onClick: (id: string) => void;
 };
 
-export type FooterProps = Omit<HeaderProps, "location"> & { copyright: string };
+export type FooterProps = Omit<HeaderProps, "location" | "cta"> & { copyright: string };

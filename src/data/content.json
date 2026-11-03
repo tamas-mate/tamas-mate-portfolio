@@ -42,6 +42,10 @@
 			{
 				"label": "main.sections.timeline",
 				"href": "#timeline"
+			},
+			{
+				"label": "main.sections.contact",
+				"href": "#contact"
 			}
 		],
 		"summary": "main.summary",
