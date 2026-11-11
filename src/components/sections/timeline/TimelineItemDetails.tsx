@@ -21,7 +21,7 @@ const TimelineItemDetails = ({ extraContent }: { extraContent: string[] }) => {
 					onClick={handleClick}
 					aria-expanded={isOpen}
 				>
-					<span className="text-accent ease group-hover:text-accent group-focus:text-accent transition duration-500 dark:text-white">
+					<span className="text-accent-strong ease group-hover:text-accent-strong group-focus:text-accent-strong transition duration-500 dark:text-white">
 						{t("main.timeline.details")}
 					</span>
 					<div className={cl("ease -rotate-180 transition duration-500", isOpen && "rotate-0")}>

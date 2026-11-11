@@ -27,7 +27,7 @@ const TimelineItem = ({
 					<p className="text-base font-bold">{t(title)}</p>
 					<span>{t(subTitle)}</span>
 					<span>{t(location)}</span>
-					<span className="text-gray">{date}</span>
+					<span className="text-muted">{date}</span>
 					<div className="lg:hidden">
 						{extraContent && <TimelineItemDetails extraContent={extraContent as string[]} />}
 					</div>

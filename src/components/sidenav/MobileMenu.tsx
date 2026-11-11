@@ -53,13 +53,13 @@ const MobileMenu = ({ navItems }: SideNavProps) => {
 				)}
 			>
 				<div className="relative flex h-full pt-5.5 pl-8">
-					<ScrollSpy activeClass="text-accent">
+					<ScrollSpy activeClass="text-accent-strong">
 						<ul className="flex flex-col items-start gap-y-4">
 							{navItems.map((item) => (
 								<li key={item.href} className="pl-0.5">
 									<a
 										href={item.href}
-										className="hover:text-accent uppercase hover:underline hover:underline-offset-4"
+										className="hover:text-accent-strong uppercase hover:underline hover:underline-offset-4"
 										onClick={closeMenu}
 									>
 										{t(item.label)}

@@ -37,7 +37,7 @@ const HistoryRow = ({ index, item, onClick }: HistoryRowProps) => {
 						<p className="text-base font-bold">{checkTitle(t(item.title))}</p>
 						<span>{checkSubtitle(t(item.subTitle))}</span>
 						<span>{t(item.location)}</span>
-						<span className="text-gray">{item.date}</span>
+						<span className="text-muted">{item.date}</span>
 					</div>
 				</div>
 				<div

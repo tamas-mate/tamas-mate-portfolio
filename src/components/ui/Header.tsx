@@ -58,7 +58,7 @@ const Header = ({ name, role, location, cta }: HeaderProps) => {
 					<div className="border-border-gray flex justify-center border-t border-solid py-7.5 lg:self-end lg:border-none lg:py-0">
 						<a
 							href="#contact"
-							className="bg-accent text-primary decoration-none hover:bg-accent/50 rounded-full border-none px-5 py-3 text-lg font-semibold uppercase transition-all duration-300 hover:cursor-pointer hover:text-white"
+							className="bg-accent-strong text-on-accent hover:bg-accent-strong-hover rounded-full px-5 py-3 text-lg font-semibold uppercase transition-colors duration-300"
 						>
 							{t(cta)}
 						</a>

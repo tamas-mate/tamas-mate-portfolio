@@ -13,7 +13,7 @@ const ProjectItem = ({ title, description, images, technologies, status }: Proje
 
 	const displayStatus = () => {
 		return status.link ? (
-			<a href={status.link} target="_blank" rel="noreferrer" className="text-accent">
+			<a href={status.link} target="_blank" rel="noreferrer" className="text-accent-strong">
 				{statusTxt}
 			</a>
 		) : (

@@ -21,6 +21,10 @@
 		--color-text-primary: #ffffff;
 		--color-secondary: #1e1e1e;
 		--color-accent: #48e5c2;
+		--color-accent-strong: #48e5c2;
+		--color-accent-strong-hover: #7cecd3;
+		--color-on-accent: #121212;
+		--color-muted: #a3a3a3;
 		--color-border-gray: #262626;
 		--color-lighter-dark3: #333333;
 		--toastify-color-success: var(--color-accent);
@@ -122,6 +126,10 @@
 	--color-text-primary: var(--color-text);
 	--color-secondary: var(--color-secondary);
 	--color-accent: var(--color-accent);
+	--color-accent-strong: #2563eb; /* small text and solid buttons: 5.17:1 on white */
+	--color-accent-strong-hover: #1d4ed8;
+	--color-on-accent: #ffffff; /* text on accent-strong */
+	--color-muted: #6b6b6b; /* secondary text: 4.6:1 or better on every light surface */
 	--color-border-gray: var(--color-border-gray);
 	--color-lighter-dark2: #282828;
 	--color-lighter-dark3: var(--color-lighter-dark3);
@@ -141,5 +149,5 @@
 }
 
 @utility input {
-	@apply focus:border-accent bg-white px-2 py-3 text-black outline-none focus:border;
+	@apply border-muted border bg-white px-2 py-3 text-black placeholder:text-gray-500;
 }

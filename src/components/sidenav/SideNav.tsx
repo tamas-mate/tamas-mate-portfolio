@@ -13,7 +13,7 @@ const SideNav = ({ navItems }: SideNavProps) => {
 	};
 
 	return (
-		<ScrollSpy activeClass="text-accent" onClickEach={handleClickEach}>
+		<ScrollSpy activeClass="text-accent-strong" onClickEach={handleClickEach}>
 			<nav
 				aria-label="Section navigation"
 				className="bg-secondary 3xl:block 4xl:left-88 fixed top-30 left-5 hidden w-78 p-4"
@@ -21,7 +21,10 @@ const SideNav = ({ navItems }: SideNavProps) => {
 				<ul className="flex flex-col items-end gap-y-4">
 					{navItems.map((item) => (
 						<li key={item.href}>
-							<a href={item.href} className="hover:text-accent uppercase hover:underline hover:underline-offset-4">
+							<a
+								href={item.href}
+								className="hover:text-accent-strong uppercase hover:underline hover:underline-offset-4"
+							>
 								{t(item.label)}
 							</a>
 						</li>

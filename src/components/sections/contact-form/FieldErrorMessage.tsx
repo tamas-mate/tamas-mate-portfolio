@@ -13,7 +13,7 @@ const FieldErrorMessage = ({ id, field, error, t }: FieldErrorMessageProps) => {
 				: undefined;
 
 	return (
-		<span id={id} role="alert" className="text-xs text-red-500">
+		<span id={id} role="alert" className="text-xs text-red-600 dark:text-red-400">
 			{t(error.message as string, num ? { value: num } : undefined)}
 		</span>
 	);

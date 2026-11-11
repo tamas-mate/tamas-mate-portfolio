@@ -230,9 +230,9 @@ const ContactForm = () => {
 								type="submit"
 								disabled={isPending}
 								aria-disabled={isPending}
-								className="group flex-center bg-accent hover:bg-accent/50 w-full rounded-full px-4 py-2 hover:cursor-pointer disabled:cursor-not-allowed md:w-1/3"
+								className="flex-center bg-accent-strong hover:bg-accent-strong-hover w-full rounded-full px-4 py-2 hover:cursor-pointer disabled:cursor-not-allowed md:w-1/3"
 							>
-								<span className="text-primary text-lg leading-10 font-bold group-hover:text-white">
+								<span className="text-on-accent text-lg leading-10 font-bold">
 									{isPending ? t("contact_modal.button.sending") : t("contact_modal.button.send")}
 								</span>
 							</button>

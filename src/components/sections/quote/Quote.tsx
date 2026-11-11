@@ -21,7 +21,7 @@ const Quote = ({ text, author }: QuoteProps) => {
 						<blockquote className="pt-12 pb-8">
 							<p className="text-xl text-pretty italic">{t(text)}</p>
 						</blockquote>
-						<figcaption className="text-gray text-sm">{author}</figcaption>
+						<figcaption className="text-muted text-sm">{author}</figcaption>
 					</figure>
 				</div>
 			</div>
