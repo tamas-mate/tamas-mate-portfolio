@@ -146,5 +146,14 @@
 	},
 	"footer": {
 		"copyright": "All rights reserved"
+	},
+	"a11y": {
+		"menu": "Menu",
+		"open_navigation": "Open navigation menu",
+		"close_navigation": "Close navigation menu",
+		"section_navigation": "Section navigation",
+		"language": "Language",
+		"dark_theme": "Dark theme",
+		"back_to_top": "Back to top"
 	}
 }

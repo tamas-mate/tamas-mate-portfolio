@@ -13,7 +13,7 @@ const TimelineItemDetails = ({ extraContent }: { extraContent: string[] }) => {
 	const handleClick = () => setIsOpen(!isOpen);
 
 	return (
-		<div className="max-w-xl overflow-hidden">
+		<div className="max-w-xl">
 			<div className="group outline-none">
 				<button
 					tabIndex={0}

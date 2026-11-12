@@ -30,6 +30,17 @@
 		--toastify-color-success: var(--color-accent);
 	}
 
+	/* One visible focus indicator for every keyboard-focused control. */
+	:focus-visible {
+		outline: 2px solid var(--color-accent-strong);
+		outline-offset: 2px;
+	}
+
+	/* Targets focused only by script (sections, <main>, the page title) need no ring. */
+	[tabindex="-1"]:focus {
+		outline: none;
+	}
+
 	body {
 		@apply text-text-primary bg-primary font-sans;
 	}
@@ -150,4 +161,12 @@
 
 @utility input {
 	@apply border-muted border bg-white px-2 py-3 text-black placeholder:text-gray-500;
+}
+
+/* Two-tone ring for controls drawn on the header photo: visible on any image color. */
+@utility focus-ring-on-image {
+	&:focus-visible {
+		outline-color: #ffffff;
+		box-shadow: 0 0 0 4px #121212;
+	}
 }

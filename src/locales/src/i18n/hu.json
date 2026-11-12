@@ -146,5 +146,14 @@
 	},
 	"footer": {
 		"copyright": "Minden jog fenntartva"
+	},
+	"a11y": {
+		"menu": "Menü",
+		"open_navigation": "Navigációs menü megnyitása",
+		"close_navigation": "Navigációs menü bezárása",
+		"section_navigation": "Navigáció a szakaszok között",
+		"language": "Nyelv",
+		"dark_theme": "Sötét téma",
+		"back_to_top": "Vissza az oldal tetejére"
 	}
 }

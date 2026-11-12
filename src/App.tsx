@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
 import ScrollButton from "./components/ScrollButton";
@@ -10,19 +9,21 @@ import Main from "./components/ui/Main";
 import { usePortfolioContent } from "./hooks/usePortfolioContent";
 
 const App = () => {
-	const divRef = useRef<HTMLDivElement>(null);
 	const { showInitialLoader, content } = usePortfolioContent();
 	const { t } = useTranslation();
 
 	const handleScrollToTop = () => {
-		divRef.current?.scrollIntoView({ behavior: "smooth" });
+		// No behavior option: <html>'s CSS decides (smooth, or instant with reduced motion).
+		window.scrollTo({ top: 0 });
+		// Keyboard focus follows the visitor to the top instead of staying on the button that is about to hide.
+		document.getElementById("page-title")?.focus({ preventScroll: true });
 	};
 
 	if (showInitialLoader) return <LoadingSpinner />;
 
 	return (
 		<>
-			<div ref={divRef} className="flex w-full flex-col items-center gap-y-15">
+			<div className="flex w-full flex-col items-center gap-y-15">
 				<title>{t("page_title")}</title>
 				<Header {...content.header} />
 				<Main {...content.main} />

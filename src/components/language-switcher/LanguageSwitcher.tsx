@@ -1,26 +1,35 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import SVGComponent from "../ui/SVGComponent";
 
+import { cl } from "@/utils/utils";
+
 import icons from "../../assets/icons/data.json";
 
 const LanguageSwitcher = () => {
-	const { i18n } = useTranslation();
-
-	const handleLanguageChange = async (lang: string) => {
-		await i18n.changeLanguage(lang).then(() => {
-			localStorage.setItem("i18nextLng", lang);
-		});
-	};
+	const { t, i18n } = useTranslation();
+	// Chromium treats a focused <select> as :focus-visible even after a mouse click, so track how focus arrived.
+	const [focusedByPointer, setFocusedByPointer] = useState(false);
 
 	return (
-		<div className="group flex-center dark:text-accent absolute top-1.5 right-12 gap-x-1 bg-transparent text-blue-300 outline-none">
+		<div className="group flex-center dark:text-accent absolute top-1.5 right-12 gap-x-1 bg-transparent text-blue-300">
 			<SVGComponent className="dark:fill-accent size-6 fill-blue-300" {...icons["localization"]} />
+			<label htmlFor="language-select" className="sr-only">
+				{t("a11y.language")}
+			</label>
 			<select
-				defaultValue={i18n.language}
+				id="language-select"
 				name="language"
-				className="outline-none group-hover:cursor-pointer"
-				onChange={(e) => handleLanguageChange(e.target.value)}
+				value={i18n.resolvedLanguage ?? "en"}
+				className={cl(
+					"rounded-sm group-hover:cursor-pointer",
+					focusedByPointer ? "outline-none" : "focus-ring-on-image",
+				)}
+				onPointerDown={() => setFocusedByPointer(true)}
+				onKeyDown={() => setFocusedByPointer(false)}
+				onBlur={() => setFocusedByPointer(false)}
+				onChange={(event) => void i18n.changeLanguage(event.target.value)}
 			>
 				<option value="en" className="bg-primary text-accent">
 					EN

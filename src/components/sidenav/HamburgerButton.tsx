@@ -19,7 +19,7 @@ const HamburgerButton = ({ extraClasses }: SwitcherProps) => {
 			ref={setRef}
 			id="menu-btn"
 			className={cl(
-				"3xl:hidden hamburger block focus:outline-none",
+				"3xl:hidden hamburger block",
 				extraClasses,
 				isMenuOpen && "open focus:outline-2 focus:outline-offset-2 focus:outline-white focus:outline-solid",
 			)}

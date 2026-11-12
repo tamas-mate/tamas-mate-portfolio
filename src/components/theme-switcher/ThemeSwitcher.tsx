@@ -1,8 +1,11 @@
+import { useTranslation } from "react-i18next";
+
 import SVGComponent from "../ui/SVGComponent";
 
 import { useTheme } from "@/context/theme/theme-context";
 
 const ThemeSwitcher = () => {
+	const { t } = useTranslation();
 	const { isDark, setTheme } = useTheme();
 
 	const handleSwitchTheme = () => {
@@ -11,9 +14,10 @@ const ThemeSwitcher = () => {
 
 	return (
 		<button
-			className="hover:bg-theme-switcher-bg/50 absolute top-0 right-0 rounded-lg p-2.5 text-sm hover:cursor-pointer focus:outline-none"
+			className="focus-ring-on-image hover:bg-theme-switcher-bg/50 absolute top-0 right-0 rounded-lg p-2.5 text-sm hover:cursor-pointer"
 			type="button"
-			aria-label="Toggle dark mode"
+			aria-label={t("a11y.dark_theme")}
+			aria-pressed={isDark}
 			onClick={handleSwitchTheme}
 		>
 			{/* Moon */}

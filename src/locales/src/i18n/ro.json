@@ -146,5 +146,14 @@
 	},
 	"footer": {
 		"copyright": "Toate drepturile rezervate"
+	},
+	"a11y": {
+		"menu": "Meniu",
+		"open_navigation": "Deschide meniul de navigare",
+		"close_navigation": "Închide meniul de navigare",
+		"section_navigation": "Navigare între secțiuni",
+		"language": "Limbă",
+		"dark_theme": "Temă întunecată",
+		"back_to_top": "Înapoi sus"
 	}
 }

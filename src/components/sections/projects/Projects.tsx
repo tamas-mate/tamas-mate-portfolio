@@ -35,7 +35,7 @@ const Projects = ({ projects }: ProjectsProps) => {
 						className={cl("", isDark && "project-swiper-dark")}
 					>
 						{projects.map((project) => (
-							<SwiperSlide key={project.title} className="w-full">
+							<SwiperSlide key={project.title} className="w-full p-1">
 								<ProjectItemWrapper {...project} />
 							</SwiperSlide>
 						))}
