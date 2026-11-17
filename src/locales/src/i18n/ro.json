@@ -154,6 +154,7 @@
 		"section_navigation": "Navigare între secțiuni",
 		"language": "Limbă",
 		"dark_theme": "Temă întunecată",
-		"back_to_top": "Înapoi sus"
+		"back_to_top": "Înapoi sus",
+		"portrait": "Portretul lui {{name}}"
 	}
 }

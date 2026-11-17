@@ -154,6 +154,7 @@
 		"section_navigation": "Section navigation",
 		"language": "Language",
 		"dark_theme": "Dark theme",
-		"back_to_top": "Back to top"
+		"back_to_top": "Back to top",
+		"portrait": "Portrait of {{name}}"
 	}
 }

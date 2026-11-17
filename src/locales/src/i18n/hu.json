@@ -34,7 +34,7 @@
 		}
 	},
 	"header": {
-		"name": "Tamás Máté",
+		"name": "Máté Tamás",
 		"role": "Front-End & React Native Fejlesztő",
 		"location": "Sepsiszentgyörgy, Románia",
 		"cta": "Kapcsolatfelvétel"
@@ -154,6 +154,7 @@
 		"section_navigation": "Navigáció a szakaszok között",
 		"language": "Nyelv",
 		"dark_theme": "Sötét téma",
-		"back_to_top": "Vissza az oldal tetejére"
+		"back_to_top": "Vissza az oldal tetejére",
+		"portrait": "{{name}} portréja"
 	}
 }

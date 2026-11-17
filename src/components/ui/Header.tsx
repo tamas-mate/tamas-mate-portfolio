@@ -33,12 +33,16 @@ const Header = ({ name, role, location, cta }: HeaderProps) => {
 		<header className="bg-primary w-full max-w-260 sm:px-7.5 xl:px-0">
 			<div className="bg-secondary sm:border-border-gray flex flex-col items-center justify-between gap-y-36 rounded-b-sm sm:border-x sm:border-b sm:border-solid lg:gap-y-18">
 				<div className="relative h-87.5 w-full">
-					<img src={decideBackground()} alt="profile-background" className="h-full w-full object-cover" />
+					<img src={decideBackground()} alt="" className="h-full w-full object-cover" />
 					<LanguageSwitcher />
 					<ThemeSwitcher />
 					{!isMenuOpen && <HamburgerButton extraClasses="absolute top-12 right-[11px]" />}
 					<div className="absolute inset-0 m-auto h-60 w-60 translate-y-42.5 transform overflow-hidden rounded-full border-6 border-solid border-white lg:top-auto lg:right-auto lg:-bottom-8.5 lg:left-12 lg:translate-y-0 lg:transform-none">
-						<img src={profilePicture} alt="profile-picture" className="h-full w-full object-contain" />
+						<img
+							src={profilePicture}
+							alt={t("a11y.portrait", { name: t(name) })}
+							className="h-full w-full object-contain"
+						/>
 					</div>
 				</div>
 				<div className="flex w-full flex-col justify-between gap-y-2 lg:flex-row lg:px-12 lg:pb-12">
