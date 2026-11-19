@@ -1,21 +1,16 @@
-import { type MouseEvent } from "react";
 import { useTranslation } from "react-i18next";
 import ScrollSpy from "react-scrollspy-navigation";
 
 import type { SideNavProps } from "@/types";
+import { scrollToSection } from "@/utils/scrollToSection";
 
 const SideNav = ({ navItems }: SideNavProps) => {
 	const { t } = useTranslation();
 
-	const handleClickEach = (event: MouseEvent<HTMLAnchorElement>, continueScroll: () => void) => {
-		history.pushState(null, "", event.currentTarget.href);
-		continueScroll();
-	};
-
 	return (
-		<ScrollSpy activeClass="text-accent-strong" onClickEach={handleClickEach}>
+		<ScrollSpy activeClass="text-accent-strong" onClickEach={scrollToSection}>
 			<nav
-				aria-label="Section navigation"
+				aria-label={t("a11y.section_navigation")}
 				className="bg-secondary 3xl:block 4xl:left-88 fixed top-30 left-5 hidden w-78 p-4"
 			>
 				<ul className="flex flex-col items-end gap-y-4">
