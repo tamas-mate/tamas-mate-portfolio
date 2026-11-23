@@ -80,6 +80,7 @@ export type Content = {
 };
 
 export type SectionTitleProps = {
+	id?: string;
 	title: string;
 	iconName: keyof typeof icons;
 	stroke?: boolean;
